@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechnoChile</title>
+    <link rel="icon" href="../assets/svg/favico.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <script src="./js/bootstrap.bundle.min.js" defer></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/09bf171868.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    <nav class="tc-navbar navbar navbar-expand-lg bg-body-tertiary bg-black">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img src="./assets/svg/Logo-color.svg" alt="TechnoChile"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <main class="tc-main">
+      <section class="tc-carousel">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators tc-carousel__indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="https://assets-v3.pcfactory.cl/uploads/2234bc0d-2ed8-483c-8398-45720698ec8e/original/Modyo-WEB-Banner-Pricipal-1792X49051462-53822.webp"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://assets-v3.pcfactory.cl/uploads/8e994880-a365-47ee-b73c-64f372813fc2/original/Modyo-WEB-Banner-Pricipal-1792X49053515-54024.webp"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://assets-v3.pcfactory.cl/uploads/e412563e-0924-424f-be67-3d966f3eab4e/original/Modyo-WEB-Banner-Pricipal-1792X49051824-52368.webp"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://assets-v3.pcfactory.cl/uploads/48106a90-7d1d-4f3d-98a7-f366ef76426e/original/Modyo-WEB-Banner-Principal-1792x490_2_.webp"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+      <section class="tc-products row">
+        <header class="tc-products__header text-center pt-5">
+          <h2>Productos Seleccionados</h2>
+        </header>
+        <article class="tc-productCard py-2">
+          <div class="tc-productCard__img-wrapper">
+            <img
+              src="./assets/productos/img10.svg"
+              alt=""
+              class="tc-productCard__img card-img-top"
+            />
+            <span
+              class="tc-product-card__discount badge bg-danger position-absolute top-0 end-0 m-2"
+              >-33%</span
+            >
+          </div>
+          <div class="tc-productCard__body d-flex flex-column">
+            <h2 class="tc-productCard__title card-title mb-1">
+              Microsoft 365 Family (12 meses)
+            </h2>
+            <p class="tc-product-card__subtitle text-muted mb-2">
+              +100 Unid. • ID 54435
+            </p>
+            <div class="tc-product-card__prices mb-2">
+              <span
+                class="tc-product-card__price-old text-decoration-line-through text-secondary me-2"
+                >$104.990</span
+              >
+              <span class="tc-product-card__price fw-bold text-success"
+                >$69.990</span
+              >
+              <span
+                class="tc-product-card__price-transfer text-muted d-block small"
+                >Transferencia</span
+              >
+              <span
+                class="tc-product-card__price-other text-muted d-block small"
+                >Otros medios de pago: $72.190</span
+              >
+            </div>
+            <div class="tc-btn-wrapper py-3">
+              <button class="tc-btn__primary btn mt-auto w-75">
+                <span class="material-symbols-outlined">
+                  add_shopping_cart
+                </span>
+                Agregar al carro
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="tc-productCard py-2">
+          <div class="tc-productCard__img-wrapper">
+            <img
+              src="./assets/productos/img10.svg"
+              alt=""
+              class="tc-productCard__img card-img-top"
+            />
+            <span
+              class="tc-product-card__discount badge bg-danger position-absolute top-0 end-0 m-2"
+              >-33%</span
+            >
+          </div>
+          <div class="tc-productCard__body d-flex flex-column">
+            <h2 class="tc-productCard__title card-title mb-1">
+              Microsoft 365 Family (12 meses)
+            </h2>
+            <p class="tc-product-card__subtitle text-muted mb-2">
+              Hasta 6 usuarios • ID 54435
+            </p>
+            <div class="tc-product-card__prices mb-2">
+              <span
+                class="tc-product-card__price-old text-decoration-line-through text-secondary me-2"
+                >$104.990</span
+              >
+              <span class="tc-product-card__price fw-bold text-success"
+                >$69.990</span
+              >
+              <span
+                class="tc-product-card__price-transfer text-muted d-block small"
+                >Transferencia</span
+              >
+              <span
+                class="tc-product-card__price-other text-muted d-block small"
+                >Otros medios: $72.190</span
+              >
+            </div>
+            <div class="tc-btn-wrapper py-3">
+              <button class="tc-btn__primary btn mt-auto w-75">
+                <span class="material-symbols-outlined">
+                  add_shopping_cart
+                </span>
+                Agregar al carro
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="tc-productCard py-2">
+          <div class="tc-productCard__img-wrapper">
+            <img
+              src="./assets/productos/img10.svg"
+              alt=""
+              class="tc-productCard__img card-img-top"
+            />
+            <span
+              class="tc-product-card__discount badge bg-danger position-absolute top-0 end-0 m-2"
+              >-33%</span
+            >
+          </div>
+          <div class="tc-productCard__body d-flex flex-column">
+            <h2 class="tc-productCard__title card-title mb-1">
+              Microsoft 365 Family (12 meses)
+            </h2>
+            <p class="tc-product-card__subtitle text-muted mb-2">
+              Hasta 6 usuarios • ID 54435
+            </p>
+            <div class="tc-product-card__prices mb-2">
+              <span
+                class="tc-product-card__price-old text-decoration-line-through text-secondary me-2"
+                >$104.990</span
+              >
+              <span class="tc-product-card__price fw-bold text-success"
+                >$69.990</span
+              >
+              <span
+                class="tc-product-card__price-transfer text-muted d-block small"
+                >Transferencia</span
+              >
+              <span
+                class="tc-product-card__price-other text-muted d-block small"
+                >Otros medios: $72.190</span
+              >
+            </div>
+            <div class="tc-btn-wrapper py-3">
+              <button class="tc-btn__primary btn mt-auto w-75">
+                <span class="material-symbols-outlined">
+                  add_shopping_cart </span
+                >Agregar al carro
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="tc-productCard py-2">
+          <div class="tc-productCard__img-wrapper">
+            <img
+              src="./assets/productos/img10.svg"
+              alt=""
+              class="tc-productCard__img card-img-top"
+            />
+            <span
+              class="tc-product-card__discount badge bg-danger position-absolute top-0 end-0 m-2"
+              >-33%</span
+            >
+          </div>
+          <div class="tc-productCard__body d-flex flex-column">
+            <h2 class="tc-productCard__title card-title mb-1">
+              Microsoft 365 Family (12 meses)
+            </h2>
+            <p class="tc-product-card__subtitle text-muted mb-2">
+              Hasta 6 usuarios • ID 54435
+            </p>
+            <div class="tc-product-card__prices mb-2">
+              <span
+                class="tc-product-card__price-old text-decoration-line-through text-secondary me-2"
+                >$104.990</span
+              >
+              <span class="tc-product-card__price fw-bold text-success"
+                >$69.990</span
+              >
+              <span
+                class="tc-product-card__price-transfer text-muted d-block small"
+                >Transferencia</span
+              >
+              <span
+                class="tc-product-card__price-other text-muted d-block small"
+                >Otros medios: $72.190</span
+              >
+            </div>
+            <div class="tc-btn-wrapper py-3">
+              <button class="tc-btn__primary btn mt-auto w-75">
+                <span class="material-symbols-outlined">
+                  add_shopping_cart </span
+                >Agregar al carro
+              </button>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="tc-offers p-4">
+        <div class="tc-offers__header row">
+          <h2 class="tc-offers__title col-6">Ofertas y lanzamientos</h2>
+          <img class="col-2" src="./assets/svg/horizontalDivider.svg" alt="" />
+        </div>
+        <div class="row">
+          <div class="row">
+            <img
+              src="./assets/productos/ofertas/ofertas2.svg"
+              alt=""
+              class="col-3"
+            />
+
+            <img
+              src="./assets/productos/ofertas/ofertas1.svg"
+              alt=""
+              class="col-3"
+            />
+            <img
+              src="./assets/productos/ofertas/ofertas3.svg"
+              alt=""
+              class="col-6"
+            />
+          </div>
+          <div class="row">
+            <img
+              src="./assets/productos/ofertas/ofertas4.svg"
+              alt=""
+              class="col-6"
+            />
+
+            <img
+              src="./assets/productos/ofertas/ofertas5.svg"
+              alt=""
+              class="col-3"
+            />
+            <img
+              src="./assets/productos/ofertas/ofertas6.svg"
+              alt=""
+              class="col-3"
+            />
+          </div>
+        </div>
+        <div class="row"></div>
+      </section>
+    </main>
+    <footer class="tc-footer bg-light border-top">
+      <div class="container tc-footer-complete py-5">
+        <div class="row justify-content-between mx-0">
+          <!-- Logo mobile -->
+          <div class="col-12 d-lg-none text-center mb-4">
+            <a class="navbar-brand" href="/" aria-label="Logo TechnoChile">
+              <img
+                src="./assets/svg/favico.svg"
+                alt="pcfactory.cl"
+                width="186"
+                height="42"
+              />
+            </a>
+          </div>
+
+          <div class="col-12 col-xl-4 px-0 px-lg-2 mb-4 mb-xl-0">
+            <div class="row">
+              <div class="col-12 col-xl-11">
+                <!-- Logo desktop -->
+                <a
+                  class="navbar-brand mb-4 d-none d-lg-block"
+                  href="/"
+                  aria-label="Logo TechnoChile"
+                >
+                  <img
+                    src="./assets/svg/Logo-color.svg"
+                    alt="pcfactory.cl"
+                    width="186"
+                    height="42"
+                  />
+                </a>
+                <!-- Botón Tiendas -->
+                <div class="row mx-0">
+                  <div class="col-12 px-0">
+                    <a
+                      href="/tiendas"
+                      class="btn tc-btn__primary w-100 d-flex justify-content-center align-items-center tc-btn-tienda mb-3"
+                    >
+                      <span class="tc-icon tc-icon-gps mr-2"></span>
+                      Encuentra tu tienda
+                    </a>
+                  </div>
+                </div>
+                <!-- Línea de ventas -->
+                <div class="tc-ventas mb-3 row">
+                  <p class="font-weight-bold mb-1">
+                    <span class="tc-icon tc-icon-user mr-2"></span>
+                    Ventas
+                  </p>
+                  <p class="mb-2">
+                    <a id="tc-tel-ventas" href="tel:+56225600040"
+                      >+56 2 2560 0040</a
+                    >
+                  </p>
+                </div>
+                <!-- Suscríbete -->
+                <div class="row align-items-center tc-susbribe mb-3">
+                  <div class="col-6">
+                    <p class="mb-2">Obtén ofertas y promociones exclusivas.</p>
+                  </div>
+                  <div class="col-6">
+                    <a
+                      href="/suscribete"
+                      class="btn btn-primary w-100 tc-btn-suscribete"
+                      >Suscríbete</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- Redes sociales desktop -->
+              <div class="col-12 col-lg-9 mx-auto my-3 d-none d-xl-block">
+                <div class="row align-items-center">
+                  <div class="col-2 col-lg-3 px-0">
+                    <p class="mb-0">Síguenos</p>
+                  </div>
+                  <div class="col-10 col-lg-9">
+                    <ul class="nav tc-nav-redes">
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="https://www.instagram.com/pcfactorycl/"
+                          target="_blank"
+                          aria-label="Instagram"
+                          ><span class="tc-icon tc-icon-instagram"></span
+                        ></a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="https://www.facebook.com/PCFactoryCL"
+                          target="_blank"
+                          aria-label="Facebook"
+                          ><span class="tc-icon tc-icon-facebook"></span
+                        ></a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="https://www.youtube.com/user/mediospcfactory"
+                          target="_blank"
+                          aria-label="Youtube"
+                          ><span class="tc-icon tc-icon-youtube"></span
+                        ></a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="https://twitter.com/PCFactoryCL"
+                          target="_blank"
+                          aria-label="Twitter"
+                          ><span class="tc-icon tc-icon-x-twitter"></span
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Columna derecha: Menús de compañía -->
+          <div class="col-12 col-xl-8 px-0">
+            <div class="row tc-footer-menus">
+              <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+                <h6 class="tc-footer-menu-title">Mundo pc Factory</h6>
+                <ul class="list-unstyled tc-footer-menu">
+                  <li><a href="/gamer-zone">Gamer Zone</a></li>
+                  <li><a href="/navidad">Navidad</a></li>
+                  <li><a href="/cyber">Cyber</a></li>
+                  <li><a href="/black-days">BlackDays</a></li>
+                  <li><a href="/outlet-tecnologico">Outlet tecnológico</a></li>
+                  <li><a href="/vuelta-a-clases">Vuelta a Clases</a></li>
+                  <li>
+                    <a href="/regalos-dia-de-la-madre">Día de la Madre</a>
+                  </li>
+                  <li><a href="/regalos-dia-del-padre">Día del Padre</a></li>
+                  <li><a href="/dia-del-nino">Día del Niño</a></li>
+                </ul>
+              </div>
+              <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+                <h6 class="tc-footer-menu-title">¿Necesitas Ayuda?</h6>
+                <ul class="list-unstyled tc-footer-menu">
+                  <li><a href="/centro-de-ayuda">Centro de ayuda</a></li>
+                  <li><a href="/estado-despacho">Estado de mi despacho</a></li>
+                  <li><a href="/revisa-boleta-factura">Revisa tu boleta</a></li>
+                  <li><a href="/orden-de-servicios">Orden de servicio</a></li>
+                  <li>
+                    <a href="/centro-de-ayuda/direcciones-y-horarios-de-tiendas"
+                      >Preguntas frecuentes</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/centro-de-ayuda/terminos-y-condiciones"
+                      >Términos y condiciones</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+                <h6 class="tc-footer-menu-title">Acerca de pc Factory</h6>
+                <ul class="list-unstyled tc-footer-menu">
+                  <li><a href="/quienes-somos">Quiénes somos</a></li>
+                  <li>
+                    <a href="/representante-legal">Representante Legal</a>
+                  </li>
+                  <li>
+                    <a href="/servicios/compra-mas-facil-con-nosotros"
+                      >Beneficios de comprar con nosotros</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/centro-de-ayuda/terminos-y-condiciones"
+                      >Privacidad y seguridad</a
+                    >
+                  </li>
+                  <li><a href="/sustentabilidad">Sustentabilidad</a></li>
+                  <li>
+                    <a href="/bases-y-promociones">Bases y Promociones</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12 col-lg-3">
+                <h6 class="tc-footer-menu-title">Servicios</h6>
+                <ul class="list-unstyled tc-footer-menu">
+                  <li>
+                    <a href="/servicios/consejos-y-tips-tecnologicos"
+                      >Consejos y tips tecnológicos</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/servicios/asesorate-online">Asesórate Online</a>
+                  </li>
+                  <li><a href="/arma-tu-pc">Arma tu PC</a></li>
+                  <li><a href="/servicios/puntos-verdes">Puntos verdes</a></li>
+                  <li>
+                    <a href="/actualiza-tu-notebook-con-enter-pro">Enter pro</a>
+                  </li>
+                  <li><a href="/empresas">Ventas Empresas</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Redes sociales mobile -->
+            <div class="row d-block d-xl-none mt-4">
+              <div class="col-2">
+                <p class="mb-0">Síguenos</p>
+              </div>
+              <div class="col-10">
+                <ul class="nav tc-nav-redes">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="https://www.instagram.com/pcfactorycl/"
+                      target="_blank"
+                      aria-label="Instagram"
+                      ><i class="fa-brands fa-instagram"></i
+                    ></a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="https://www.facebook.com/PCFactoryCL"
+                      target="_blank"
+                      aria-label="Facebook"
+                      ><i class="fa-brands fa-facebook"></i
+                    ></a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="https://www.youtube.com/user/mediospcfactory"
+                      target="_blank"
+                      aria-label="Youtube"
+                      ><i class="fa-brands fa-youtube"></i
+                    ></a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="https://twitter.com/PCFactoryCL"
+                      target="_blank"
+                      aria-label="Twitter"
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer minimal -->
+        <div class="row">
+          <div class="col-12">
+            <div class="tc-footer-minimal text-center py-3">
+              <p class="mb-0 small">
+                Copyright © 2025 pcfactory.cl. Todos los derechos reservados.
+                Prohibida su copia parcial o total bajo la ley nacional e
+                internacional. Registro dibam N°247557
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+@use "../abstracts/variables";
+
+.tc-btn__primary {
+  @include flex-center;
+  background-color: variables.$tc-color-primary;
+  color: variables.$tc-color-success;
+
+  &:hover {
+    background-color: variables.$tc-color-success;
+    color: variables.$tc-color-primary;
+  }
+}
+
+.tc-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

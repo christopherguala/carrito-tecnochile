@@ -1,0 +1,81 @@
+// COLORES GENERALES
+$tc-color-black-dark: #2e3538;
+$tc-color-black-text: #212529;
+$tc-color-white: #fff;
+$tc-color-green-normal: #43d87e;
+$tc-color-green-dark: #2ec269;
+$tc-color-green-superlight: #8ee8b2;
+$tc-color-blue-normal: #42474a;
+$tc-color-blue-dark: #051db1;
+$tc-color-blue-skyblue: #c1d5ff;
+$tc-color-blue-light: #aec8ff;
+$tc-color-yellow-normal: #f9e43c;
+$tc-color-yellow-light: #d4fc04;
+$tc-color-gray-dark: #5c6970;
+$tc-color-gray-semidark: #42474a;
+$tc-color-gray-normal: #8f9ca3;
+$tc-color-gray-semilight: #bec5cc;
+$tc-color-gray-light: #e3e6e8;
+$tc-color-gray-extralight: #f2f2f2;
+$tc-color-gray-superlight: #fcfcfc;
+$tc-color-error: #ed801e;
+$tc-color-success: #2ec269;
+
+//COLORES LOCALES
+$tc-color-primary: $tc-color-black-dark;
+$tc-color-card-bg: $tc-color-gray-superlight;
+$tc-color-badge-promo: $tc-color-blue-light;
+$tc-color-price-old: $tc-color-gray-normal;
+$tc-color-price-promo: $tc-color-black-text;
+
+// TIPOGRAFÍA
+$tc-font-family-base: "Ubuntu", "Arial", sans-serif;
+$tc-font-weight-light: 300;
+$tc-font-weight-normal: 400;
+$tc-font-weight-medium: 500;
+$tc-font-weight-bold: 700;
+
+// TAMAÑOS DE FUENTE GENERALES
+$tc-font-size-xs: 0.75rem;
+$tc-font-size-sm: 0.875rem;
+$tc-font-size-base: 1rem;
+$tc-font-size-md: 1.125rem;
+$tc-font-size-lg: 1.5rem;
+$tc-font-size-xl: 2rem;
+
+// TAMAÑOS DE FUENTE LOCALES
+$tc-font-size-title: $tc-font-size-md;
+$tc-font-size-price: $tc-font-size-sm;
+
+// ESPACIADOS
+$tc-spacing-xxs: 0.125rem;
+$tc-spacing-xs: 0.25rem;
+$tc-spacing-sm: 0.5rem;
+$tc-spacing-md: 1rem;
+$tc-spacing-lg: 1.5rem;
+$tc-spacing-xl: 2rem;
+$tc-spacing-xxl: 3rem;
+
+// BORDES Y GROSOR
+$tc-border-radius-sm: 2px;
+$tc-border-radius-md: 4px;
+$tc-border-radius-lg: 8px;
+$tc-border-width-thin: 1px;
+$tc-border-width-medium: 2px;
+$tc-border-width-thick: 4px;
+
+//BORDES Y GROSOR LOCALES
+$tc-product-card-radius: $tc-border-radius-md;
+
+// SOMBRAS
+$tc-box-shadow-light: 0 2px 8px rgba(55, 71, 79, 0.15);
+$tc-box-shadow-medium: 0 4px 12px rgba(55, 71, 79, 0.2);
+
+// Z-INDEX
+$tc-z-index-navbar: 1050;
+$tc-z-index-modal: 1060;
+$tc-z-index-dropdown: 1020;
+
+// OTROS
+$tc-transition-base: 0.3s ease;
+$tc-container-max-width: 1320px;

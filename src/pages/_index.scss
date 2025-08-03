@@ -1,0 +1,29 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.tc-products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tc-offers {
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.tc-carousel__indicators {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-self: stretch;
+
+  &button {
+  }
+}

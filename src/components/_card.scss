@@ -1,0 +1,91 @@
+@use "../abstracts/variables";
+
+.tc-productCard {
+  background: variables.$tc-color-card-bg;
+  border-radius: variables.$tc-product-card-radius;
+  font-family: variables.$tc-font-family-base;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 250px;
+
+  &--promo {
+    border: 2px solid variables.$tc-color-primary;
+  }
+
+  &__img-wrapper {
+    position: relative;
+    background: variables.$tc-color-card-bg;
+    overflow: hidden;
+    min-height: 11rem;
+    @include flex-center;
+  }
+
+  &__img {
+    height: 11rem;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    background: transparent;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__discount {
+    background: variables.$tc-color-badge-promo;
+    color: variables.$tc-color-blue-dark;
+    font-weight: 600;
+    font-size: variables.$tc-font-size-sm;
+    padding: variables.$tc-spacing-xs variables.$tc-spacing-sm;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+  }
+
+  &__title {
+    font-size: variables.$tc-font-size-title;
+    font-weight: 600;
+    color: variables.$tc-color-primary;
+    margin-bottom: variables.$tc-spacing-xs;
+  }
+
+  &__subtitle {
+    font-size: 0.95rem;
+    color: variables.$tc-color-price-old;
+    margin-bottom: $tc-spacing-xs;
+  }
+
+  &__prices {
+    margin-bottom: variables.$tc-spacing-sm;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: variables.$tc-spacing-xs;
+  }
+
+  &__price-old {
+    color: $tc-color-price-old;
+    text-decoration: line-through;
+    font-size: 1rem;
+    margin-right: $tc-spacing-xs;
+  }
+
+  &__price {
+    color: $tc-color-price-promo;
+    font-size: $tc-font-size-price;
+    font-weight: bold;
+    margin-right: $tc-spacing-xs;
+  }
+
+  &__price-transfer {
+    color: $tc-color-price-old;
+    font-size: 0.9rem;
+    margin-top: 0.1rem;
+  }
+
+  &__price-other {
+    color: $tc-color-price-old;
+    font-size: 0.9rem;
+    margin-top: 0.1rem;
+  }
+}

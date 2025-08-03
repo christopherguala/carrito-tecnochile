@@ -1,0 +1,13 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "./abstracts/variables";
+
+@import "./abstracts/mixins";
+@import "./pages/carrito";
+@import "./pages/cliente";
+@import "./pages/index";
+@import "./pages/productos";
+
+@import "./components/button";
+@import "./components/card";
+@import "./components/footer";
+@import "./components/navbar";
