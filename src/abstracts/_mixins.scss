@@ -21,3 +21,27 @@
   justify-content: space-between;
   align-items: start;
 }
+
+@mixin flex-center-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin hover-transition-card(
+  $property: all,
+  $duration: 1.8s,
+  $timing: ease-in-out
+) {
+  transition: $property $duration $timing;
+  &:hover {
+    @content;
+  }
+}
+@mixin hover-transition-btn($property: all, $duration: 0.1s, $timing: ease) {
+  transition: $property $duration $timing;
+  &:hover {
+    @content;
+  }
+}

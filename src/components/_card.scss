@@ -1,58 +1,71 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
 .tc-productCard {
+  height: 100%;
+  width: 15.625rem;
   background: variables.$tc-color-card-bg;
   border-radius: variables.$tc-product-card-radius;
   font-family: variables.$tc-font-family-base;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 250px;
+  box-shadow: variables.$tc-box-shadow-light;
 
-  &--promo {
-    border: 2px solid variables.$tc-color-primary;
-  }
-
-  &__img-wrapper {
-    position: relative;
-    background: variables.$tc-color-card-bg;
-    overflow: hidden;
-    min-height: 11rem;
-    @include flex-center;
+  @include flex-center-column;
+  @include hover-transition-card(background, 1s) {
+    box-shadow: variables.$tc-box-shadow-medium;
   }
 
   &__img {
-    height: 11rem;
+    height: 14rem;
     width: auto;
     max-width: 100%;
     object-fit: contain;
     background: transparent;
     display: block;
     margin: 0 auto;
+
+    &-wrapper {
+      position: relative;
+      background: variables.$tc-color-card-bg;
+      overflow: hidden;
+      min-height: 11rem;
+
+      @include flex-center;
+    }
   }
 
   &__discount {
-    background: variables.$tc-color-badge-promo;
+    font-weight: 800;
+    background: $tc-color-badge-promo;
     color: variables.$tc-color-blue-dark;
-    font-weight: 600;
-    font-size: variables.$tc-font-size-sm;
+    font-size: variables.$tc-font-size-xs;
     padding: variables.$tc-spacing-xs variables.$tc-spacing-sm;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-radius: variables.$tc-border-radius-sm;
     z-index: 2;
   }
 
-  &__title {
-    font-size: variables.$tc-font-size-title;
-    font-weight: 600;
-    color: variables.$tc-color-primary;
-    margin-bottom: variables.$tc-spacing-xs;
+  &__body {
+    padding: variables.$tc-spacing-xs;
+    @include flex-between;
+
+    &--title {
+      font-weight: 600;
+      font-size: variables.$tc-font-size-title;
+      color: variables.$tc-color-primary;
+      margin-bottom: variables.$tc-spacing-xs;
+      padding-top: variables.$tc-spacing-md;
+    }
   }
 
   &__subtitle {
-    font-size: 0.95rem;
+    font-size: variables.$tc-font-size-sm;
     color: variables.$tc-color-price-old;
-    margin-bottom: $tc-spacing-xs;
+    margin-bottom: variables.$tc-spacing-xs;
+
+    &-wrapper {
+      @include flex-between;
+      width: 100%;
+      flex-shrink: 1;
+    }
   }
 
   &__prices {
@@ -64,23 +77,17 @@
   }
 
   &__price-old {
-    color: $tc-color-price-old;
+    color: variables.$tc-color-price-old;
     text-decoration: line-through;
-    font-size: 1rem;
-    margin-right: $tc-spacing-xs;
+    font-size: variables.$tc-font-size-sm;
+    margin-right: variables.$tc-spacing-xs;
   }
 
   &__price {
     color: $tc-color-price-promo;
     font-size: $tc-font-size-price;
-    font-weight: bold;
+    font-weight: 700;
     margin-right: $tc-spacing-xs;
-  }
-
-  &__price-transfer {
-    color: $tc-color-price-old;
-    font-size: 0.9rem;
-    margin-top: 0.1rem;
   }
 
   &__price-other {

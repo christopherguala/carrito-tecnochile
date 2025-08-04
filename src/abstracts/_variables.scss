@@ -26,7 +26,7 @@ $tc-color-primary: $tc-color-black-dark;
 $tc-color-card-bg: $tc-color-gray-superlight;
 $tc-color-badge-promo: $tc-color-blue-light;
 $tc-color-price-old: $tc-color-gray-normal;
-$tc-color-price-promo: $tc-color-black-text;
+$tc-color-price-promo: $tc-color-black-dark;
 
 // TIPOGRAFÍA
 $tc-font-family-base: "Ubuntu", "Arial", sans-serif;
@@ -45,7 +45,7 @@ $tc-font-size-xl: 2rem;
 
 // TAMAÑOS DE FUENTE LOCALES
 $tc-font-size-title: $tc-font-size-md;
-$tc-font-size-price: $tc-font-size-sm;
+$tc-font-size-price: $tc-font-size-md;
 
 // ESPACIADOS
 $tc-spacing-xxs: 0.125rem;
@@ -69,7 +69,7 @@ $tc-product-card-radius: $tc-border-radius-md;
 
 // SOMBRAS
 $tc-box-shadow-light: 0 2px 8px rgba(55, 71, 79, 0.15);
-$tc-box-shadow-medium: 0 4px 12px rgba(55, 71, 79, 0.2);
+$tc-box-shadow-medium: 0 4px 8px rgba(55, 71, 79, 0.18);
 
 // Z-INDEX
 $tc-z-index-navbar: 1050;

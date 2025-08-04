@@ -1,6 +1,16 @@
 @use "../abstracts/variables";
 @use "../abstracts/mixins";
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.tc-main {
+  scroll-behavior: smooth;
+}
+
 .tc-products {
   display: flex;
   justify-content: center;
@@ -23,7 +33,4 @@
   flex-direction: row;
   align-items: flex-start;
   align-self: stretch;
-
-  &button {
-  }
 }

@@ -87,7 +87,6 @@
         </div>
       </div>
     </nav>
-
     <main class="tc-main">
       <section class="tc-carousel">
         <div id="carouselExampleIndicators" class="carousel slide">
@@ -169,188 +168,41 @@
           </button>
         </div>
       </section>
-      <section class="tc-products row">
-        <header class="tc-products__header text-center pt-5">
-          <h2>Productos Seleccionados</h2>
+      <section class="tc-products row g-4">
+        <header class="tc-products__header pt-5 d-flex m-0">
+          <h2 class="col-5">Productos Seleccionados</h2>
+          <img class="col-2" src="./assets/svg/horizontalDivider.svg" alt="" />
         </header>
-        <article class="tc-productCard py-2">
-          <div class="tc-productCard__img-wrapper">
+
+        <article class="tc-productCard p-2">
+          <div class="tc-productCard__img-wrapper p-2">
             <img
               src="./assets/productos/img10.svg"
               alt=""
-              class="tc-productCard__img card-img-top"
+              class="tc-productCard__img"
             />
-            <span
-              class="tc-product-card__discount badge bg-danger position-absolute top-0 end-0 m-2"
+            <span class="tc-productCard__discount position-absolute top-0 end-0"
               >-33%</span
             >
           </div>
-          <div class="tc-productCard__body d-flex flex-column">
-            <h2 class="tc-productCard__title card-title mb-1">
+          <div class="tc-productCard__body flex-column pt-0 px-4 pb-4">
+            <h2 class="tc-productCard__body--title mb-1">
               Microsoft 365 Family (12 meses)
             </h2>
-            <p class="tc-product-card__subtitle text-muted mb-2">
-              +100 Unid. • ID 54435
-            </p>
-            <div class="tc-product-card__prices mb-2">
-              <span
-                class="tc-product-card__price-old text-decoration-line-through text-secondary me-2"
-                >$104.990</span
-              >
-              <span class="tc-product-card__price fw-bold text-success"
-                >$69.990</span
-              >
-              <span
-                class="tc-product-card__price-transfer text-muted d-block small"
-                >Transferencia</span
-              >
-              <span
-                class="tc-product-card__price-other text-muted d-block small"
-                >Otros medios de pago: $72.190</span
-              >
+            <div class="tc-productCard__subtitle-wrapper pt-1 pb-3">
+              <p class="tc-productCard__subtitle">ID 54435 •</p>
+              <p class="tc-productCard__subtitle">+100 Unid.</p>
             </div>
-            <div class="tc-btn-wrapper py-3">
-              <button class="tc-btn__primary btn mt-auto w-75">
-                <span class="material-symbols-outlined">
+            <div class="tc-productCard__prices mb-4">
+              <span class="tc-productCard__price">$69.990</span>
+              <span class="tc-productCard__price-old me-2">$104.990</span>
+            </div>
+            <div class="tc-btn-wrapper">
+              <button class="tc-btn__primary mt-auto">
+                <span class="material-symbols-outlined p-1">
                   add_shopping_cart
                 </span>
                 Agregar al carro
-              </button>
-            </div>
-          </div>
-        </article>
-        <article class="tc-productCard py-2">
-          <div class="tc-productCard__img-wrapper">
-            <img
-              src="./assets/productos/img10.svg"
-              alt=""
-              class="tc-productCard__img card-img-top"
-            />
-            <span
-              class="tc-product-card__discount badge bg-danger position-absolute top-0 end-0 m-2"
-              >-33%</span
-            >
-          </div>
-          <div class="tc-productCard__body d-flex flex-column">
-            <h2 class="tc-productCard__title card-title mb-1">
-              Microsoft 365 Family (12 meses)
-            </h2>
-            <p class="tc-product-card__subtitle text-muted mb-2">
-              Hasta 6 usuarios • ID 54435
-            </p>
-            <div class="tc-product-card__prices mb-2">
-              <span
-                class="tc-product-card__price-old text-decoration-line-through text-secondary me-2"
-                >$104.990</span
-              >
-              <span class="tc-product-card__price fw-bold text-success"
-                >$69.990</span
-              >
-              <span
-                class="tc-product-card__price-transfer text-muted d-block small"
-                >Transferencia</span
-              >
-              <span
-                class="tc-product-card__price-other text-muted d-block small"
-                >Otros medios: $72.190</span
-              >
-            </div>
-            <div class="tc-btn-wrapper py-3">
-              <button class="tc-btn__primary btn mt-auto w-75">
-                <span class="material-symbols-outlined">
-                  add_shopping_cart
-                </span>
-                Agregar al carro
-              </button>
-            </div>
-          </div>
-        </article>
-        <article class="tc-productCard py-2">
-          <div class="tc-productCard__img-wrapper">
-            <img
-              src="./assets/productos/img10.svg"
-              alt=""
-              class="tc-productCard__img card-img-top"
-            />
-            <span
-              class="tc-product-card__discount badge bg-danger position-absolute top-0 end-0 m-2"
-              >-33%</span
-            >
-          </div>
-          <div class="tc-productCard__body d-flex flex-column">
-            <h2 class="tc-productCard__title card-title mb-1">
-              Microsoft 365 Family (12 meses)
-            </h2>
-            <p class="tc-product-card__subtitle text-muted mb-2">
-              Hasta 6 usuarios • ID 54435
-            </p>
-            <div class="tc-product-card__prices mb-2">
-              <span
-                class="tc-product-card__price-old text-decoration-line-through text-secondary me-2"
-                >$104.990</span
-              >
-              <span class="tc-product-card__price fw-bold text-success"
-                >$69.990</span
-              >
-              <span
-                class="tc-product-card__price-transfer text-muted d-block small"
-                >Transferencia</span
-              >
-              <span
-                class="tc-product-card__price-other text-muted d-block small"
-                >Otros medios: $72.190</span
-              >
-            </div>
-            <div class="tc-btn-wrapper py-3">
-              <button class="tc-btn__primary btn mt-auto w-75">
-                <span class="material-symbols-outlined">
-                  add_shopping_cart </span
-                >Agregar al carro
-              </button>
-            </div>
-          </div>
-        </article>
-        <article class="tc-productCard py-2">
-          <div class="tc-productCard__img-wrapper">
-            <img
-              src="./assets/productos/img10.svg"
-              alt=""
-              class="tc-productCard__img card-img-top"
-            />
-            <span
-              class="tc-product-card__discount badge bg-danger position-absolute top-0 end-0 m-2"
-              >-33%</span
-            >
-          </div>
-          <div class="tc-productCard__body d-flex flex-column">
-            <h2 class="tc-productCard__title card-title mb-1">
-              Microsoft 365 Family (12 meses)
-            </h2>
-            <p class="tc-product-card__subtitle text-muted mb-2">
-              Hasta 6 usuarios • ID 54435
-            </p>
-            <div class="tc-product-card__prices mb-2">
-              <span
-                class="tc-product-card__price-old text-decoration-line-through text-secondary me-2"
-                >$104.990</span
-              >
-              <span class="tc-product-card__price fw-bold text-success"
-                >$69.990</span
-              >
-              <span
-                class="tc-product-card__price-transfer text-muted d-block small"
-                >Transferencia</span
-              >
-              <span
-                class="tc-product-card__price-other text-muted d-block small"
-                >Otros medios: $72.190</span
-              >
-            </div>
-            <div class="tc-btn-wrapper py-3">
-              <button class="tc-btn__primary btn mt-auto w-75">
-                <span class="material-symbols-outlined">
-                  add_shopping_cart </span
-                >Agregar al carro
               </button>
             </div>
           </div>

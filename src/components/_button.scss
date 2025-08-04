@@ -1,18 +1,26 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
-.tc-btn__primary {
-  @include flex-center;
-  background-color: variables.$tc-color-primary;
-  color: variables.$tc-color-success;
-
-  &:hover {
-    background-color: variables.$tc-color-success;
-    color: variables.$tc-color-primary;
+.tc-btn {
+  &__primary {
+    @include flex-center;
+    background-color: variables.$tc-color-primary;
+    color: variables.$tc-color-success;
+    padding: variables.$tc-spacing-xxs variables.$tc-spacing-lg;
+    border-radius: variables.$tc-border-radius-md;
+    border-color: none;
+    border-style: none;
+    cursor: pointer;
+    font-size: variables.$tc-font-size-sm;
+    @include hover-transition-btn(background, 0.2s) {
+      background-color: variables.$tc-color-success;
+      color: variables.$tc-color-primary;
+    }
   }
-}
-
-.tc-btn-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &-wrapper {
+    @include flex-center;
+    width: 100%;
+    margin: auto;
+    flex-shrink: 1;
+  }
 }
