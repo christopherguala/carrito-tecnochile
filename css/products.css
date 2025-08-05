@@ -1,0 +1,116 @@
+.tcp-body {
+  display: flex;
+  width: 1920px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tcp-main {
+  width: 1350px;
+  height: 2372.56px;
+  max-width: 1350px;
+}
+
+.tcp-route__container {
+  width: 1305px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-left: 15px;
+  margin-right: 30px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.tcp-srArrow {
+    width: 16px;
+    height: 16px;
+    
+}
+
+.tcp-route--gray {
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.tcp-route--active {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.tcp-sectionImage {
+  width: 1320px;
+  height: 205px;
+  max-width: 1320px;
+  margin-bottom: 24px;
+  background: url(https://d3okvk28mv0bs6.cloudfront.net/uploads/78192d0e-3903-4bb9-9971-e4f36e4419f3/original/computadores_y_tablets_desktop_Banners_Mun.jpg);
+}
+
+.tcp-productS {
+  display: flex;
+  width: 1350px;
+  min-height: 1951.56px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.tcp-productS__aside {
+  display: flex;
+  width: 337.5px;
+  max-width: 337.5px;
+  padding: 0 15px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.tcp-productS__aside__filter {
+  display: flex;
+  padding-bottom: 48px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+
+.tcp__filter__accordion {
+  width: 100%;
+  max-width: 337.5px;
+}
+
+.tcp-accordion__title {
+  display: flex;
+  padding: 15px 16px 0px 16px;
+  align-items: flex-start;
+  align-self: stretch;
+  border-bottom: solid 1px #43D87E;
+  background-color: #F1F3F4;
+}
+
+.tcp-accordion__title--font {
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  height: 22px;  
+}
+
+.tcp-accordion__item {
+  background-color: #F1F3F4;
+  border-bottom: solid 1px #43D87E;
+}
+  
+
+
+
+
+.tcp-productS__main {
+  width: 1012.5px;
+  max-width: 1012.5px;
+  flex-shrink: 0;
+  align-self: stretch;
+}

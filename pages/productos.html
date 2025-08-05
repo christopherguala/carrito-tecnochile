@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechnoChile</title>
+    <link rel="icon" href="../assets/svg/favico.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/products.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    
+    <script src="../js/bootstrap.bundle.min.js" defer></script>
+    
+    <script
+      src="https://kit.fontawesome.com/09bf171868.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body class="tcp-body">
+    <nav class="tc-navbar navbar navbar-expand-lg bg-body-tertiary bg-black">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img src="../assets/svg/Logo-color.svg" alt="TechnoChile"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <main class="tc-main tcp-main">
+      <div class="tcp-route__container">
+        <p>
+          <a href="#" class="tcp-route--gray">Home</a>
+          <img
+            src="../assets/svg/icon-chevron-down.svg.svg"
+            alt="srArrow"
+            class="tcp-srArrow"
+          />
+          <a href="#" class="tcp-route--active">Computadores y tablets</a>
+        </p>
+      </div>
+      <div class="tcp-sectionImage"></div>
+      <div class="tcp-productS">
+        <div class="tcp-productS__aside">
+          <div class="tcp-productS__aside__filter">
+            <div class="accordion tcp__filter__accordion" id="accordionExample">
+              <div class="accordion-item tcp-accordion__title">
+                <h2 class="accordion-header">
+                  <p class="tcp-accordion__title--font">nootbooks y tablets</p>
+                </h2>
+              </div>
+              <div class="accordion-item tcp-accordion__item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button tcp-accordion__item"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Tiendas
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show" 
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="ec" id="estacionCentral">
+                      <label class="form-check-label" for="estacionCentral">
+                        Estacion central
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="sb" id="sanBernardo">
+                      <label class="form-check-label" for="sanBernardo">
+                        San Bernardo
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="bu" id="buin">
+                      <label class="form-check-label" for="buin">
+                        Buin
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item tcp-accordion__item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed tcp-accordion__item"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    Marcas
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="Asus" id="asus">
+                      <label class="form-check-label" for="asus">
+                        Asus
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="Dell" id="dell">
+                      <label class="form-check-label" for="dell">
+                        Dell
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="HP" id="hp">
+                      <label class="form-check-label" for="hp">
+                        HP
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item tcp-accordion__item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed tcp-accordion__item"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Rango de precios
+                  </button>
+                </h2>
+                <div
+                  id="collapseThree"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    This is the third 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tcp-productS__main">
+
+        </div>
+      </div>
+      
+    </main>
+  </body>
+</html>
