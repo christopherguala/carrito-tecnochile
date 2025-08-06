@@ -233,7 +233,7 @@ const btn = document.getElementById('load-more');
 let mostrados = 0;
 const porCarga = 12;
 
-function crearCard(producto) {
+function crearCard(producto) { //crea la card en html
   return `
     <div class="col-12 col-sm-6 col-lg-3 d-flex">
       <article class="tc-productCard p-2 w-100">
@@ -263,7 +263,7 @@ function crearCard(producto) {
   `;
 }
 
-function cargarProductos() {
+function cargarProductos() { //funcion para cargar productos, estos se cargan de a 12, realmente cargan de a 1 hasta llegar al limite del array
   const limite = Math.min(mostrados + porCarga, productos.length);
   for (let i = mostrados; i < limite; i++) {
     container.insertAdjacentHTML('beforeend', crearCard(productos[i]));
@@ -274,9 +274,9 @@ function cargarProductos() {
   }
 }
 
-cargarProductos();
+cargarProductos(); //carga los primeros 12 productos
 
-btn.addEventListener('click', cargarProductos);
+btn.addEventListener('click', cargarProductos);// carga los siguientes 
 
 
 
