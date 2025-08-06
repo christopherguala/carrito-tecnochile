@@ -1,0 +1,43 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.tc-footer {
+  @include flex-between;
+  background-color: variables.$tc-color-primary;
+  color: variables.$tc-color-font-light;
+  padding: variables.$tc-spacing-sm variables.$tc-spacing-md;
+
+  &__content {
+    text-decoration: none;
+    color: variables.$tc-color-font-light;
+  }
+  &__link {
+    text-decoration: none;
+    color: variables.$tc-color-font-light;
+
+    @include hover-transition-btn(color, 0.2s) {
+      color: variables.$tc-color-success;
+    }
+  }
+
+  &__menu-title {
+    color: variables.$tc-color-green-dark;
+    font-size: variables.$tc-font-size-base;
+    font-weight: variables.$tc-font-weight-bold;
+    margin-bottom: variables.$tc-spacing-xs;
+  }
+
+  &__socials {
+    color: variables.$tc-color-font-light;
+    text-decoration: none;
+    list-style: none;
+    &-item {
+      color: variables.$tc-color-font-light;
+      text-decoration: none;
+      list-style: none;
+      @include hover-transition-btn(color, 0.2s) {
+        color: variables.$tc-color-success;
+      }
+    }
+  }
+}

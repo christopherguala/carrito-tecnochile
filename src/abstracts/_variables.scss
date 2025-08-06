@@ -22,11 +22,14 @@ $tc-color-error: #ed801e;
 $tc-color-success: #2ec269;
 
 //COLORES LOCALES
+$primary: $tc-color-black-dark;
 $tc-color-primary: $tc-color-black-dark;
 $tc-color-card-bg: $tc-color-gray-superlight;
 $tc-color-badge-promo: $tc-color-blue-light;
 $tc-color-price-old: $tc-color-gray-normal;
 $tc-color-price-promo: $tc-color-black-dark;
+$tc-color-font-light: $tc-color-gray-superlight;
+$tc-color-cart-counter: $tc-color-green-dark;
 
 // TIPOGRAFÍA
 $tc-font-family-base: "Ubuntu", "Arial", sans-serif;

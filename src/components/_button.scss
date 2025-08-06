@@ -23,4 +23,73 @@
     margin: auto;
     flex-shrink: 1;
   }
+
+  &__outlined {
+    @include flex-center;
+    background-color: variables.$tc-color-primary;
+    color: variables.$tc-color-font-light;
+    padding: variables.$tc-spacing-xxs variables.$tc-spacing-lg;
+    border: 1px solid variables.$tc-color-font-light;
+    border-radius: variables.$tc-border-radius-md;
+    cursor: pointer;
+    font-size: variables.$tc-font-size-base;
+    @include hover-transition-btn(background, 0.2s) {
+      background-color: variables.$tc-color-font-light;
+      color: variables.$tc-color-primary;
+    }
+  }
+
+  &__icon {
+    @include flex-center;
+    background-color: variables.$tc-color-primary;
+    color: variables.$tc-color-font-light;
+    padding: variables.$tc-spacing-xs variables.$tc-spacing-xs;
+    border: 1px solid variables.$tc-color-font-light;
+    border-radius: variables.$tc-border-radius-md;
+    cursor: pointer;
+    font-size: variables.$tc-font-size-base;
+    margin: variables.$tc-spacing-sm;
+    position: relative;
+    @include hover-transition-btn(background, 0.2s) {
+      background-color: variables.$tc-color-font-light;
+      color: variables.$tc-color-primary;
+    }
+
+    &-wrapper {
+      position: relative;
+      @include flex-start;
+      width: fit-content;
+    }
+
+    &--counter {
+      @include flex-center;
+      position: absolute;
+      left: 70%;
+      top: 0;
+      z-index: 100;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 100%;
+      padding: variables.$tc-spacing-xxs variables.$tc-spacing-xxs;
+      background-color: variables.$tc-color-cart-counter;
+      color: variables.$tc-color-primary;
+      font-size: variables.$tc-font-size-sm;
+    }
+  }
+
+  &__secondary {
+    @include flex-center;
+    background-color: variables.$tc-color-success;
+    color: variables.$tc-color-primary;
+    padding: variables.$tc-spacing-xxs variables.$tc-spacing-lg;
+    border-radius: variables.$tc-border-radius-md;
+    border-color: none;
+    border-style: none;
+    cursor: pointer;
+    font-size: variables.$tc-font-size-base;
+    @include hover-transition-btn(background, 0.2s) {
+      background-color: variables.$tc-color-primary;
+      color: variables.$tc-color-success;
+    }
+  }
 }

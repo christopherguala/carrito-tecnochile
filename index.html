@@ -18,7 +18,7 @@
     />
 
     <script src="./js/bootstrap.bundle.min.js" defer></script>
-    <script src="./js/bootstrap.min.js"></script>
+
     <script
       src="https://kit.fontawesome.com/09bf171868.js"
       crossorigin="anonymous"
@@ -26,67 +26,75 @@
     ></script>
   </head>
   <body>
-    <nav class="tc-navbar navbar navbar-expand-lg bg-body-tertiary bg-black">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#"
-          ><img src="./assets/svg/Logo-color.svg" alt="TechnoChile"
-        /></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+    <header class="tc-header">
+      <nav
+        class="tc-navbar navbar navbar-expand-lg bg-dark border-bottom border-body"
+        data-bs-theme="dark"
+      >
+        <div class="container-fluid gap-2">
+          <a class="navbar-brand" href="#"
+            ><img src="./assets/svg/Logo-color.svg" alt="TechnoChile"
+          /></a>
+          <button
+            class="navbar-toggler tc-navbar__toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Categorías
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Computadores</a></li>
+                  <li><a class="dropdown-item" href="#">Smartphones</a></li>
+                  <li><a class="dropdown-item" href="#">SmartTV & Audio</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-disabled="true">Tus Compras</a>
+              </li>
+            </ul>
+            <div class="tc-btn__icon-wrapper">
+              <button type="button" class="tc-btn__icon">
+                <span class="material-symbols-outlined"> shopping_cart </span>
+              </button>
+              <span id="cart-counter" class="tc-btn__icon--counter">x</span>
+            </div>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Busca aquí..."
+                aria-label="Buscador"
+              />
+              <button class="tc-btn__outlined" type="submit">Buscar</button>
+            </form>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
     <main class="tc-main">
       <section class="tc-carousel">
         <div id="carouselExampleIndicators" class="carousel slide">
@@ -207,6 +215,105 @@
             </div>
           </div>
         </article>
+        <article class="tc-productCard p-2">
+          <div class="tc-productCard__img-wrapper p-2">
+            <img
+              src="./assets/productos/img11.svg"
+              alt=""
+              class="tc-productCard__img"
+            />
+            <span class="tc-productCard__discount position-absolute top-0 end-0"
+              >-12%</span
+            >
+          </div>
+          <div class="tc-productCard__body flex-column pt-0 px-4 pb-4">
+            <h2 class="tc-productCard__body--title mb-1">
+              Assassins Creed Shadows
+            </h2>
+            <div class="tc-productCard__subtitle-wrapper pt-1 pb-3">
+              <p class="tc-productCard__subtitle">ID 54435 •</p>
+              <p class="tc-productCard__subtitle">+100 Unid.</p>
+            </div>
+            <div class="tc-productCard__prices mb-4">
+              <span class="tc-productCard__price">$87.990</span>
+              <span class="tc-productCard__price-old me-2">$99.990</span>
+            </div>
+            <div class="tc-btn-wrapper">
+              <button class="tc-btn__primary mt-auto">
+                <span class="material-symbols-outlined p-1">
+                  add_shopping_cart
+                </span>
+                Agregar al carro
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="tc-productCard p-2">
+          <div class="tc-productCard__img-wrapper p-2">
+            <img
+              src="./assets/productos/img10.svg"
+              alt=""
+              class="tc-productCard__img"
+            />
+            <span class="tc-productCard__discount position-absolute top-0 end-0"
+              >-12%</span
+            >
+          </div>
+          <div class="tc-productCard__body flex-column pt-0 px-4 pb-4">
+            <h2 class="tc-productCard__body--title mb-1">
+              Assassins Creed Shadows
+            </h2>
+            <div class="tc-productCard__subtitle-wrapper pt-1 pb-3">
+              <p class="tc-productCard__subtitle">ID 54435 •</p>
+              <p class="tc-productCard__subtitle">+100 Unid.</p>
+            </div>
+            <div class="tc-productCard__prices mb-4">
+              <span class="tc-productCard__price">$87.990</span>
+              <span class="tc-productCard__price-old me-2">$99.990</span>
+            </div>
+            <div class="tc-btn-wrapper">
+              <button class="tc-btn__primary mt-auto">
+                <span class="material-symbols-outlined p-1">
+                  add_shopping_cart
+                </span>
+                Agregar al carro
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="tc-productCard p-2">
+          <div class="tc-productCard__img-wrapper p-2">
+            <img
+              src="./assets/productos/img12.svg"
+              alt=""
+              class="tc-productCard__img"
+            />
+            <span class="tc-productCard__discount position-absolute top-0 end-0"
+              >-12%</span
+            >
+          </div>
+          <div class="tc-productCard__body flex-column pt-0 px-4 pb-4">
+            <h2 class="tc-productCard__body--title mb-1">
+              Assassins Creed Shadows
+            </h2>
+            <div class="tc-productCard__subtitle-wrapper pt-1 pb-3">
+              <p class="tc-productCard__subtitle">ID 54435 •</p>
+              <p class="tc-productCard__subtitle">+100 Unid.</p>
+            </div>
+            <div class="tc-productCard__prices mb-4">
+              <span class="tc-productCard__price">$87.990</span>
+              <span class="tc-productCard__price-old me-2">$99.990</span>
+            </div>
+            <div class="tc-btn-wrapper">
+              <button class="tc-btn__primary mt-auto">
+                <span class="material-symbols-outlined p-1">
+                  add_shopping_cart
+                </span>
+                Agregar al carro
+              </button>
+            </div>
+          </div>
+        </article>
       </section>
       <section class="tc-offers p-4">
         <div class="tc-offers__header row">
@@ -254,8 +361,8 @@
         <div class="row"></div>
       </section>
     </main>
-    <footer class="tc-footer bg-light border-top">
-      <div class="container tc-footer-complete py-5">
+    <footer class="tc-footer border-top">
+      <div class="container tc-footer__content py-5">
         <div class="row justify-content-between mx-0">
           <!-- Logo mobile -->
           <div class="col-12 d-lg-none text-center mb-4">
@@ -263,8 +370,8 @@
               <img
                 src="./assets/svg/favico.svg"
                 alt="pcfactory.cl"
-                width="186"
-                height="42"
+                width="50"
+                height=""
               />
             </a>
           </div>
@@ -287,14 +394,10 @@
                 </a>
                 <!-- Botón Tiendas -->
                 <div class="row mx-0">
-                  <div class="col-12 px-0">
-                    <a
-                      href="/tiendas"
-                      class="btn tc-btn__primary w-100 d-flex justify-content-center align-items-center tc-btn-tienda mb-3"
-                    >
-                      <span class="tc-icon tc-icon-gps mr-2"></span>
+                  <div class="col-12 px-0 w-100 tc-btn-wrapper">
+                    <button href="/tiendas" class="tc-btn__secondary mb-3">
                       Encuentra tu tienda
-                    </a>
+                    </button>
                   </div>
                 </div>
                 <!-- Línea de ventas -->
@@ -304,7 +407,10 @@
                     Ventas
                   </p>
                   <p class="mb-2">
-                    <a id="tc-tel-ventas" href="tel:+56225600040"
+                    <a
+                      id="tc-tel-ventas"
+                      class="tc-footer__link"
+                      href="tel:+56225600040"
                       >+56 2 2560 0040</a
                     >
                   </p>
@@ -317,7 +423,7 @@
                   <div class="col-6">
                     <a
                       href="/suscribete"
-                      class="btn btn-primary w-100 tc-btn-suscribete"
+                      class="tc-btn__outlined tc-footer__link"
                       >Suscríbete</a
                     >
                   </div>
@@ -327,10 +433,10 @@
               <div class="col-12 col-lg-9 mx-auto my-3 d-none d-xl-block">
                 <div class="row align-items-center">
                   <div class="col-2 col-lg-3 px-0">
-                    <p class="mb-0">Síguenos</p>
+                    <p class="mb-0 tc-footer__menu-title">Síguenos</p>
                   </div>
-                  <div class="col-10 col-lg-9">
-                    <ul class="nav tc-nav-redes">
+                  <div class="col-10 col-lg-9 d-lg-flex">
+                    <ul class="tc-footer__socials">
                       <li class="nav-item">
                         <a
                           class="nav-link"
@@ -377,90 +483,98 @@
           <div class="col-12 col-xl-8 px-0">
             <div class="row tc-footer-menus">
               <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-                <h6 class="tc-footer-menu-title">Mundo pc Factory</h6>
+                <h6 class="tc-footer__menu-title">Mundo TechnoChile</h6>
                 <ul class="list-unstyled tc-footer-menu">
-                  <li><a href="/gamer-zone">Gamer Zone</a></li>
-                  <li><a href="/navidad">Navidad</a></li>
-                  <li><a href="/cyber">Cyber</a></li>
-                  <li><a href="/black-days">BlackDays</a></li>
-                  <li><a href="/outlet-tecnologico">Outlet tecnológico</a></li>
-                  <li><a href="/vuelta-a-clases">Vuelta a Clases</a></li>
                   <li>
-                    <a href="/regalos-dia-de-la-madre">Día de la Madre</a>
+                    <a href="#" class="tc-footer__link">Gamer Zone</a>
                   </li>
-                  <li><a href="/regalos-dia-del-padre">Día del Padre</a></li>
-                  <li><a href="/dia-del-nino">Día del Niño</a></li>
+                  <li>
+                    <a href="#" class="tc-footer__link">Computadores</a>
+                  </li>
+                  <li><a href="#" class="tc-footer__link">Smartphones</a></li>
+                  <li>
+                    <a href="#" class="tc-footer__link">SmartTV & Audio</a>
+                  </li>
                 </ul>
               </div>
               <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-                <h6 class="tc-footer-menu-title">¿Necesitas Ayuda?</h6>
+                <h6 class="tc-footer__menu-title">¿Necesitas Ayuda?</h6>
                 <ul class="list-unstyled tc-footer-menu">
-                  <li><a href="/centro-de-ayuda">Centro de ayuda</a></li>
-                  <li><a href="/estado-despacho">Estado de mi despacho</a></li>
-                  <li><a href="/revisa-boleta-factura">Revisa tu boleta</a></li>
-                  <li><a href="/orden-de-servicios">Orden de servicio</a></li>
                   <li>
-                    <a href="/centro-de-ayuda/direcciones-y-horarios-de-tiendas"
-                      >Preguntas frecuentes</a
+                    <a href="#" class="tc-footer__link">Centro de ayuda</a>
+                  </li>
+                  <li>
+                    <a href="#" class="tc-footer__link"
+                      >Estado de mi despacho</a
                     >
                   </li>
                   <li>
-                    <a href="/centro-de-ayuda/terminos-y-condiciones"
+                    <a href="#" class="tc-footer__link">Revisa tu boleta</a>
+                  </li>
+                  <li>
+                    <a href="#" class="tc-footer__link">Orden de servicio</a>
+                  </li>
+                  <li>
+                    <a href="#" class="tc-footer__link">Preguntas frecuentes</a>
+                  </li>
+                  <li>
+                    <a href="#" class="tc-footer__link"
                       >Términos y condiciones</a
                     >
                   </li>
                 </ul>
               </div>
               <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-                <h6 class="tc-footer-menu-title">Acerca de pc Factory</h6>
-                <ul class="list-unstyled tc-footer-menu">
-                  <li><a href="/quienes-somos">Quiénes somos</a></li>
+                <h6 class="tc-footer__menu-title">Acerca de pc Factory</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="tc-footer__link">Quiénes somos</a></li>
                   <li>
-                    <a href="/representante-legal">Representante Legal</a>
-                  </li>
-                  <li>
-                    <a href="/servicios/compra-mas-facil-con-nosotros"
+                    <a href="#" class="tc-footer__link"
                       >Beneficios de comprar con nosotros</a
                     >
                   </li>
                   <li>
-                    <a href="/centro-de-ayuda/terminos-y-condiciones"
+                    <a href="#" class="tc-footer__link"
                       >Privacidad y seguridad</a
                     >
                   </li>
-                  <li><a href="/sustentabilidad">Sustentabilidad</a></li>
                   <li>
-                    <a href="/bases-y-promociones">Bases y Promociones</a>
+                    <a href="#" class="tc-footer__link">Sustentabilidad</a>
+                  </li>
+                  <li>
+                    <a href="#" class="tc-footer__link">Bases y Promociones</a>
                   </li>
                 </ul>
               </div>
               <div class="col-12 col-lg-3">
-                <h6 class="tc-footer-menu-title">Servicios</h6>
-                <ul class="list-unstyled tc-footer-menu">
+                <h6 class="tc-footer__menu-title">Servicios</h6>
+                <ul class="list-unstyled">
                   <li>
-                    <a href="/servicios/consejos-y-tips-tecnologicos"
+                    <a href="#" class="tc-footer__link"
                       >Consejos y tips tecnológicos</a
                     >
                   </li>
                   <li>
-                    <a href="/servicios/asesorate-online">Asesórate Online</a>
+                    <a href="#" class="tc-footer__link">Asesórate Online</a>
                   </li>
-                  <li><a href="/arma-tu-pc">Arma tu PC</a></li>
-                  <li><a href="/servicios/puntos-verdes">Puntos verdes</a></li>
+                  <li><a href="#" class="tc-footer__link">Arma tu PC</a></li>
+                  <li><a href="#" class="tc-footer__link">Puntos verdes</a></li>
                   <li>
-                    <a href="/actualiza-tu-notebook-con-enter-pro">Enter pro</a>
+                    <a href="#" class="tc-footer__link">Enter pro</a>
                   </li>
-                  <li><a href="/empresas">Ventas Empresas</a></li>
+                  <li>
+                    <a href="#" class="tc-footer__link">Ventas Empresas</a>
+                  </li>
                 </ul>
               </div>
             </div>
             <!-- Redes sociales mobile -->
             <div class="row d-block d-xl-none mt-4">
               <div class="col-2">
-                <p class="mb-0">Síguenos</p>
+                <p class="mb-0 tc-footer__menu-title">Síguenos</p>
               </div>
               <div class="col-10">
-                <ul class="nav tc-nav-redes">
+                <ul class="tc-footer__socials">
                   <li class="nav-item">
                     <a
                       class="nav-link"
@@ -507,9 +621,9 @@
           <div class="col-12">
             <div class="tc-footer-minimal text-center py-3">
               <p class="mb-0 small">
-                Copyright © 2025 pcfactory.cl. Todos los derechos reservados.
+                Copyright © 2025 technochile.cl. Todos los derechos reservados.
                 Prohibida su copia parcial o total bajo la ley nacional e
-                internacional. Registro dibam N°247557
+                internacional.
               </p>
             </div>
           </div>
