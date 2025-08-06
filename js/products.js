@@ -12,7 +12,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: false,
-    tipe: `nootbook`,
+    tipe: `noot`,
     marca: `asus`,
   },
   {
@@ -27,7 +27,7 @@ const productos = [
     sb: false,
     bu: false,
     ec: true,
-    tipe: `nootbook`,
+    tipe: `noot`,
     marca: `asus`,
   },
   {
@@ -42,7 +42,7 @@ const productos = [
     sb: false,
     bu: true,
     ec: false,
-    tipe: `nootbook`,
+    tipe: `noot`,
     marca: `asus`,
   },
   {
@@ -57,7 +57,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: true,
-    tipe: `nootbook`,
+    tipe: `noot`,
     marca: `dell`,
   },
   {
@@ -72,7 +72,7 @@ const productos = [
     sb: false,
     bu: true,
     ec: true,
-    tipe: `nootbook`,
+    tipe: `noot`,
     marca: `dell`,
   },
   {
@@ -87,7 +87,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: true,
-    tipe: `nootbook`,
+    tipe: `noot`,
     marca: `hp`,
   },
   {
@@ -102,7 +102,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: true,
-    tipe: `accesorios`,
+    tipe: `acc`,
     marca: `hp`,
   },
   {
@@ -117,7 +117,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: true,
-    tipe: `accesorios`,
+    tipe: `acc`,
     marca: `hp`,
   },
   {
@@ -132,7 +132,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: false,
-    tipe: `accesorios`,
+    tipe: `acc`,
     marca: `hp`,
   },
   {
@@ -147,7 +147,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: true,
-    tipe: `tablet`,
+    tipe: `tab`,
     marca: `lenovo`,
   },
   {
@@ -162,7 +162,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: true,
-    tipe: `tablet`,
+    tipe: `tab`,
     marca: `lenovo`,
   },
   {
@@ -177,7 +177,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: true,
-    tipe: `desktop`,
+    tipe: `desk`,
     marca: `asus`,
   },
    {
@@ -192,7 +192,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: true,
-    tipe: `desktop`,
+    tipe: `desk`,
     marca: `dell`,
   },
    {
@@ -207,7 +207,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: true,
-    tipe: `accessorios`,
+    tipe: `acc`,
     marca: `dell`,
   },
    {
@@ -222,7 +222,7 @@ const productos = [
     sb: true,
     bu: true,
     ec: true,
-    tipe: `accessorios`,
+    tipe: `acc`,
     marca: `dell`,
   },
 ];
@@ -277,3 +277,73 @@ function cargarProductos() {
 cargarProductos();
 
 btn.addEventListener('click', cargarProductos);
+
+
+
+
+
+// Filtros
+
+const checkboxes = document.querySelectorAll('.filter-checkbox'); // guarfda los chechbox en la funcion
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', aplicarFiltros); //cada ves que cambia un flitro aplica la funcion
+});
+
+function aplicarFiltros() { //guarda que filtros estan marcados
+  const filtros = {
+    tiendas: [],
+    marcas: [],
+    tipos: [],
+  };
+
+  checkboxes.forEach(cb => { //aqui revisa cada checkbox y si esta marcado lo guarda en valor (ejemplo valor = asus)
+    if (cb.checked) {
+      const valor = cb.value; 
+      if (['sb', 'bu', 'ec'].includes(valor)) { //si el valor revisado es uno de los 3 lo guarda en tiendas, y lo mismo para los otros 2
+        filtros.tiendas.push(valor);
+      } else if (['asus', 'dell', 'hp', 'lenovo'].includes(valor)) {
+        filtros.marcas.push(valor);
+      } else if (['noot', 'tab', 'desk', 'acc'].includes(valor)) {
+        filtros.tipos.push(valor);
+      }
+    }
+  });
+
+  
+  const filtrados = productos.filter(producto => { //se queda solo con los productos que cumplen con los filtros
+    const tiendaOK = filtros.tiendas.length === 0 || filtros.tiendas.some(tienda => producto[tienda]); //verifica si tiendas tiene algun valor o es 0, si es 0 todas las tiendas tienen el producto
+    const marcaOK = filtros.marcas.length === 0 || filtros.marcas.includes(producto.marca); // lo mismo de arriba pero para marcas y abajo para tipos
+    const tipoOK = filtros.tipos.length === 0 || filtros.tipos.includes(producto.tipe);
+
+    return tiendaOK && marcaOK && tipoOK; //si el producto cumple con todo se queda en el const filtrados
+  });
+
+  
+  container.innerHTML = ''; // borra el contenedor de productos
+  mostrados = 0; // Reinicia const mostreados
+
+  filtrados.slice(0, porCarga).forEach(p => { //ocupa las funciones de crear las cards con los productos filtrados
+    container.insertAdjacentHTML('beforeend', crearCard(p));
+  });
+
+  mostrados = Math.min(porCarga, filtrados.length); // lo mismo de arriba no sobrepasa los 12
+
+  
+  if (filtrados.length > mostrados) { // lo mismo de arriba si no hay productos desaparece el boton
+    btn.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+  }
+
+  
+  btn.onclick = () => { // pone el boton para cargar mas productos, esta ves filtrados
+    const siguienteLote = filtrados.slice(mostrados, mostrados + porCarga);
+    siguienteLote.forEach(p => {
+      container.insertAdjacentHTML('beforeend', crearCard(p));
+    });
+    mostrados += siguienteLote.length;
+    if (mostrados >= filtrados.length) {
+      btn.style.display = 'none';
+    }
+  };
+}
