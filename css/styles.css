@@ -11942,7 +11942,7 @@ body {
   background-color: #2e3538;
   color: #fcfcfc;
   padding: 0.25rem 0.25rem;
-  border: 1px solid #fcfcfc;
+  border: 1px solid #8f9ca3;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
@@ -11952,6 +11952,7 @@ body {
 }
 .tc-btn__icon:hover {
   background-color: #fcfcfc;
+  border-color: #fcfcfc;
   color: #2e3538;
 }
 .tc-btn__icon-wrapper {
