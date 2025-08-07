@@ -11861,7 +11861,7 @@ textarea.form-control-lg {
 }
 
 body {
-  font-family: "Ubuntu", "Arial", sans-serif, sans-serif;
+  font-family: "Inter", "Arial", sans-serif, sans-serif;
   line-height: 1.6;
 }
 
@@ -11875,6 +11875,11 @@ body {
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+.tc-products__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
 
 .tc-offers {
   gap: 1rem;
@@ -11882,6 +11887,7 @@ body {
 }
 .tc-offers__title {
   font-size: 1.5rem;
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
@@ -12002,7 +12008,7 @@ body {
   width: 15.625rem;
   background: #fcfcfc;
   border-radius: 4px;
-  font-family: "Ubuntu", "Arial", sans-serif;
+  font-family: "Inter", "Arial", sans-serif;
   box-shadow: 0 2px 8px rgba(55, 71, 79, 0.15);
   display: flex;
   flex-direction: column;
