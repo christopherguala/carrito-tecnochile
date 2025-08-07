@@ -12285,7 +12285,7 @@ body {
   opacity: 1;
 }
 
-/* Modal del carrito */
+
 .cartModal {
   position: fixed;
   top: 0;
@@ -12327,7 +12327,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Cada producto del carrito */
+
 .cartItem {
   display: flex;
   gap: 12px;
@@ -12344,10 +12344,10 @@ body {
   border-radius: 6px;
   background: #f9f9f9;
   flex-shrink: 0;
-  margin-top: 4px; /* para centrar un poco verticalmente */
+  margin-top: 4px; 
 }
 
-/* Contenedor derecho: título arriba, controles abajo */
+
 .cartItem > div {
   flex-grow: 1;
   display: flex;
@@ -12355,20 +12355,20 @@ body {
   gap: 6px;
 }
 
-/* Título del producto */
+
 .cartItemTitle {
   font-weight: 600;
   font-size: 1rem;
 }
 
-/* Fila controles: cantidad, precio y botón eliminar */
+
 .quantitySelector {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-/* Íconos aumentar/reducir */
+
 .quantitySelector i {
   cursor: pointer;
   color: #007bff;
@@ -12390,7 +12390,7 @@ body {
   font-size: 1rem;
 }
 
-/* Precio: se empuja a la derecha dentro de la fila */
+
 .cartPrice {
   font-weight: 600;
   color: #333;
@@ -12398,7 +12398,7 @@ body {
   margin-left: auto;
 }
 
-/* Botón eliminar al final de la fila controles */
+
 .btnDelete {
   cursor: pointer;
   color: #dc3545;
@@ -12413,7 +12413,7 @@ body {
   margin-left: 8px;
 }
 
-/* Total del carrito */
+
 .cartTotal {
   font-weight: 700;
   font-size: 1.2rem;
@@ -12421,7 +12421,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Contenedor botones pagar y limpiar */
+
 .cartButtons {
   display: flex;
   justify-content: space-between;
@@ -12456,7 +12456,7 @@ body {
   background-color: #b02a37;
 }
 
-/* Contador en el ícono del carrito */
+
 .cart-counter {
   position: absolute;
   top: -5px;

@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     cartModal.classList.add('visible');
   });
 
-  // Cerrar carrito: ocultar modal y overlay
-  function closeCart() {
+  // Cerrar carrito  overlay y modal se van 
+   function closeCart() {
     cartOverlay.classList.remove('visible');
     cartModal.classList.remove('visible');
 
-    // Ocultar overlay después de la transición (300ms)
+    // Ocultar overlay 
     setTimeout(() => {
       cartOverlay.hidden = true;
     }, 300);
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   closeCartBtn.addEventListener('click', closeCart);
 
-  // Cerrar carrito si clic fuera del modal (en el overlay)
+  // Cerrar carrito clic fuera por el overlay
   cartOverlay.addEventListener('click', (e) => {
     if (e.target === cartOverlay) {
       closeCart();
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <button class="btnDelete" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
       `;
 
-      // Eventos botones cantidad
+      // botones para aumentar y reducir dentro del carro ( si intentamos reducir de 1 se va el producto)
       item.querySelector('.sumar-cantidad').addEventListener('click', () => {
         updateQuantity(title, quantity + 1);
       });
@@ -88,11 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (quantity > 1) {
     updateQuantity(title, quantity - 1);
   } else {
-    removeItem(title); // Si es 1 y restamos, elimina el producto
+    removeItem(title); 
   }
 });
 
-      // Evento eliminar
+      // eliminar prudcto del carrito al hacer click al basurero 
       item.querySelector('.btnDelete').addEventListener('click', () => {
         removeItem(title);
       });
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonsContainer = document.createElement('div');
       buttonsContainer.classList.add('cartButtons');
 
-      const payBtn = document.createElement('button');
+      const payBtn = document.createElement('button');  // boton para pagar
       payBtn.classList.add('btnPay');
       payBtn.innerText = 'Pagar';
       payBtn.addEventListener('click', () => {
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearCart();
       });
 
-      const clearBtn = document.createElement('button');
+      const clearBtn = document.createElement('button');  // boton para eliminar todo
       clearBtn.classList.add('btnClearCart');
       clearBtn.innerText = 'Limpiar carrito';
       clearBtn.addEventListener('click', () => {
@@ -158,13 +158,13 @@ document.addEventListener('DOMContentLoaded', () => {
       cartModal.querySelector('.cartModalContent').appendChild(buttonsContainer);
     }
   }
-
+  
   function clearCart() {
     cart = [];
     renderCart();
-    closeCart();
+   // closeCart();            despues de probar es mejor que no se cierre automaticamente , decidi comentar esperando feedback
   }
-
+  // contador productos 
   function updateCartCounter() {
     if (!cartCounter) return;
     const count = cart.reduce((acc, item) => acc + item.quantity, 0);
