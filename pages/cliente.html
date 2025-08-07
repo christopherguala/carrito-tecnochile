@@ -217,7 +217,19 @@
     </div>
   </div>
 </footer>
-
+<div id="cartOverlay" class="cartOverlay" hidden>
+  <div id="cartModal" class="cartModal" role="dialog" aria-label="Carrito de compras">
+    <div class="cartModalContent">
+      <button id="closeCartBtn" class="cartModalClose" aria-label="Cerrar carrito">X</button>
+      <h2>Tu Carrito</h2>
+      <div class="cartItems"></div>
+      <div class="cartTotal">
+        <strong>Total:</strong> <span class="cartTotalPrice">$0,00</span>
+      </div>
+    </div>
+  </div>
+</div>    
+    <script src="../js/carrito.js" defer></script>
 </body>
 </html>
 
