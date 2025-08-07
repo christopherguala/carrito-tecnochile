@@ -21,6 +21,7 @@
     
     <script src="../js/bootstrap.bundle.min.js" defer></script>
     <script src="../js/products.js" defer></script>
+    <script src="../js/carrito.js" defer></script>
     <script
       src="https://kit.fontawesome.com/09bf171868.js"
       crossorigin="anonymous"
@@ -587,5 +588,22 @@
         </div>
       </div>
     </footer>
+    <div id="cartOverlay" class="cartOverlay" hidden>
+  <div id="cartModal" class="cartModal" role="dialog" aria-label="Carrito de compras">
+    <div class="cartModalContent">
+      <button id="closeCartBtn" class="cartModalClose" aria-label="Cerrar carrito">X</button>
+      <h2>Tu Carrito</h2>
+      <div class="cartItems"></div>
+      <div class="cartTotal">
+        <strong>Total:</strong> <span class="cartTotalPrice">$0,00</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+   
+  </body>
+</html>
   </body>
 </html>
