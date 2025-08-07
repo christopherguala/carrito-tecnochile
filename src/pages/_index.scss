@@ -2,9 +2,14 @@
 @use "../abstracts/mixins";
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: variables.$tc-font-family-base, sans-serif;
+  line-height: 1.6;
 }
 
 .tc-main {
@@ -16,6 +21,12 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .tc-offers {
@@ -24,6 +35,7 @@
 
   &__title {
     font-size: 1.5rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
   }
 }

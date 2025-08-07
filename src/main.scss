@@ -1,13 +1,14 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
-@import "./abstracts/variables";
+@use "./abstracts/variables";
+@use "../node_modules/bootstrap/scss/bootstrap";
 
-@import "./abstracts/mixins";
-@import "./pages/carrito";
-@import "./pages/cliente";
-@import "./pages/index";
-@import "./pages/productos";
+@use "./abstracts/mixins";
 
-@import "./components/button";
-@import "./components/card";
-@import "./components/footer";
-@import "./components/navbar";
+@use "./pages/carrito";
+@use "./pages/cliente";
+@use "./pages/index";
+@use "./pages/productos";
+
+@use "./components/button";
+@use "./components/card";
+@use "./components/footer";
+@use "./components/navbar";

@@ -1,0 +1,86 @@
+/* === FORMULARIO DE REGISTRO === */
+#registro-section {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #0f172a;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 56, 120, 0.4);
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#registro-section h2 {
+  text-align: center;
+  color: #1e73be;
+  margin-bottom: 24px;
+}
+
+#registroForm div {
+  margin-bottom: 16px;
+}
+
+#registroForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+
+#registroForm input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  color: #f1f5f9;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+#registroForm input:focus {
+  outline: none;
+  border-color: #1e73be;
+  background-color: #0f172a;
+}
+
+#registroForm button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1e73be;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#registroForm button:hover {
+  background-color: #155a9c;
+}
+
+/* === SECCIÓN LOGUEADA === */
+#user-section {
+  max-width: 500px;
+  margin: 60px auto;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #1e73be;
+}
+
+#user-section button {
+  margin-top: 16px;
+  background-color: transparent;
+  border: 1px solid #1e73be;
+  padding: 10px 20px;
+  color: #1e73be;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#user-section button:hover {
+  background-color: #1e73be;
+  color: white;
+}

@@ -29,6 +29,12 @@
   align-items: center;
 }
 
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 @mixin hover-transition-card(
   $property: all,
   $duration: 1.8s,
