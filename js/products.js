@@ -229,11 +229,13 @@ const productos = [
 
 const container = document.getElementById('product-gallery');
 const btn = document.getElementById('load-more');
+const checkboxes = document.querySelectorAll('.filter-checkbox'); // guarda los checkbox en la función
 
-let mostrados = 0;
-const porCarga = 12;
+let mostrados = 0; // guarda cuántos productos se han mostrado
+const porCarga = 12; // aqui modificas de a cuantos productos se muestran al principio y al apretar el boton
+let productosFiltrados = [...productos]; 
 
-function crearCard(producto) { //crea la card en html
+function crearCard(producto) { // crea la card en html con los valores de los objetos
   return `
     <div class="col-12 col-sm-6 col-lg-3 d-flex">
       <article class="tc-productCard p-2 w-100">
@@ -263,43 +265,23 @@ function crearCard(producto) { //crea la card en html
   `;
 }
 
-function cargarProductos() { //funcion para cargar productos, estos se cargan de a 12, realmente cargan de a 1 hasta llegar al limite del array
-  const limite = Math.min(mostrados + porCarga, productos.length);
-  for (let i = mostrados; i < limite; i++) {
-    container.insertAdjacentHTML('beforeend', crearCard(productos[i]));
-  }
-  mostrados = limite;
-  if (mostrados >= productos.length) {
-    btn.style.display = 'none';
-  }
+// convierte el string de precio a numero, ya que esta en string primero
+function parsePrecio(precioStr) {
+  return parseInt(precioStr.replace(/\./g, '').replace('$', ''));
 }
 
-cargarProductos(); //carga los primeros 12 productos
 
-btn.addEventListener('click', cargarProductos);// carga los siguientes 
-
-
-
-
-
-// Filtros
-
-const checkboxes = document.querySelectorAll('.filter-checkbox'); // guarfda los chechbox en la funcion
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', aplicarFiltros); //cada ves que cambia un flitro aplica la funcion
-});
-
-function aplicarFiltros() { //guarda que filtros estan marcados
+function aplicarFiltros() { // aqui guardaran los filtros que se seleccionan
   const filtros = {
     tiendas: [],
     marcas: [],
     tipos: [],
   };
 
-  checkboxes.forEach(cb => { //aqui revisa cada checkbox y si esta marcado lo guarda en valor (ejemplo valor = asus)
+  checkboxes.forEach(cb => { // revisa cada checkbox y si está marcado lo guarda en valor (ejemplo valor = asus)
     if (cb.checked) {
-      const valor = cb.value; 
-      if (['sb', 'bu', 'ec'].includes(valor)) { //si el valor revisado es uno de los 3 lo guarda en tiendas, y lo mismo para los otros 2
+      const valor = cb.value;
+      if (['sb', 'bu', 'ec'].includes(valor)) { // si el valor revisado es uno de los 3 lo guardara en tiendas, lo mismo con los otros 2
         filtros.tiendas.push(valor);
       } else if (['asus', 'dell', 'hp', 'lenovo'].includes(valor)) {
         filtros.marcas.push(valor);
@@ -309,41 +291,60 @@ function aplicarFiltros() { //guarda que filtros estan marcados
     }
   });
 
-  
-  const filtrados = productos.filter(producto => { //se queda solo con los productos que cumplen con los filtros
-    const tiendaOK = filtros.tiendas.length === 0 || filtros.tiendas.some(tienda => producto[tienda]); //verifica si tiendas tiene algun valor o es 0, si es 0 todas las tiendas tienen el producto
-    const marcaOK = filtros.marcas.length === 0 || filtros.marcas.includes(producto.marca); // lo mismo de arriba pero para marcas y abajo para tipos
+  // se queda solo con los productos que cumplen con los filtros
+  productosFiltrados = productos.filter(producto => {
+    const tiendaOK = filtros.tiendas.length === 0 || filtros.tiendas.some(tienda => producto[tienda]);// si no hay filtro aqui seleccionado todos los productos cuentan
+    const marcaOK = filtros.marcas.length === 0 || filtros.marcas.includes(producto.marca);// lo mismo aplica aqui y abajo
     const tipoOK = filtros.tipos.length === 0 || filtros.tipos.includes(producto.tipe);
-
-    return tiendaOK && marcaOK && tipoOK; //si el producto cumple con todo se queda en el const filtrados
+    return tiendaOK && marcaOK && tipoOK; //si el producto cumple con los 3 filtros se guarda para mostrar
   });
 
-  
-  container.innerHTML = ''; // borra el contenedor de productos
-  mostrados = 0; // Reinicia const mostreados
-
-  filtrados.slice(0, porCarga).forEach(p => { //ocupa las funciones de crear las cards con los productos filtrados
-    container.insertAdjacentHTML('beforeend', crearCard(p));
-  });
-
-  mostrados = Math.min(porCarga, filtrados.length); // lo mismo de arriba no sobrepasa los 12
+  // ordena según el valor del select de precios, esto es igual ana de las tareas que hicimos en js
+  const ordenSeleccionado = document.getElementById('inputGroupSelect01').value;
+  if (ordenSeleccionado === '1') {
+    productosFiltrados.sort((a, b) => parsePrecio(a.precio) - parsePrecio(b.precio));
+  } else if (ordenSeleccionado === '2') {
+    productosFiltrados.sort((a, b) => parsePrecio(b.precio) - parsePrecio(a.precio));
+  }
 
   
-  if (filtrados.length > mostrados) { // lo mismo de arriba si no hay productos desaparece el boton
+  container.innerHTML = ''; //borra todos lso productos
+  mostrados = 0;//resetea el contador para volver a usar la funcion y cargar nuevos productos filtrados
+
+  
+  const primerLote = productosFiltrados.slice(0, porCarga);// muestra los primeros productos filtrados
+  primerLote.forEach(p => container.insertAdjacentHTML('beforeend', crearCard(p))); //crea la card
+  mostrados = primerLote.length;
+
+  // muestra u oculta el botón si no hay mas productos en el array de los filtrados
+  if (productosFiltrados.length > mostrados) {
     btn.style.display = 'block';
   } else {
     btn.style.display = 'none';
   }
-
-  
-  btn.onclick = () => { // pone el boton para cargar mas productos, esta ves filtrados
-    const siguienteLote = filtrados.slice(mostrados, mostrados + porCarga);
-    siguienteLote.forEach(p => {
-      container.insertAdjacentHTML('beforeend', crearCard(p));
-    });
-    mostrados += siguienteLote.length;
-    if (mostrados >= filtrados.length) {
-      btn.style.display = 'none';
-    }
-  };
 }
+
+// funcion para el boton, al hacer click llamaa lso siguientes productos hasta completar 12 o que se acaben
+btn.addEventListener('click', () => {
+  const siguienteLote = productosFiltrados.slice(mostrados, mostrados + porCarga);
+  siguienteLote.forEach(p => container.insertAdjacentHTML('beforeend', crearCard(p)));
+  mostrados += siguienteLote.length;
+
+  if (mostrados >= productosFiltrados.length) {
+    btn.style.display = 'none';
+  }
+});
+
+// llama a la funcion para los productos cada ves que un checkbox cambia, esto mantiene actualizado todo
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', aplicarFiltros);
+});
+document.getElementById('inputGroupSelect01').addEventListener('change', aplicarFiltros);
+
+// Aqui llamamos primeramente a la funcion para cargar los primeros 12 productos de la pagina
+aplicarFiltros();
+
+
+
+
+
