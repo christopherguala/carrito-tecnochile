@@ -11,6 +11,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
     />
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
@@ -31,6 +35,7 @@
       crossorigin="anonymous"
       defer
     ></script>
+    
   </head>
   <body>
     <header class="tc-header">
@@ -80,14 +85,20 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-disabled="true"   href="./pages/cliente.html">Tus Compras</a>
+                <a class="nav-link" aria-disabled="true" href="./pages/cliente.html"
+                  >Tus Compras</a
+                >
               </li>
             </ul>
             <div class="tc-btn__icon-wrapper">
-              <button type="button" class="tc-btn__icon">
-                <span class="material-symbols-outlined"> shopping_cart </span>
+              <button
+                type="button"
+                class="tc-btn__icon"
+                aria-label="Abrir carrito"
+              >
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span id="cart-counter" class="tc-btn__icon--counter">0</span>
               </button>
-              <span id="cart-counter" class="tc-btn__icon--counter">xx</span>
             </div>
             <form class="d-flex" role="search">
               <input
@@ -102,6 +113,7 @@
         </div>
       </nav>
     </header>
+
     <section class="tc-carousel">
       <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-indicators tc-carousel__indicators">
@@ -182,6 +194,7 @@
         </button>
       </div>
     </section>
+
     <main class="tc-main container">
       <section class="tc-products row g-4">
         <header class="tc-products__header pt-5 d-flex m-0">
@@ -189,19 +202,22 @@
           <img class="col-2" src="./assets/svg/horizontalDivider.svg" alt="" />
         </header>
 
-        <article class="tc-productCard p-2">
+        <!-- Aquí agregué la clase "item" y clases internas necesarias -->
+        <article class="tc-productCard p-2 item">
           <div class="tc-productCard__img-wrapper p-2">
             <img
               src="./assets/productos/img10.svg"
               alt=""
-              class="tc-productCard__img"
+              class="tc-productCard__img itemImg"
             />
             <span class="tc-productCard__discount position-absolute top-0 end-0"
               >-33%</span
             >
           </div>
-          <div class="tc-productCard__body flex-column pt-0 px-4 pb-4">
-            <h2 class="tc-productCard__body--title mb-1">
+          <div
+            class="tc-productCard__body flex-column pt-0 px-4 pb-4"
+          >
+            <h2 class="tc-productCard__body--title mb-1 itemTitle">
               Microsoft 365 Family (12 meses)
             </h2>
             <div class="tc-productCard__subtitle-wrapper pt-1 pb-3">
@@ -209,7 +225,7 @@
               <p class="tc-productCard__subtitle">+100 Unid.</p>
             </div>
             <div class="tc-productCard__prices mb-4">
-              <span class="tc-productCard__price">$69.990</span>
+              <span class="tc-productCard__price itemPrice">$69.990</span>
               <span class="tc-productCard__price-old me-2">$104.990</span>
             </div>
             <div class="tc-btn-wrapper">
@@ -222,19 +238,23 @@
             </div>
           </div>
         </article>
-        <article class="tc-productCard p-2">
+
+        <!-- Otro producto -->
+        <article class="tc-productCard p-2 item">
           <div class="tc-productCard__img-wrapper p-2">
             <img
               src="./assets/productos/img11.svg"
               alt=""
-              class="tc-productCard__img"
+              class="tc-productCard__img itemImg"
             />
             <span class="tc-productCard__discount position-absolute top-0 end-0"
               >-12%</span
             >
           </div>
-          <div class="tc-productCard__body flex-column pt-0 px-4 pb-4">
-            <h2 class="tc-productCard__body--title mb-1">
+          <div
+            class="tc-productCard__body flex-column pt-0 px-4 pb-4"
+          >
+            <h2 class="tc-productCard__body--title mb-1 itemTitle">
               Assassins Creed Shadows
             </h2>
             <div class="tc-productCard__subtitle-wrapper pt-1 pb-3">
@@ -242,7 +262,7 @@
               <p class="tc-productCard__subtitle">+100 Unid.</p>
             </div>
             <div class="tc-productCard__prices mb-4">
-              <span class="tc-productCard__price">$87.990</span>
+              <span class="tc-productCard__price itemPrice">$87.990</span>
               <span class="tc-productCard__price-old me-2">$99.990</span>
             </div>
             <div class="tc-btn-wrapper">
@@ -255,19 +275,24 @@
             </div>
           </div>
         </article>
-        <article class="tc-productCard p-2">
+
+        <!-- Y los demás productos también con las clases requeridas -->
+
+        <article class="tc-productCard p-2 item">
           <div class="tc-productCard__img-wrapper p-2">
             <img
               src="./assets/productos/img10.svg"
               alt=""
-              class="tc-productCard__img"
+              class="tc-productCard__img itemImg"
             />
             <span class="tc-productCard__discount position-absolute top-0 end-0"
               >-12%</span
             >
           </div>
-          <div class="tc-productCard__body flex-column pt-0 px-4 pb-4">
-            <h2 class="tc-productCard__body--title mb-1">
+          <div
+            class="tc-productCard__body flex-column pt-0 px-4 pb-4"
+          >
+            <h2 class="tc-productCard__body--title mb-1 itemTitle">
               Assassins Creed Shadows
             </h2>
             <div class="tc-productCard__subtitle-wrapper pt-1 pb-3">
@@ -275,7 +300,7 @@
               <p class="tc-productCard__subtitle">+100 Unid.</p>
             </div>
             <div class="tc-productCard__prices mb-4">
-              <span class="tc-productCard__price">$87.990</span>
+              <span class="tc-productCard__price itemPrice">$87.990</span>
               <span class="tc-productCard__price-old me-2">$99.990</span>
             </div>
             <div class="tc-btn-wrapper">
@@ -288,19 +313,22 @@
             </div>
           </div>
         </article>
-        <article class="tc-productCard p-2">
+
+        <article class="tc-productCard p-2 item">
           <div class="tc-productCard__img-wrapper p-2">
             <img
               src="./assets/productos/img12.svg"
               alt=""
-              class="tc-productCard__img"
+              class="tc-productCard__img itemImg"
             />
             <span class="tc-productCard__discount position-absolute top-0 end-0"
               >-12%</span
             >
           </div>
-          <div class="tc-productCard__body flex-column pt-0 px-4 pb-4">
-            <h2 class="tc-productCard__body--title mb-1">
+          <div
+            class="tc-productCard__body flex-column pt-0 px-4 pb-4"
+          >
+            <h2 class="tc-productCard__body--title mb-1 itemTitle">
               Assassins Creed Shadows
             </h2>
             <div class="tc-productCard__subtitle-wrapper pt-1 pb-3">
@@ -308,7 +336,7 @@
               <p class="tc-productCard__subtitle">+100 Unid.</p>
             </div>
             <div class="tc-productCard__prices mb-4">
-              <span class="tc-productCard__price">$87.990</span>
+              <span class="tc-productCard__price itemPrice">$87.990</span>
               <span class="tc-productCard__price-old me-2">$99.990</span>
             </div>
             <div class="tc-btn-wrapper">
@@ -322,320 +350,180 @@
           </div>
         </article>
       </section>
-      <section class="tc-offers p-4">
-        <div class="tc-offers__header row">
-          <h2 class="tc-offers__title col-4">Ofertas y lanzamientos</h2>
-          <img class="col-2" src="./assets/svg/horizontalDivider.svg" alt="" />
-        </div>
-        <div class="container row">
-          <div class="row">
-            <img
-              src="./assets/productos/ofertas/ofertas2.svg"
-              alt=""
-              class="col col-md-2 col-sm-2"
-            />
-
-            <img
-              src="./assets/productos/ofertas/ofertas1.svg"
-              alt=""
-              class="col col-md-2 col-sm-2"
-            />
-            <img
-              src="./assets/productos/ofertas/ofertas3.svg"
-              alt=""
-              class="col"
-            />
-          </div>
-          <div class="row pt-2">
-            <img
-              src="./assets/productos/ofertas/ofertas4.svg"
-              alt=""
-              class="col col-sm-8"
-            />
-
-            <img
-              src="./assets/productos/ofertas/ofertas5.svg"
-              alt=""
-              class="col col-sm-2"
-            />
-            <img
-              src="./assets/productos/ofertas/ofertas6.svg"
-              alt=""
-              class="col col-sm-2"
-            />
-          </div>
-        </div>
-        <div class="row"></div>
-      </section>
     </main>
-    <footer class="tc-footer border-top">
-      <div class="container tc-footer__content py-5">
-        <div class="row justify-content-between mx-0">
-          <!-- Logo mobile -->
-          <div class="col-12 d-lg-none text-center mb-4">
-            <a class="navbar-brand" href="/" aria-label="Logo TechnoChile">
-              <img
-                src="./assets/svg/favico.svg"
-                alt="pcfactory.cl"
-                width="50"
-                height=""
-              />
-            </a>
-          </div>
 
-          <div class="col-12 col-xl-4 px-0 px-lg-2 mb-4 mb-xl-0">
-            <div class="row">
-              <div class="col-12 col-xl-11">
-                <!-- Logo desktop -->
-                <a
-                  class="navbar-brand mb-4 d-none d-lg-block"
-                  href="/"
-                  aria-label="Logo TechnoChile"
-                >
-                  <img
-                    src="./assets/svg/Logo-color.svg"
-                    alt="pcfactory.cl"
-                    width="186"
-                    height="42"
-                  />
-                </a>
-                <!-- Botón Tiendas -->
-                <div class="row mx-0">
-                  <div class="col-12 px-0 w-100 tc-btn-wrapper">
-                    <button href="/tiendas" class="tc-btn__secondary mb-3">
-                      Encuentra tu tienda
-                    </button>
-                  </div>
-                </div>
-                <!-- Línea de ventas -->
-                <div class="tc-ventas mb-3 row">
-                  <p class="font-weight-bold mb-1">
-                    <span class="tc-icon tc-icon-user mr-2"></span>
-                    Ventas
-                  </p>
-                  <p class="mb-2">
-                    <a
-                      id="tc-tel-ventas"
-                      class="tc-footer__link"
-                      href="tel:+56225600040"
-                      >+56 2 2560 0040</a
-                    >
-                  </p>
-                </div>
-                <!-- Suscríbete -->
-                <div class="row align-items-center tc-susbribe mb-3">
-                  <div class="col-6">
-                    <p class="mb-2">Obtén ofertas y promociones exclusivas.</p>
-                  </div>
-                  <div class="col-6">
-                    <a
-                      href="/suscribete"
-                      class="tc-btn__outlined tc-footer__link"
-                      >Suscríbete</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- Redes sociales desktop -->
-              <div class="col-12 col-lg-9 mx-auto my-3 d-none d-xl-block">
-                <div class="row align-items-center">
-                  <div class="col-2 col-lg-3 px-0">
-                    <p class="mb-0 tc-footer__menu-title">Síguenos</p>
-                  </div>
-                  <div class="col-10 col-lg-9 d-lg-flex">
-                    <ul class="tc-footer__socials">
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          href="https://www.instagram.com/pcfactorycl/"
-                          target="_blank"
-                          aria-label="Instagram"
-                          ><span class="tc-icon tc-icon-instagram"></span
-                        ></a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          href="https://www.facebook.com/PCFactoryCL"
-                          target="_blank"
-                          aria-label="Facebook"
-                          ><span class="tc-icon tc-icon-facebook"></span
-                        ></a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          href="https://www.youtube.com/user/mediospcfactory"
-                          target="_blank"
-                          aria-label="Youtube"
-                          ><span class="tc-icon tc-icon-youtube"></span
-                        ></a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          href="https://twitter.com/PCFactoryCL"
-                          target="_blank"
-                          aria-label="Twitter"
-                          ><span class="tc-icon tc-icon-x-twitter"></span
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Columna derecha: Menús de compañía -->
-          <div class="col-12 col-xl-8 px-0">
-            <div class="row tc-footer-menus">
-              <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-                <h6 class="tc-footer__menu-title">Mundo TechnoChile</h6>
-                <ul class="list-unstyled tc-footer-menu">
-                  <li>
-                    <a href="#" class="tc-footer__link">Gamer Zone</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Computadores</a>
-                  </li>
-                  <li><a href="#" class="tc-footer__link">Smartphones</a></li>
-                  <li>
-                    <a href="#" class="tc-footer__link">SmartTV & Audio</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-                <h6 class="tc-footer__menu-title">¿Necesitas Ayuda?</h6>
-                <ul class="list-unstyled tc-footer-menu">
-                  <li>
-                    <a href="#" class="tc-footer__link">Centro de ayuda</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link"
-                      >Estado de mi despacho</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Revisa tu boleta</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Orden de servicio</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Preguntas frecuentes</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link"
-                      >Términos y condiciones</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-                <h6 class="tc-footer__menu-title">Acerca de pc Factory</h6>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="tc-footer__link">Quiénes somos</a></li>
-                  <li>
-                    <a href="#" class="tc-footer__link"
-                      >Beneficios de comprar con nosotros</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link"
-                      >Privacidad y seguridad</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Sustentabilidad</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Bases y Promociones</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-12 col-lg-3">
-                <h6 class="tc-footer__menu-title">Servicios</h6>
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="#" class="tc-footer__link"
-                      >Consejos y tips tecnológicos</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Asesórate Online</a>
-                  </li>
-                  <li><a href="#" class="tc-footer__link">Arma tu PC</a></li>
-                  <li><a href="#" class="tc-footer__link">Puntos verdes</a></li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Enter pro</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Ventas Empresas</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- Redes sociales mobile -->
-            <div class="row d-block d-xl-none mt-4">
-              <div class="col-2">
-                <p class="mb-0 tc-footer__menu-title">Síguenos</p>
-              </div>
-              <div class="col-10">
-                <ul class="tc-footer__socials">
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="https://www.instagram.com/pcfactorycl/"
-                      target="_blank"
-                      aria-label="Instagram"
-                      ><i class="fa-brands fa-instagram"></i
-                    ></a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="https://www.facebook.com/PCFactoryCL"
-                      target="_blank"
-                      aria-label="Facebook"
-                      ><i class="fa-brands fa-facebook"></i
-                    ></a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="https://www.youtube.com/user/mediospcfactory"
-                      target="_blank"
-                      aria-label="Youtube"
-                      ><i class="fa-brands fa-youtube"></i
-                    ></a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="https://twitter.com/PCFactoryCL"
-                      target="_blank"
-                      aria-label="Twitter"
-                      ><i class="fa-brands fa-x-twitter"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Footer minimal -->
+    <section class="tc-offers p-4">
+      <div class="tc-offers__header row">
+        <h2 class="tc-offers__title col-4">Ofertas y lanzamientos</h2>
+        <img class="col-2" src="./assets/svg/horizontalDivider.svg" alt="" />
+      </div>
+      <div class="container row">
         <div class="row">
-          <div class="col-12">
-            <div class="tc-footer-minimal text-center py-3">
-              <p class="mb-0 small">
-                Copyright © 2025 technochile.cl. Todos los derechos reservados.
-                Prohibida su copia parcial o total bajo la ley nacional e
-                internacional.
-              </p>
+          <img
+            src="./assets/productos/ofertas/ofertas2.svg"
+            alt=""
+            class="col col-md-2 col-sm-2"
+          />
+
+          <img
+            src="./assets/productos/ofertas/ofertas1.svg"
+            alt=""
+            class="col col-md-2 col-sm-2"
+          />
+          <img src="./assets/productos/ofertas/ofertas3.svg" alt="" class="col" />
+        </div>
+        <div class="row pt-2">
+          <img
+            src="./assets/productos/ofertas/ofertas4.svg"
+            alt=""
+            class="col col-sm-8"
+          />
+
+          <img
+            src="./assets/productos/ofertas/ofertas5.svg"
+            alt=""
+            class="col col-sm-2"
+          />
+          <img
+            src="./assets/productos/ofertas/ofertas6.svg"
+            alt=""
+            class="col col-sm-2"
+          />
+        </div>
+      </div>
+      <div class="row"></div>
+    </section>
+
+ <footer class="tc-footer border-top">
+  <div class="container tc-footer__content py-5">
+    <div class="row justify-content-between mx-0">
+      <div class="col-12 d-lg-none text-center mb-4">
+        <a class="navbar-brand" href="/" aria-label="Logo TechnoChile">
+          <img src="../assets/svg/favico.svg" alt="pcfactory.cl" width="50" />
+        </a>
+      </div>
+      <div class="col-12 col-xl-4 px-0 px-lg-2 mb-4 mb-xl-0">
+        <div class="row">
+          <div class="col-12 col-xl-11">
+            <a class="navbar-brand mb-4 d-none d-lg-block" href="/" aria-label="Logo TechnoChile">
+              <img src="../assets/svg/Logo-color.svg" alt="pcfactory.cl" width="186" height="42" />
+            </a>
+            <div class="row mx-0">
+              <div class="col-12 px-0 w-100 tc-btn-wrapper">
+                <button href="/tiendas" class="tc-btn__secondary mb-3">Encuentra tu tienda</button>
+              </div>
+            </div>
+            <div class="tc-ventas mb-3 row">
+              <p class="font-weight-bold mb-1"><span class="tc-icon tc-icon-user mr-2"></span>Ventas</p>
+              <p class="mb-2"><a id="tc-tel-ventas" class="tc-footer__link" href="tel:+56225600040">+56 2 2560 0040</a></p>
+            </div>
+            <div class="row align-items-center tc-susbribe mb-3">
+              <div class="col-6"><p class="mb-2">Obtén ofertas y promociones exclusivas.</p></div>
+              <div class="col-6">
+                <a href="/suscribete" class="tc-btn__outlined tc-footer__link">Suscríbete</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-9 mx-auto my-3 d-none d-xl-block">
+            <div class="row align-items-center">
+              <div class="col-2 col-lg-3 px-0"><p class="mb-0 tc-footer__menu-title">Síguenos</p></div>
+              <div class="col-10 col-lg-9 d-lg-flex">
+                <ul class="tc-footer__socials">
+                  <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/pcfactorycl/" target="_blank" aria-label="Instagram"><span class="tc-icon tc-icon-instagram"></span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/PCFactoryCL" target="_blank" aria-label="Facebook"><span class="tc-icon tc-icon-facebook"></span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/user/mediospcfactory" target="_blank" aria-label="Youtube"><span class="tc-icon tc-icon-youtube"></span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://twitter.com/PCFactoryCL" target="_blank" aria-label="Twitter"><span class="tc-icon tc-icon-x-twitter"></span></a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </footer>
+      <div class="col-12 col-xl-8 px-0">
+        <div class="row tc-footer-menus">
+          <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+            <h6 class="tc-footer__menu-title">Mundo TechnoChile</h6>
+            <ul class="list-unstyled tc-footer-menu">
+              <li><a href="#" class="tc-footer__link">Gamer Zone</a></li>
+              <li><a href="#" class="tc-footer__link">Computadores</a></li>
+              <li><a href="#" class="tc-footer__link">Smartphones</a></li>
+              <li><a href="#" class="tc-footer__link">SmartTV & Audio</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+            <h6 class="tc-footer__menu-title">¿Necesitas Ayuda?</h6>
+            <ul class="list-unstyled tc-footer-menu">
+              <li><a href="#" class="tc-footer__link">Centro de ayuda</a></li>
+              <li><a href="#" class="tc-footer__link">Estado de mi despacho</a></li>
+              <li><a href="#" class="tc-footer__link">Revisa tu boleta</a></li>
+              <li><a href="#" class="tc-footer__link">Orden de servicio</a></li>
+              <li><a href="#" class="tc-footer__link">Preguntas frecuentes</a></li>
+              <li><a href="#" class="tc-footer__link">Términos y condiciones</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+            <h6 class="tc-footer__menu-title">Acerca de pc Factory</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="tc-footer__link">Quiénes somos</a></li>
+              <li><a href="#" class="tc-footer__link">Beneficios de comprar con nosotros</a></li>
+              <li><a href="#" class="tc-footer__link">Privacidad y seguridad</a></li>
+              <li><a href="#" class="tc-footer__link">Sustentabilidad</a></li>
+              <li><a href="#" class="tc-footer__link">Bases y Promociones</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3">
+            <h6 class="tc-footer__menu-title">Servicios</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="tc-footer__link">Consejos y tips tecnológicos</a></li>
+              <li><a href="#" class="tc-footer__link">Asesórate Online</a></li>
+              <li><a href="#" class="tc-footer__link">Arma tu PC</a></li>
+              <li><a href="#" class="tc-footer__link">Puntos verdes</a></li>
+              <li><a href="#" class="tc-footer__link">Enter pro</a></li>
+              <li><a href="#" class="tc-footer__link">Ventas Empresas</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row d-block d-xl-none mt-4">
+          <div class="col-2"><p class="mb-0 tc-footer__menu-title">Síguenos</p></div>
+          <div class="col-10">
+            <ul class="tc-footer__socials">
+              <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/pcfactorycl/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+              <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/PCFactoryCL" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
+              <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/user/mediospcfactory" target="_blank" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a></li>
+              <li class="nav-item"><a class="nav-link" href="https://twitter.com/PCFactoryCL" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="tc-footer-minimal text-center py-3">
+          <p class="mb-0 small">
+            Copyright © 2025 technochile.cl. Todos los derechos reservados.
+            Prohibida su copia parcial o total bajo la ley nacional e internacional.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- Modal Carrito -->
+<div id="cartOverlay" class="cartOverlay" hidden>
+  <div id="cartModal" class="cartModal" role="dialog" aria-label="Carrito de compras">
+    <div class="cartModalContent">
+      <button id="closeCartBtn" class="cartModalClose" aria-label="Cerrar carrito">X</button>
+      <h2>Tu Carrito</h2>
+      <div class="cartItems"></div>
+      <div class="cartTotal">
+        <strong>Total:</strong> <span class="cartTotalPrice">$0,00</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <script src="./js/carrito.js" defer></script>
   </body>
 </html>
