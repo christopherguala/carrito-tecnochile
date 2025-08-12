@@ -10,19 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let cart = [];
   const productosOriginales = [...productos]; 
 
-  function asignarListenersAgregarCarrito() {// Agregar productos con botones .tc-btn__primary se pasa a funcion para usarla 2 veces, una al principio y cada ves despues de pagar
-  const addToCartButtons = document.querySelectorAll('.tc-btn__primary');
-  addToCartButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const itemCard = btn.closest('.tc-productCard');
-      const title = itemCard.querySelector('.tc-productCard__body--title').innerText.trim();
-      const priceText = itemCard.querySelector('.tc-productCard__price').innerText.trim();
-      const imgSrc = itemCard.querySelector('img.tc-productCard__img').src;
-
-      addItemToCart(title, priceText, imgSrc);
-    });
-  });
-}
+  
 
   // Abrir carrito: mostrar overlay y modal
   openCartBtn.addEventListener('click', () => {
@@ -52,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   
-    asignarListenersAgregarCarrito();
+    
 
   function addItemToCart(title, price, imgSrc) { //se modifica la funcion para que no se pueda agregar mas de lo que haya en stock
   const producto = productos.find(p => p.titulo === title);
@@ -73,7 +61,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   renderCart();
+  
 }
+
+
+
+const productGallery = document.getElementById('product-gallery');
+
+if (productGallery) {
+  productGallery.addEventListener('click', (e) => {
+    if (e.target.closest('.tc-btn__primary')) {
+      const btn = e.target.closest('.tc-btn__primary');
+      const itemCard = btn.closest('.tc-productCard');
+      const title = itemCard.querySelector('.tc-productCard__body--title').innerText.trim();
+      const priceText = itemCard.querySelector('.tc-productCard__price').innerText.trim();
+      const imgSrc = itemCard.querySelector('img.tc-productCard__img').src;
+
+      addItemToCart(title, priceText, imgSrc);
+    }
+  });
+}
+
+
 
   function renderCart() {
     cartItemsContainer.innerHTML = '';
@@ -177,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Re-renderizar productos (cards)
         aplicarFiltros(); // esta función ya renderiza con el stock actualizado
-        asignarListenersAgregarCarrito();
+        
       });
 
       const clearBtn = document.createElement('button');  // boton para eliminar todo
@@ -209,3 +218,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inicializar
   renderCart();
 });
+
