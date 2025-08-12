@@ -6,7 +6,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/51462/1_200.jpg?t=1754498935',
     descuento: '-41%',
     idProducto: 'ID 54435',
-    stock: '+100 Unid.',
+    stock: 5,
     precio: '$619.990',
     precioAntiguo: '$1.049.990',
     sb: true,
@@ -21,7 +21,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/53757/1_200.jpg?t=1754498935',
     descuento: '-22%',
     idProducto: 'ID 24435',
-    stock: '+100 Unid.',
+    stock: 7,
     precio: '$717.790',
     precioAntiguo: '$919.990',
     sb: false,
@@ -36,7 +36,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/48743/1_200.jpg?t=1754498935',
     descuento: '-35%',
     idProducto: 'ID 34435',
-    stock: '+100 Unid.',
+    stock: 4,
     precio: '$368.590',
     precioAntiguo: '$569.990',
     sb: false,
@@ -51,7 +51,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/53822/1_200.jpg?t=1754514227',
     descuento: '-18%',
     idProducto: 'ID 52335',
-    stock: '+100 Unid.',
+    stock: 1,
     precio: '$469.990',
     precioAntiguo: '$569.990',
     sb: true,
@@ -66,7 +66,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/54048/1_200.jpg?t=1754514227',
     descuento: '-11%',
     idProducto: 'ID 52334',
-    stock: '+100 Unid.',
+    stock: 0,
     precio: '$1.241.590',
     precioAntiguo: '$1.399.990',
     sb: false,
@@ -81,7 +81,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/53446/1_200.jpg?t=1754514601',
     descuento: '-13%',
     idProducto: 'ID 42334',
-    stock: '+100 Unid.',
+    stock: 10,
     precio: '$649.890',
     precioAntiguo: '$749.990',
     sb: true,
@@ -96,7 +96,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/47902/1_200.jpg?t=1754514601',
     descuento: '-29%',
     idProducto: 'ID 48334',
-    stock: '+100 Unid.',
+    stock: 10,
     precio: '$8.490',
     precioAntiguo: '$11.990',
     sb: true,
@@ -111,7 +111,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/36215/1_200.jpg?t=1754514601',
     descuento: '-18%',
     idProducto: 'ID 22334',
-    stock: '+100 Unid.',
+    stock: 10,
     precio: '$12.290',
     precioAntiguo: '$14.990',
     sb: true,
@@ -126,7 +126,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/46703/1_200.jpg?t=1754514601',
     descuento: '-10%',
     idProducto: 'ID 42334',
-    stock: '+100 Unid.',
+    stock: 10,
     precio: '$11.690',
     precioAntiguo: '$12.990',
     sb: true,
@@ -141,7 +141,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/53676/1_200.jpg?t=1754515130',
     descuento: '-14%',
     idProducto: 'ID 42334',
-    stock: '+100 Unid.',
+    stock: 10,
     precio: '$274.990',
     precioAntiguo: '$319.990',
     sb: true,
@@ -156,7 +156,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/53814/1_200.jpg?t=1754515130',
     descuento: '-19%',
     idProducto: 'ID 42334',
-    stock: '+100 Unid.',
+    stock: 10,
     precio: '$389.990',
     precioAntiguo: '$479.990',
     sb: true,
@@ -171,7 +171,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/53113/1_200.jpg?t=1754515394',
     descuento: '-10%',
     idProducto: 'ID 20334',
-    stock: '+100 Unid.',
+    stock: 10,
     precio: '$836.990',
     precioAntiguo: '$929.990',
     sb: true,
@@ -186,7 +186,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/50846/1_200.jpg?t=1754515581',
     descuento: '-10%',
     idProducto: 'ID 20334',
-    stock: '+100 Unid.',
+    stock: 10,
     precio: '$3.239.990',
     precioAntiguo: '$3.599.990',
     sb: true,
@@ -201,7 +201,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/54142/1_200.jpg?t=1754515760',
     descuento: '-17%',
     idProducto: 'ID 20334',
-    stock: '+100 Unid.',
+    stock: 10,
     precio: '$54.090',
     precioAntiguo: '$64.990',
     sb: true,
@@ -216,7 +216,7 @@ const productos = [
     imagen: 'https://assets.pcfactory.cl/public/foto/54145/1_200.jpg?t=1754515760',
     descuento: '-10%',
     idProducto: 'ID 20334',
-    stock: '+100 Unid.',
+    stock: 10,
     precio: '$26.990',
     precioAntiguo: '$29.990',
     sb: true,
@@ -247,7 +247,7 @@ function crearCard(producto) { // crea la card en html con los valores de los ob
           <h2 class="tc-productCard__body--title mb-1">${producto.titulo}</h2>
           <div class="tc-productCard__subtitle-wrapper pt-1 pb-3 d-flex justify-content-between">
             <p class="tc-productCard__subtitle">${producto.idProducto} •</p>
-            <p class="tc-productCard__subtitle">${producto.stock}</p>
+            <p class="tc-productCard__subtitle">${producto.stock} Unid</p>
           </div>
           <div class="tc-productCard__prices mb-4">
             <span class="tc-productCard__price">${producto.precio}</span>
@@ -255,6 +255,66 @@ function crearCard(producto) { // crea la card en html con los valores de los ob
           </div>
           <div class="tc-btn-wrapper mt-auto">
             <button class="tc-btn__primary w-100">
+              <span class="material-symbols-outlined p-1">add_shopping_cart</span>
+              Agregar al carro
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  `;
+}
+
+function crearCard1(producto) { // crea la card en html con los valores de los objetos
+  return `
+    <div class="col-12 col-sm-6 col-lg-3 d-flex">
+      <article class="tc-productCard p-2 w-100">
+        <div class="tc-productCard__img-wrapper p-2">
+          <img src="${producto.imagen}" alt="${producto.titulo}" class="tc-productCard__img" />
+          <span class="tc-productCard__discount position-absolute top-0 end-0">${producto.descuento}</span>
+        </div>
+        <div class="tc-productCard__body flex-column pt-0 px-4 pb-4 d-flex">
+          <h2 class="tc-productCard__body--title mb-1">${producto.titulo}</h2>
+          <div class="tc-productCard__subtitle-wrapper pt-1 pb-3 d-flex justify-content-between">
+            <p class="tc-productCard__subtitle">${producto.idProducto} •</p>
+            <p class="tc-productCard__subtitle">${producto.stock} Ultima!!</p>
+          </div>
+          <div class="tc-productCard__prices mb-4">
+            <span class="tc-productCard__price">${producto.precio}</span>
+            <span class="tc-productCard__price-old me-2 text-muted text-decoration-line-through">${producto.precioAntiguo}</span>
+          </div>
+          <div class="tc-btn-wrapper mt-auto">
+            <button class="tc-btn__primary w-100">
+              <span class="material-symbols-outlined p-1">add_shopping_cart</span>
+              Agregar al carro
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  `;
+}
+
+function crearCard0(producto) { // crea la card en html con los valores de los objetos
+  return `
+    <div class="col-12 col-sm-6 col-lg-3 d-flex">
+      <article class="tc-productCard p-2 w-100">
+        <div class="tc-productCard__img-wrapper p-2">
+          <img src="${producto.imagen}" alt="${producto.titulo}" class="tc-productCard__img" />
+          <span class="tc-productCard__discount position-absolute top-0 end-0">${producto.descuento}</span>
+        </div>
+        <div class="tc-productCard__body flex-column pt-0 px-4 pb-4 d-flex">
+          <h2 class="tc-productCard__body--title mb-1">${producto.titulo}</h2>
+          <div class="tc-productCard__subtitle-wrapper pt-1 pb-3 d-flex justify-content-between">
+            <p class="tc-productCard__subtitle">${producto.idProducto} •</p>
+            <p class="tc-productCard__subtitle">${producto.stock} Agotado:C</p>
+          </div>
+          <div class="tc-productCard__prices mb-4">
+            <span class="tc-productCard__price">${producto.precio}</span>
+            <span class="tc-productCard__price-old me-2 text-muted text-decoration-line-through">${producto.precioAntiguo}</span>
+          </div>
+          <div class="tc-btn-wrapper mt-auto">
+            <button class="tc-btn__primary w-100" disabled>
               <span class="material-symbols-outlined p-1">add_shopping_cart</span>
               Agregar al carro
             </button>
@@ -313,7 +373,7 @@ function aplicarFiltros() { // aqui guardaran los filtros que se seleccionan
 
   
   const primerLote = productosFiltrados.slice(0, porCarga);// muestra los primeros productos filtrados
-  primerLote.forEach(p => container.insertAdjacentHTML('beforeend', crearCard(p))); //crea la card
+  primerLote.forEach(p => container.insertAdjacentHTML('beforeend', crearCardSegunStock(p))); //crea la card
   mostrados = primerLote.length;
 
   // muestra u oculta el botón si no hay mas productos en el array de los filtrados
@@ -323,11 +383,20 @@ function aplicarFiltros() { // aqui guardaran los filtros que se seleccionan
     btn.style.display = 'none';
   }
 }
+function crearCardSegunStock(producto) {
+  if (producto.stock === 0) {
+    return crearCard0(producto); // sin stock
+  } else if (producto.stock === 1) {
+    return crearCard1(producto); // solo una unidad
+  } else {
+    return crearCard(producto); // stock normal
+  }
+}
 
 // funcion para el boton, al hacer click llamaa lso siguientes productos hasta completar 12 o que se acaben
 btn.addEventListener('click', () => {
   const siguienteLote = productosFiltrados.slice(mostrados, mostrados + porCarga);
-  siguienteLote.forEach(p => container.insertAdjacentHTML('beforeend', crearCard(p)));
+  siguienteLote.forEach(p => container.insertAdjacentHTML('beforeend', crearCardSegunStock(p)));
   mostrados += siguienteLote.length;
 
   if (mostrados >= productosFiltrados.length) {

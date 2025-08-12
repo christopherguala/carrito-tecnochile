@@ -8,6 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartCounter = document.getElementById('cart-counter');
 
   let cart = [];
+  const productosOriginales = [...productos]; 
+
+  function asignarListenersAgregarCarrito() {// Agregar productos con botones .tc-btn__primary se pasa a funcion para usarla 2 veces, una al principio y cada ves despues de pagar
+  const addToCartButtons = document.querySelectorAll('.tc-btn__primary');
+  addToCartButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const itemCard = btn.closest('.tc-productCard');
+      const title = itemCard.querySelector('.tc-productCard__body--title').innerText.trim();
+      const priceText = itemCard.querySelector('.tc-productCard__price').innerText.trim();
+      const imgSrc = itemCard.querySelector('img.tc-productCard__img').src;
+
+      addItemToCart(title, priceText, imgSrc);
+    });
+  });
+}
 
   // Abrir carrito: mostrar overlay y modal
   openCartBtn.addEventListener('click', () => {
@@ -36,29 +51,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Agregar productos con botones .tc-btn__primary
-  const addToCartButtons = document.querySelectorAll('.tc-btn__primary');
-  addToCartButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const itemCard = btn.closest('.tc-productCard');
-      const title = itemCard.querySelector('.tc-productCard__body--title').innerText.trim();
-      const priceText = itemCard.querySelector('.tc-productCard__price').innerText.trim();
-      const imgSrc = itemCard.querySelector('img.tc-productCard__img').src;
+  
+    asignarListenersAgregarCarrito();
 
-      addItemToCart(title, priceText, imgSrc);
-      // No abrir carrito automáticamente, sólo actualizar contador
-    });
-  });
+  function addItemToCart(title, price, imgSrc) { //se modifica la funcion para que no se pueda agregar mas de lo que haya en stock
+  const producto = productos.find(p => p.titulo === title);
+  if (!producto) return;
 
-  function addItemToCart(title, price, imgSrc) {
-    const existingItem = cart.find((i) => i.title === title);
-    if (existingItem) {
-      existingItem.quantity++;
-    } else {
-      cart.push({ title, price, imgSrc, quantity: 1 });
-    }
-    renderCart();
+  const existingItem = cart.find(i => i.title === title);
+  const currentQtyInCart = existingItem ? existingItem.quantity : 0;
+
+  if (currentQtyInCart >= producto.stock) {
+    alert('No puedes agregar más unidades de este producto. Stock limitado.');
+    return;
   }
+
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.push({ id: producto.id, title, price, imgSrc, quantity: 1 });
+  }
+
+  renderCart();
+}
 
   function renderCart() {
     cartItemsContainer.innerHTML = '';
@@ -105,13 +120,20 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartCounter();
   }
 
-  function updateQuantity(title, newQty) {
-    const item = cart.find((i) => i.title === title);
-    if (item) {
-      item.quantity = newQty;
-      renderCart();
-    }
+  function updateQuantity(title, newQty) { // se modifica para no superar el stock
+  const producto = productos.find(p => p.titulo === title);
+  const item = cart.find((i) => i.title === title);
+
+  if (!producto || !item) return;
+
+  if (newQty > producto.stock) {
+    alert('No puedes agregar más unidades de este producto. Stock limitado.');
+    return;
   }
+
+  item.quantity = newQty;
+  renderCart();
+}
 
   function removeItem(title) {
     cart = cart.filter((i) => i.title !== title);
@@ -141,8 +163,21 @@ document.addEventListener('DOMContentLoaded', () => {
           alert('El carrito está vacío');
           return;
         }
+
+        // Actualiza el stock de productos
+        cart.forEach(item => {
+          const producto = productos.find(p => p.title === item.title || p.titulo === item.title);
+          if (producto) {
+            producto.stock -= item.quantity;
+          }
+        });
+
         alert('¡Gracias por su compra!');
         clearCart();
+
+        // Re-renderizar productos (cards)
+        aplicarFiltros(); // esta función ya renderiza con el stock actualizado
+        asignarListenersAgregarCarrito();
       });
 
       const clearBtn = document.createElement('button');  // boton para eliminar todo
