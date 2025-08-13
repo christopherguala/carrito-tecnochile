@@ -1,607 +1,477 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechnoChile</title>
-    <link rel="icon" href="../assets/svg/favico.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/products.css" />
-    <link rel="stylesheet" href="../css/main.css">
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechnoChile</title>
+  <link rel="icon" href="../assets/svg/favico.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/products.css" />
+  <link rel="stylesheet" href="../css/main.css">
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
-    
-    <script src="../js/bootstrap.bundle.min.js" defer></script>
-    <script src="../js/products.js" defer></script>
-    <script src="../js/carrito.js" defer></script>
-    <script
-      src="https://kit.fontawesome.com/09bf171868.js"
-      crossorigin="anonymous"
-      defer
-    ></script>
-  </head>
-  <body class="tcp-body">
-    <header class="tc-header tcp-header">
-      <nav
-        class="tc-navbar navbar navbar-expand-lg bg-dark border-bottom border-body"
-        data-bs-theme="dark"
-      >
-        <div class="container-fluid gap-2">
-          <a class="navbar-brand" href="../index.html"
-            ><img src="../assets/svg/Logo-color.svg" alt="TechnoChile"
-          /></a>
-          <button
-            class="navbar-toggler tc-navbar__toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  href="../index.html"
-                  >Inicio</a
-                >
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Categorías
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="./productos.html">Computadores</a></li>
-                  <li><a class="dropdown-item" href="./productos.html">Smartphones</a></li>
-                  <li><a class="dropdown-item" href="./productos.html">SmartTV & Audio</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-disabled="true"   href="./cliente.html">Tus Compras</a>
-              </li>
-            </ul>
-            <div class="tc-btn__icon-wrapper">
-              <button type="button" class="tc-btn__icon">
-                <span class="material-symbols-outlined"> shopping_cart </span>
-              </button>
-              <span id="cart-counter" class="tc-btn__icon--counter">xx</span>
-            </div>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Busca aquí..."
-                aria-label="Buscador"
-              />
-              <button class="tc-btn__outlined" type="submit">Buscar</button>
-            </form>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script src="../js/bootstrap.bundle.min.js" defer></script>
+  <script src="../js/products.js" defer></script>
+  <script src="../js/carrito.js" defer></script>
+  <script src="https://kit.fontawesome.com/09bf171868.js" crossorigin="anonymous" defer></script>
+</head>
+
+<body class="tcp-body">
+  <header class="tc-header tcp-header">
+    <nav class="tc-navbar navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container-fluid gap-2">
+        <a class="navbar-brand" href="../index.html"><img src="../assets/svg/Logo-color.svg" alt="TechnoChile" /></a>
+        <button class="navbar-toggler tc-navbar__toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categorías
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./productos.html">Computadores</a></li>
+                <li><a class="dropdown-item" href="./productos.html">Smartphones</a></li>
+                <li><a class="dropdown-item" href="./productos.html">SmartTV & Audio</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-disabled="true" href="./cliente.html">Tus Compras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./admin.html">Admin</a>
+            </li>
+          </ul>
+          <div class="tc-btn__icon-wrapper">
+            <button type="button" class="tc-btn__icon">
+              <span class="material-symbols-outlined"> shopping_cart </span>
+            </button>
+            <span id="cart-counter" class="tc-btn__icon--counter">xx</span>
           </div>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Busca aquí..." aria-label="Buscador" />
+            <button class="tc-btn__outlined" type="submit">Buscar</button>
+          </form>
         </div>
-      </nav>
-    </header>
-
-    <main class="tc-main tcp-main">
-      <div class="tcp-route__container">
-        <p>
-          <a href="#" class="tcp-route--gray">Home</a>
-          <img
-            src="../assets/svg/icon-chevron-down.svg.svg"
-            alt="srArrow"
-            class="tcp-srArrow"
-          />
-          <a href="#" class="tcp-route--active">Computadores y tablets</a>
-        </p>
       </div>
-      <div class="tcp-sectionImage"></div>
-      <div class="tcp-productS">
-        <div class="tcp-productS__aside">
-          <div class="tcp-productS__aside__filter">
-            <div class="accordion tcp__filter__accordion" id="accordionExample">
-              <div class="accordion-item tcp-accordion__title">
-                <h2 class="accordion-header">
-                  <p class="tcp-accordion__title--font">Computadores y tablets</p>
-                </h2>
-              </div>
-              <div class="accordion-item tcp-accordion__item">
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button tcp-accordion__item"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
-                    Tiendas
-                  </button>
-                </h2>
-                <div
-                  id="collapseOne"
-                  class="accordion-collapse collapse show" 
-                  data-bs-parent="#accordionExample"
-                >
-                  <div class="accordion-body">
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="ec" id="estacionCentral">
-                      <label class="form-check-label" for="estacionCentral">
-                        Estacion central
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="sb" id="sanBernardo">
-                      <label class="form-check-label" for="sanBernardo">
-                        San Bernardo
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="bu" id="buin">
-                      <label class="form-check-label" for="buin">
-                        Buin
-                      </label>
-                    </div>
+    </nav>
+  </header>
+
+  <main class="tc-main tcp-main">
+    <div class="tcp-route__container">
+      <p>
+        <a href="#" class="tcp-route--gray">Home</a>
+        <img src="../assets/svg/icon-chevron-down.svg.svg" alt="srArrow" class="tcp-srArrow" />
+        <a href="#" class="tcp-route--active">Computadores y tablets</a>
+      </p>
+    </div>
+    <div class="tcp-sectionImage"></div>
+    <div class="tcp-productS">
+      <div class="tcp-productS__aside">
+        <div class="tcp-productS__aside__filter">
+          <div class="accordion tcp__filter__accordion" id="accordionExample">
+            <div class="accordion-item tcp-accordion__title">
+              <h2 class="accordion-header">
+                <p class="tcp-accordion__title--font">Computadores y tablets</p>
+              </h2>
+            </div>
+            <div class="accordion-item tcp-accordion__item">
+              <h2 class="accordion-header">
+                <button class="accordion-button tcp-accordion__item" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Tiendas
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="ec" id="estacionCentral">
+                    <label class="form-check-label" for="estacionCentral">
+                      Estacion central
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="sb" id="sanBernardo">
+                    <label class="form-check-label" for="sanBernardo">
+                      San Bernardo
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="bu" id="buin">
+                    <label class="form-check-label" for="buin">
+                      Buin
+                    </label>
                   </div>
                 </div>
               </div>
-              <div class="accordion-item tcp-accordion__item">
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button collapsed tcp-accordion__item"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
-                  >
-                    Marcas
-                  </button>
-                </h2>
-                <div
-                  id="collapseTwo"
-                  class="accordion-collapse collapse"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div class="accordion-body">
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="asus" id="asus">
-                      <label class="form-check-label" for="asus">
-                        Asus
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="dell" id="dell">
-                      <label class="form-check-label" for="dell">
-                        Dell
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="hp" id="HP">
-                      <label class="form-check-label" for="hp">
-                        HP
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="lenovo" id="lenovo">
-                      <label class="form-check-label" for="lenovo">
-                        Lenovo
-                      </label>
-                    </div>
+            </div>
+            <div class="accordion-item tcp-accordion__item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed tcp-accordion__item" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Marcas
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="asus" id="asus">
+                    <label class="form-check-label" for="asus">
+                      Asus
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="dell" id="dell">
+                    <label class="form-check-label" for="dell">
+                      Dell
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="hp" id="HP">
+                    <label class="form-check-label" for="hp">
+                      HP
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="lenovo" id="lenovo">
+                    <label class="form-check-label" for="lenovo">
+                      Lenovo
+                    </label>
                   </div>
                 </div>
               </div>
-              <div class="accordion-item tcp-accordion__item">
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button collapsed tcp-accordion__item"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree"
-                    aria-expanded="false"
-                    aria-controls="collapseThree"
-                  >
-                    Tipo
-                  </button>
-                </h2>
-                <div
-                  id="collapseThree"
-                  class="accordion-collapse collapse"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div class="accordion-body">
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="noot" id="nootbooks">
-                      <label class="form-check-label" for="nootbooks">
-                        Nootbooks
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="tab" id="tablet">
-                      <label class="form-check-label" for="tablet">
-                        Tablets
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="desk" id="desktop">
-                      <label class="form-check-label" for="desktop">
-                        Escritorio
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="acc" id="accesorios">
-                      <label class="form-check-label" for="accesorios">
-                        Accesorios
-                      </label>
-                    </div>
+            </div>
+            <div class="accordion-item tcp-accordion__item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed tcp-accordion__item" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Tipo
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="noot" id="nootbooks">
+                    <label class="form-check-label" for="nootbooks">
+                      Nootbooks
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="tab" id="tablet">
+                    <label class="form-check-label" for="tablet">
+                      Tablets
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="desk" id="desktop">
+                    <label class="form-check-label" for="desktop">
+                      Escritorio
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input filter-checkbox" type="checkbox" value="acc" id="accesorios">
+                    <label class="form-check-label" for="accesorios">
+                      Accesorios
+                    </label>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="tcp-productS__main">
-          <div class="tcp-productS__main__imgGallery">
-            <div class="tcp-productS__main__imgGallery--container">
-              <div class="tcp-productS__main__imgGallery--container__img">
-                <img src="https://assets.pcfactory.cl/public/foto/familia/notebooks.webp" alt="notebooks" class="tcp-productS__main__imgGallery--container__img--img" />
-              </div>
-              <p class="tcp-productS__main__imgGallery--container__text">
-                Nootbooks
-              </p>
+      </div>
+      <div class="tcp-productS__main">
+        <div class="tcp-productS__main__imgGallery">
+          <div class="tcp-productS__main__imgGallery--container">
+            <div class="tcp-productS__main__imgGallery--container__img">
+              <img src="https://assets.pcfactory.cl/public/foto/familia/notebooks.webp" alt="notebooks"
+                class="tcp-productS__main__imgGallery--container__img--img" />
             </div>
-            <div class="tcp-productS__main__imgGallery--container">
-              <div class="tcp-productS__main__imgGallery--container__img">
-                <img src="https://assets.pcfactory.cl/public/foto/familia/tablets.png" alt="notebooks" class="tcp-productS__main__imgGallery--container__img--img" />
-              </div>
-              <p class="tcp-productS__main__imgGallery--container__text">
-                tablets
-              </p>
-            </div>
-            <div class="tcp-productS__main__imgGallery--container">
-              <div class="tcp-productS__main__imgGallery--container__img">
-                <img src="https://assets.pcfactory.cl/public/foto/familia/escritorio.webp" alt="notebooks" class="tcp-productS__main__imgGallery--container__img--img" />
-              </div>
-              <p class="tcp-productS__main__imgGallery--container__text">
-                Escritorio
-              </p>
-            </div>
-            <div class="tcp-productS__main__imgGallery--container">
-              <div class="tcp-productS__main__imgGallery--container__img">
-                <img src="https://assets.pcfactory.cl/public/foto/familia/servidores.webp" alt="notebooks" class="tcp-productS__main__imgGallery--container__img--img" />
-              </div>
-              <p class="tcp-productS__main__imgGallery--container__text">
-                Servidores
-              </p>
-            </div>
-            <div class="tcp-productS__main__imgGallery--container">
-              <div class="tcp-productS__main__imgGallery--container__img">
-                <img src="https://assets.pcfactory.cl/public/foto/familia/accesorios_notebooks.webp" alt="notebooks" class="tcp-productS__main__imgGallery--container__img--img" />
-              </div>
-              <p class="tcp-productS__main__imgGallery--container__text">
-                Accesorios
-              </p>
-            </div>
+            <p class="tcp-productS__main__imgGallery--container__text">
+              Nootbooks
+            </p>
           </div>
-          <div class="tcp-productS__main__search">
-            <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Ordenar por</label>
-              <select class="form-select" id="inputGroupSelect01">
-                <option selected>Recomendados</option>
-                <option value="1">Precio Ascendente</option>
-                <option value="2">Precio Descendente</option>
-              </select>
+          <div class="tcp-productS__main__imgGallery--container">
+            <div class="tcp-productS__main__imgGallery--container__img">
+              <img src="https://assets.pcfactory.cl/public/foto/familia/tablets.png" alt="notebooks"
+                class="tcp-productS__main__imgGallery--container__img--img" />
             </div>
+            <p class="tcp-productS__main__imgGallery--container__text">
+              tablets
+            </p>
           </div>
-          <div>
-            <div class="row" id="product-gallery"></div>
-            <div class="text-center mt-3">
+          <div class="tcp-productS__main__imgGallery--container">
+            <div class="tcp-productS__main__imgGallery--container__img">
+              <img src="https://assets.pcfactory.cl/public/foto/familia/escritorio.webp" alt="notebooks"
+                class="tcp-productS__main__imgGallery--container__img--img" />
+            </div>
+            <p class="tcp-productS__main__imgGallery--container__text">
+              Escritorio
+            </p>
+          </div>
+          <div class="tcp-productS__main__imgGallery--container">
+            <div class="tcp-productS__main__imgGallery--container__img">
+              <img src="https://assets.pcfactory.cl/public/foto/familia/servidores.webp" alt="notebooks"
+                class="tcp-productS__main__imgGallery--container__img--img" />
+            </div>
+            <p class="tcp-productS__main__imgGallery--container__text">
+              Servidores
+            </p>
+          </div>
+          <div class="tcp-productS__main__imgGallery--container">
+            <div class="tcp-productS__main__imgGallery--container__img">
+              <img src="https://assets.pcfactory.cl/public/foto/familia/accesorios_notebooks.webp" alt="notebooks"
+                class="tcp-productS__main__imgGallery--container__img--img" />
+            </div>
+            <p class="tcp-productS__main__imgGallery--container__text">
+              Accesorios
+            </p>
+          </div>
+        </div>
+        <div class="tcp-productS__main__search">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Ordenar por</label>
+            <select class="form-select" id="inputGroupSelect01">
+              <option selected>Recomendados</option>
+              <option value="1">Precio Ascendente</option>
+              <option value="2">Precio Descendente</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="row" id="product-gallery"></div>
+          <div class="text-center mt-3">
             <button id="load-more" class="btn btn-primary">Ver más</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer class="tc-footer border-top tcp-footer">
+    <div class="container tc-footer__content py-5">
+      <div class="row justify-content-between mx-0">
+        <!-- Logo mobile -->
+        <div class="col-12 d-lg-none text-center mb-4">
+          <a class="navbar-brand" href="/" aria-label="Logo TechnoChile">
+            <img src="../assets/svg/favico.svg" alt="pcfactory.cl" width="50" height="" />
+          </a>
+        </div>
+
+        <div class="col-12 col-xl-4 px-0 px-lg-2 mb-4 mb-xl-0">
+          <div class="row">
+            <div class="col-12 col-xl-11">
+              <!-- Logo desktop -->
+              <a class="navbar-brand mb-4 d-none d-lg-block" href="/" aria-label="Logo TechnoChile">
+                <img src="../assets/svg/Logo-color.svg" alt="pcfactory.cl" width="186" height="42" />
+              </a>
+              <!-- Botón Tiendas -->
+              <div class="row mx-0">
+                <div class="col-12 px-0 w-100 tc-btn-wrapper">
+                  <button href="/tiendas" class="tc-btn__secondary mb-3">
+                    Encuentra tu tienda
+                  </button>
+                </div>
+              </div>
+              <!-- Línea de ventas -->
+              <div class="tc-ventas mb-3 row">
+                <p class="font-weight-bold mb-1">
+                  <span class="tc-icon tc-icon-user mr-2"></span>
+                  Ventas
+                </p>
+                <p class="mb-2">
+                  <a id="tc-tel-ventas" class="tc-footer__link" href="tel:+56225600040">+56 2 2560 0040</a>
+                </p>
+              </div>
+              <!-- Suscríbete -->
+              <div class="row align-items-center tc-susbribe mb-3">
+                <div class="col-6">
+                  <p class="mb-2">Obtén ofertas y promociones exclusivas.</p>
+                </div>
+                <div class="col-6">
+                  <a href="/suscribete" class="tc-btn__outlined tc-footer__link">Suscríbete</a>
+                </div>
+              </div>
+            </div>
+            <!-- Redes sociales desktop -->
+            <div class="col-12 col-lg-9 mx-auto my-3 d-none d-xl-block">
+              <div class="row align-items-center">
+                <div class="col-2 col-lg-3 px-0">
+                  <p class="mb-0 tc-footer__menu-title">Síguenos</p>
+                </div>
+                <div class="col-10 col-lg-9 d-lg-flex">
+                  <ul class="tc-footer__socials">
+                    <li class="nav-item">
+                      <a class="nav-link" href="https://www.instagram.com/pcfactorycl/" target="_blank"
+                        aria-label="Instagram"><span class="tc-icon tc-icon-instagram"></span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="https://www.facebook.com/PCFactoryCL" target="_blank"
+                        aria-label="Facebook"><span class="tc-icon tc-icon-facebook"></span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="https://www.youtube.com/user/mediospcfactory" target="_blank"
+                        aria-label="Youtube"><span class="tc-icon tc-icon-youtube"></span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="https://twitter.com/PCFactoryCL" target="_blank"
+                        aria-label="Twitter"><span class="tc-icon tc-icon-x-twitter"></span></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Columna derecha: Menús de compañía -->
+        <div class="col-12 col-xl-8 px-0">
+          <div class="row tc-footer-menus">
+            <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+              <h6 class="tc-footer__menu-title">Mundo TechnoChile</h6>
+              <ul class="list-unstyled tc-footer-menu">
+                <li>
+                  <a href="#" class="tc-footer__link">Gamer Zone</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Computadores</a>
+                </li>
+                <li><a href="#" class="tc-footer__link">Smartphones</a></li>
+                <li>
+                  <a href="#" class="tc-footer__link">SmartTV & Audio</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+              <h6 class="tc-footer__menu-title">¿Necesitas Ayuda?</h6>
+              <ul class="list-unstyled tc-footer-menu">
+                <li>
+                  <a href="#" class="tc-footer__link">Centro de ayuda</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Estado de mi despacho</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Revisa tu boleta</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Orden de servicio</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Preguntas frecuentes</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Términos y condiciones</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+              <h6 class="tc-footer__menu-title">Acerca de pc Factory</h6>
+              <ul class="list-unstyled">
+                <li><a href="#" class="tc-footer__link">Quiénes somos</a></li>
+                <li>
+                  <a href="#" class="tc-footer__link">Beneficios de comprar con nosotros</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Privacidad y seguridad</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Sustentabilidad</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Bases y Promociones</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-3">
+              <h6 class="tc-footer__menu-title">Servicios</h6>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#" class="tc-footer__link">Consejos y tips tecnológicos</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Asesórate Online</a>
+                </li>
+                <li><a href="#" class="tc-footer__link">Arma tu PC</a></li>
+                <li><a href="#" class="tc-footer__link">Puntos verdes</a></li>
+                <li>
+                  <a href="#" class="tc-footer__link">Enter pro</a>
+                </li>
+                <li>
+                  <a href="#" class="tc-footer__link">Ventas Empresas</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Redes sociales mobile -->
+          <div class="row d-block d-xl-none mt-4">
+            <div class="col-2">
+              <p class="mb-0 tc-footer__menu-title">Síguenos</p>
+            </div>
+            <div class="col-10">
+              <ul class="tc-footer__socials">
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.instagram.com/pcfactorycl/" target="_blank"
+                    aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.facebook.com/PCFactoryCL" target="_blank"
+                    aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.youtube.com/user/mediospcfactory" target="_blank"
+                    aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://twitter.com/PCFactoryCL" target="_blank" aria-label="Twitter"><i
+                      class="fa-brands fa-x-twitter"></i></a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-
-    </main>
-    <footer class="tc-footer border-top tcp-footer">
-      <div class="container tc-footer__content py-5">
-        <div class="row justify-content-between mx-0">
-          <!-- Logo mobile -->
-          <div class="col-12 d-lg-none text-center mb-4">
-            <a class="navbar-brand" href="/" aria-label="Logo TechnoChile">
-              <img
-                src="../assets/svg/favico.svg"
-                alt="pcfactory.cl"
-                width="50"
-                height=""
-              />
-            </a>
-          </div>
-
-          <div class="col-12 col-xl-4 px-0 px-lg-2 mb-4 mb-xl-0">
-            <div class="row">
-              <div class="col-12 col-xl-11">
-                <!-- Logo desktop -->
-                <a
-                  class="navbar-brand mb-4 d-none d-lg-block"
-                  href="/"
-                  aria-label="Logo TechnoChile"
-                >
-                  <img
-                    src="../assets/svg/Logo-color.svg"
-                    alt="pcfactory.cl"
-                    width="186"
-                    height="42"
-                  />
-                </a>
-                <!-- Botón Tiendas -->
-                <div class="row mx-0">
-                  <div class="col-12 px-0 w-100 tc-btn-wrapper">
-                    <button href="/tiendas" class="tc-btn__secondary mb-3">
-                      Encuentra tu tienda
-                    </button>
-                  </div>
-                </div>
-                <!-- Línea de ventas -->
-                <div class="tc-ventas mb-3 row">
-                  <p class="font-weight-bold mb-1">
-                    <span class="tc-icon tc-icon-user mr-2"></span>
-                    Ventas
-                  </p>
-                  <p class="mb-2">
-                    <a
-                      id="tc-tel-ventas"
-                      class="tc-footer__link"
-                      href="tel:+56225600040"
-                      >+56 2 2560 0040</a
-                    >
-                  </p>
-                </div>
-                <!-- Suscríbete -->
-                <div class="row align-items-center tc-susbribe mb-3">
-                  <div class="col-6">
-                    <p class="mb-2">Obtén ofertas y promociones exclusivas.</p>
-                  </div>
-                  <div class="col-6">
-                    <a
-                      href="/suscribete"
-                      class="tc-btn__outlined tc-footer__link"
-                      >Suscríbete</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- Redes sociales desktop -->
-              <div class="col-12 col-lg-9 mx-auto my-3 d-none d-xl-block">
-                <div class="row align-items-center">
-                  <div class="col-2 col-lg-3 px-0">
-                    <p class="mb-0 tc-footer__menu-title">Síguenos</p>
-                  </div>
-                  <div class="col-10 col-lg-9 d-lg-flex">
-                    <ul class="tc-footer__socials">
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          href="https://www.instagram.com/pcfactorycl/"
-                          target="_blank"
-                          aria-label="Instagram"
-                          ><span class="tc-icon tc-icon-instagram"></span
-                        ></a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          href="https://www.facebook.com/PCFactoryCL"
-                          target="_blank"
-                          aria-label="Facebook"
-                          ><span class="tc-icon tc-icon-facebook"></span
-                        ></a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          href="https://www.youtube.com/user/mediospcfactory"
-                          target="_blank"
-                          aria-label="Youtube"
-                          ><span class="tc-icon tc-icon-youtube"></span
-                        ></a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          href="https://twitter.com/PCFactoryCL"
-                          target="_blank"
-                          aria-label="Twitter"
-                          ><span class="tc-icon tc-icon-x-twitter"></span
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Columna derecha: Menús de compañía -->
-          <div class="col-12 col-xl-8 px-0">
-            <div class="row tc-footer-menus">
-              <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-                <h6 class="tc-footer__menu-title">Mundo TechnoChile</h6>
-                <ul class="list-unstyled tc-footer-menu">
-                  <li>
-                    <a href="#" class="tc-footer__link">Gamer Zone</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Computadores</a>
-                  </li>
-                  <li><a href="#" class="tc-footer__link">Smartphones</a></li>
-                  <li>
-                    <a href="#" class="tc-footer__link">SmartTV & Audio</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-                <h6 class="tc-footer__menu-title">¿Necesitas Ayuda?</h6>
-                <ul class="list-unstyled tc-footer-menu">
-                  <li>
-                    <a href="#" class="tc-footer__link">Centro de ayuda</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link"
-                      >Estado de mi despacho</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Revisa tu boleta</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Orden de servicio</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Preguntas frecuentes</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link"
-                      >Términos y condiciones</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-                <h6 class="tc-footer__menu-title">Acerca de pc Factory</h6>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="tc-footer__link">Quiénes somos</a></li>
-                  <li>
-                    <a href="#" class="tc-footer__link"
-                      >Beneficios de comprar con nosotros</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link"
-                      >Privacidad y seguridad</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Sustentabilidad</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Bases y Promociones</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-12 col-lg-3">
-                <h6 class="tc-footer__menu-title">Servicios</h6>
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="#" class="tc-footer__link"
-                      >Consejos y tips tecnológicos</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Asesórate Online</a>
-                  </li>
-                  <li><a href="#" class="tc-footer__link">Arma tu PC</a></li>
-                  <li><a href="#" class="tc-footer__link">Puntos verdes</a></li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Enter pro</a>
-                  </li>
-                  <li>
-                    <a href="#" class="tc-footer__link">Ventas Empresas</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- Redes sociales mobile -->
-            <div class="row d-block d-xl-none mt-4">
-              <div class="col-2">
-                <p class="mb-0 tc-footer__menu-title">Síguenos</p>
-              </div>
-              <div class="col-10">
-                <ul class="tc-footer__socials">
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="https://www.instagram.com/pcfactorycl/"
-                      target="_blank"
-                      aria-label="Instagram"
-                      ><i class="fa-brands fa-instagram"></i
-                    ></a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="https://www.facebook.com/PCFactoryCL"
-                      target="_blank"
-                      aria-label="Facebook"
-                      ><i class="fa-brands fa-facebook"></i
-                    ></a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="https://www.youtube.com/user/mediospcfactory"
-                      target="_blank"
-                      aria-label="Youtube"
-                      ><i class="fa-brands fa-youtube"></i
-                    ></a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="https://twitter.com/PCFactoryCL"
-                      target="_blank"
-                      aria-label="Twitter"
-                      ><i class="fa-brands fa-x-twitter"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Footer minimal -->
-        <div class="row">
-          <div class="col-12">
-            <div class="tc-footer-minimal text-center py-3">
-              <p class="mb-0 small">
-                Copyright © 2025 technochile.cl. Todos los derechos reservados.
-                Prohibida su copia parcial o total bajo la ley nacional e
-                internacional.
-              </p>
-            </div>
+      <!-- Footer minimal -->
+      <div class="row">
+        <div class="col-12">
+          <div class="tc-footer-minimal text-center py-3">
+            <p class="mb-0 small">
+              Copyright © 2025 technochile.cl. Todos los derechos reservados.
+              Prohibida su copia parcial o total bajo la ley nacional e
+              internacional.
+            </p>
           </div>
         </div>
       </div>
-    </footer>
-    <div id="cartOverlay" class="cartOverlay" hidden>
-  <div id="cartModal" class="cartModal" role="dialog" aria-label="Carrito de compras">
-    <div class="cartModalContent">
-      <button id="closeCartBtn" class="cartModalClose" aria-label="Cerrar carrito">X</button>
-      <h2>Tu Carrito</h2>
-      <div class="cartItems"></div>
-      <div class="cartTotal">
-        <strong>Total:</strong> <span class="cartTotalPrice">$0,00</span>
+    </div>
+  </footer>
+  <div id="cartOverlay" class="cartOverlay" hidden>
+    <div id="cartModal" class="cartModal" role="dialog" aria-label="Carrito de compras">
+      <div class="cartModalContent">
+        <button id="closeCartBtn" class="cartModalClose" aria-label="Cerrar carrito">X</button>
+        <h2>Tu Carrito</h2>
+        <div class="cartItems"></div>
+        <div class="cartTotal">
+          <strong>Total:</strong> <span class="cartTotalPrice">$0,00</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-    
-   
-  </body>
+
+
+</body>
+
 </html>
-  </body>
+</body>
+
 </html>
