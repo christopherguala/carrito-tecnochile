@@ -8,86 +8,72 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartCounter = document.getElementById('cart-counter');
 
   let cart = [];
-  const productosOriginales = [...productos]; 
 
   
+  const saveCart = () => localStorage.setItem('cart', JSON.stringify(cart));
+  const loadCart = () => {
+    const savedCart = localStorage.getItem('cart');
+    cart = savedCart ? JSON.parse(savedCart) : [];
+  }
+  loadCart();
 
-  // Abrir carrito: mostrar overlay y modal
+
   openCartBtn.addEventListener('click', () => {
     cartOverlay.hidden = false;
     cartOverlay.classList.add('visible');
     cartModal.classList.add('visible');
   });
 
-  // Cerrar carrito  overlay y modal se van 
-   function closeCart() {
+  const closeCart = () => {
     cartOverlay.classList.remove('visible');
     cartModal.classList.remove('visible');
-
-    // Ocultar overlay 
-    setTimeout(() => {
-      cartOverlay.hidden = true;
-    }, 300);
+    setTimeout(() => cartOverlay.hidden = true, 300);
   }
 
   closeCartBtn.addEventListener('click', closeCart);
-
-  // Cerrar carrito clic fuera por el overlay
-  cartOverlay.addEventListener('click', (e) => {
-    if (e.target === cartOverlay) {
-      closeCart();
-    }
-  });
+  cartOverlay.addEventListener('click', e => e.target === cartOverlay && closeCart());
 
   
-    
+  const addItemToCart = (title, price, imgSrc, stock = Infinity) => {
+    const existingItem = cart.find(i => i.title === title);
+    const currentQty = existingItem ? existingItem.quantity : 0;
 
-  function addItemToCart(title, price, imgSrc) { //se modifica la funcion para que no se pueda agregar mas de lo que haya en stock
-  const producto = productos.find(p => p.titulo === title);
-  if (!producto) return;
-
-  const existingItem = cart.find(i => i.title === title);
-  const currentQtyInCart = existingItem ? existingItem.quantity : 0;
-
-  if (currentQtyInCart >= producto.stock) {
-    alert('No puedes agregar más unidades de este producto. Stock limitado.');
-    return;
-  }
-
-  if (existingItem) {
-    existingItem.quantity++;
-  } else {
-    cart.push({ id: producto.id, title, price, imgSrc, quantity: 1 });
-  }
-
-  renderCart();
-  
-}
-
-
-
-const productGallery = document.getElementById('product-gallery');
-
-if (productGallery) {
-  productGallery.addEventListener('click', (e) => {
-    if (e.target.closest('.tc-btn__primary')) {
-      const btn = e.target.closest('.tc-btn__primary');
-      const itemCard = btn.closest('.tc-productCard');
-      const title = itemCard.querySelector('.tc-productCard__body--title').innerText.trim();
-      const priceText = itemCard.querySelector('.tc-productCard__price').innerText.trim();
-      const imgSrc = itemCard.querySelector('img.tc-productCard__img').src;
-
-      addItemToCart(title, priceText, imgSrc);
+    if (currentQty >= stock) {
+      alert('No puedes agregar más unidades de este producto. Stock limitado.');
+      return;
     }
+
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      cart.push({ title, price, imgSrc, quantity: 1, stock });
+    }
+
+    saveCart();
+    renderCart();
+  }
+
+ 
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.tc-btn__primary');
+    if (!btn) return;
+
+    const itemCard = btn.closest('.tc-productCard');
+    if (!itemCard) return;
+
+    const title = itemCard.querySelector('.tc-productCard__body--title').innerText.trim();
+    const priceText = itemCard.querySelector('.tc-productCard__price').innerText.trim();
+    const imgSrc = itemCard.querySelector('img.tc-productCard__img').src;
+    const stock = parseInt(itemCard.dataset.stock) || Infinity; 
+
+    addItemToCart(title, priceText, imgSrc, stock);
   });
-}
 
 
-
-  function renderCart() {
+  const renderCart = () => {
     cartItemsContainer.innerHTML = '';
 
-    cart.forEach(({ title, price, imgSrc, quantity }) => {
+    cart.forEach(({ title, price, imgSrc, quantity, stock }) => {
       const item = document.createElement('div');
       item.classList.add('cartItem');
       item.innerHTML = `
@@ -104,22 +90,9 @@ if (productGallery) {
         <button class="btnDelete" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
       `;
 
-      // botones para aumentar y reducir dentro del carro ( si intentamos reducir de 1 se va el producto)
-      item.querySelector('.sumar-cantidad').addEventListener('click', () => {
-        updateQuantity(title, quantity + 1);
-      });
-    item.querySelector('.restar-cantidad').addEventListener('click', () => {
-  if (quantity > 1) {
-    updateQuantity(title, quantity - 1);
-  } else {
-    removeItem(title); 
-  }
-});
-
-      // eliminar prudcto del carrito al hacer click al basurero 
-      item.querySelector('.btnDelete').addEventListener('click', () => {
-        removeItem(title);
-      });
+      item.querySelector('.sumar-cantidad').addEventListener('click', () => updateQuantity(title, quantity + 1, stock));
+      item.querySelector('.restar-cantidad').addEventListener('click', () => quantity > 1 ? updateQuantity(title, quantity - 1, stock) : removeItem(title));
+      item.querySelector('.btnDelete').addEventListener('click', () => removeItem(title));
 
       cartItemsContainer.appendChild(item);
     });
@@ -129,93 +102,72 @@ if (productGallery) {
     updateCartCounter();
   }
 
-  function updateQuantity(title, newQty) { // se modifica para no superar el stock
-  const producto = productos.find(p => p.titulo === title);
-  const item = cart.find((i) => i.title === title);
-
-  if (!producto || !item) return;
-
-  if (newQty > producto.stock) {
-    alert('No puedes agregar más unidades de este producto. Stock limitado.');
-    return;
-  }
-
-  item.quantity = newQty;
-  renderCart();
-}
-
-  function removeItem(title) {
-    cart = cart.filter((i) => i.title !== title);
+ 
+  const updateQuantity = (title, newQty, stock) => {
+    if (newQty > stock) return alert('No puedes agregar más unidades de este producto. Stock limitado.');
+    const item = cart.find(i => i.title === title);
+    if (!item) return;
+    item.quantity = newQty;
+    saveCart();
     renderCart();
   }
 
-  function updateCartTotal() {
-    const total = cart.reduce((sum, item) => {
-      let numPrice = parseFloat(item.price.replace(/[^\d,.-]/g, '').replace(/\./g, '').replace(',', '.'));
-      return sum + numPrice * item.quantity;
-    }, 0);
+ 
+  const removeItem = title => {
+    cart = cart.filter(i => i.title !== title);
+    saveCart();
+    renderCart();
+  }
 
+ 
+  const updateCartTotal = () => {
+    const total = cart.reduce((sum, { price, quantity }) => {
+      const numPrice = parseFloat(price.replace(/[^\d,.-]/g, '').replace(/\./g, '').replace(',', '.'));
+      return sum + numPrice * quantity;
+    }, 0);
     cartTotalPrice.innerText = `$${total.toLocaleString('es-CL', { minimumFractionDigits: 2 })}`;
   }
 
-  function renderCartButtons() {
+  
+  const renderCartButtons = () => {
     let buttonsContainer = document.querySelector('.cartButtons');
     if (!buttonsContainer) {
       buttonsContainer = document.createElement('div');
       buttonsContainer.classList.add('cartButtons');
 
-      const payBtn = document.createElement('button');  // boton para pagar
+      const payBtn = document.createElement('button');
       payBtn.classList.add('btnPay');
       payBtn.innerText = 'Pagar';
       payBtn.addEventListener('click', () => {
-        if (cart.length === 0) {
-          alert('El carrito está vacío');
-          return;
-        }
-
-        // Actualiza el stock de productos
-        cart.forEach(item => {
-          const producto = productos.find(p => p.title === item.title || p.titulo === item.title);
-          if (producto) {
-            producto.stock -= item.quantity;
-          }
-        });
-
+        if (!cart.length) return alert('El carrito está vacío');
         alert('¡Gracias por su compra!');
         clearCart();
-
-        // Re-renderizar productos (cards)
-        aplicarFiltros(); // esta función ya renderiza con el stock actualizado
-        
       });
 
-      const clearBtn = document.createElement('button');  // boton para eliminar todo
+      const clearBtn = document.createElement('button');
       clearBtn.classList.add('btnClearCart');
       clearBtn.innerText = 'Limpiar carrito';
-      clearBtn.addEventListener('click', () => {
-        clearCart();
-      });
+      clearBtn.addEventListener('click', clearCart);
 
-      buttonsContainer.appendChild(payBtn);
-      buttonsContainer.appendChild(clearBtn);
-
+      buttonsContainer.append(payBtn, clearBtn);
       cartModal.querySelector('.cartModalContent').appendChild(buttonsContainer);
     }
   }
-  
-  function clearCart() {
+
+
+  const clearCart = () => {
     cart = [];
+    saveCart();
     renderCart();
-   // closeCart();            despues de probar es mejor que no se cierre automaticamente , decidi comentar esperando feedback
   }
-  // contador productos 
-  function updateCartCounter() {
+
+ 
+  const updateCartCounter = () => {
     if (!cartCounter) return;
-    const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+    const count = cart.reduce((acc, { quantity }) => acc + quantity, 0);
     cartCounter.textContent = count > 0 ? count : '';
   }
 
-  // Inicializar
+  
   renderCart();
 });
-
