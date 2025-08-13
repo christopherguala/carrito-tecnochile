@@ -186,6 +186,35 @@
                   </div>
                 </div>
               </div>
+              <div class="accordion-item tcp-accordion__item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button tcp-accordion__item"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour"
+                    aria-expanded="true"
+                    aria-controls="collapseFour"
+                  >
+                    Rango de precios
+                  </button>
+                </h2>
+                <div
+                  id="collapseFour"
+                  class="accordion-collapse collapse" 
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <div class="price-range-container position-relative py-3 px-2">
+                      <label for="minPrice" class="form-label">Precio mínimo: <span id="minValue">$0</span></label>
+                      <input type="range" class="form-range" id="minPrice" min="0" max="4000000" step="10000" value="0">
+  
+                      <label for="maxPrice" class="form-label">Precio máximo: <span id="maxValue">$4.000.000</span></label>
+                      <input type="range" class="form-range" id="maxPrice" min="0" max="4000000" step="10000" value="4000000">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

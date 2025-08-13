@@ -9,8 +9,11 @@ let productos = [];
 let mostrados = 0; // guarda cuántos productos se han mostrado
 const porCarga = 12; // aqui modificas de a cuantos productos se muestran al principio y al apretar el boton
 let productosFiltrados = [...productos]; 
+let minRango = 0;
+let maxRango = 4000000;
 
-fetch('../js/productos.json')
+
+fetch('../js/productos.json') // carga los productos del json
   .then(response => response.json())
   .then(data => {
     productos = data;
@@ -137,15 +140,21 @@ function aplicarFiltros() { // aqui guardaran los filtros que se seleccionan
     }
   });
 
+  // obtener valores de los rangos de precio
+  const minPriceValue = parseInt(document.getElementById('minPrice').value, 10);
+  const maxPriceValue = parseInt(document.getElementById('maxPrice').value, 10);
+
   // se queda solo con los productos que cumplen con los filtros
   productosFiltrados = productos.filter(producto => {
-    const tiendaOK = filtros.tiendas.length === 0 || filtros.tiendas.some(tienda => producto[tienda]);// si no hay filtro aqui seleccionado todos los productos cuentan
-    const marcaOK = filtros.marcas.length === 0 || filtros.marcas.includes(producto.marca);// lo mismo aplica aqui y abajo
+    const precioNum = parsePrecio(producto.precio);
+    const tiendaOK = filtros.tiendas.length === 0 || filtros.tiendas.some(tienda => producto[tienda]); // si no hay filtro aqui seleccionado todos los productos cuentan
+    const marcaOK = filtros.marcas.length === 0 || filtros.marcas.includes(producto.marca); // lo mismo aplica aqui y abajo
     const tipoOK = filtros.tipos.length === 0 || filtros.tipos.includes(producto.tipe);
-    return tiendaOK && marcaOK && tipoOK; //si el producto cumple con los 3 filtros se guarda para mostrar
+    const precioOK = precioNum >= minPriceValue && precioNum <= maxPriceValue; // filtro por precio dentro del rango
+    return tiendaOK && marcaOK && tipoOK && precioOK; // si el producto cumple con los 3 filtros y el precio, se guarda
   });
 
-  // ordena según el valor del select de precios, esto es igual ana de las tareas que hicimos en js
+  // ordena según el valor del select de precios
   const ordenSeleccionado = document.getElementById('inputGroupSelect01').value;
   if (ordenSeleccionado === '1') {
     productosFiltrados.sort((a, b) => parsePrecio(a.precio) - parsePrecio(b.precio));
@@ -153,13 +162,11 @@ function aplicarFiltros() { // aqui guardaran los filtros que se seleccionan
     productosFiltrados.sort((a, b) => parsePrecio(b.precio) - parsePrecio(a.precio));
   }
 
-  
-  container.innerHTML = ''; //borra todos lso productos
-  mostrados = 0;//resetea el contador para volver a usar la funcion y cargar nuevos productos filtrados
+  container.innerHTML = ''; // borra todos los productos
+  mostrados = 0; // resetea el contador para volver a usar la funcion y cargar nuevos productos filtrados
 
-  
-  const primerLote = productosFiltrados.slice(0, porCarga);// muestra los primeros productos filtrados
-  primerLote.forEach(p => container.insertAdjacentHTML('beforeend', crearCardSegunStock(p))); //crea la card
+  const primerLote = productosFiltrados.slice(0, porCarga); // muestra los primeros productos filtrados
+  primerLote.forEach(p => container.insertAdjacentHTML('beforeend', crearCardSegunStock(p))); // crea la card
   mostrados = primerLote.length;
 
   // muestra u oculta el botón si no hay mas productos en el array de los filtrados
@@ -169,7 +176,8 @@ function aplicarFiltros() { // aqui guardaran los filtros que se seleccionan
     btn.style.display = 'none';
   }
 }
-function crearCardSegunStock(producto) {
+
+function crearCardSegunStock(producto) { // crea la card según el stock disponible
   if (producto.stock === 0) {
     return crearCard0(producto); // sin stock
   } else if (producto.stock === 1) {
@@ -179,7 +187,7 @@ function crearCardSegunStock(producto) {
   }
 }
 
-// funcion para el boton, al hacer click llamaa lso siguientes productos hasta completar 12 o que se acaben
+// funcion para el boton, al hacer click llama a los siguientes productos hasta completar 12 o que se acaben
 btn.addEventListener('click', () => {
   const siguienteLote = productosFiltrados.slice(mostrados, mostrados + porCarga);
   siguienteLote.forEach(p => container.insertAdjacentHTML('beforeend', crearCardSegunStock(p)));
@@ -190,16 +198,59 @@ btn.addEventListener('click', () => {
   }
 });
 
-// llama a la funcion para los productos cada ves que un checkbox cambia, esto mantiene actualizado todo
+// llama a la funcion para los productos cada vez que un checkbox cambia, esto mantiene actualizado todo
 checkboxes.forEach(checkbox => {
   checkbox.addEventListener('change', aplicarFiltros);
 });
 document.getElementById('inputGroupSelect01').addEventListener('change', aplicarFiltros);
 
+// ve cambios en los rangos para aplicar filtros de inmediato
+document.getElementById('minPrice').addEventListener('input', aplicarFiltros);
+document.getElementById('maxPrice').addEventListener('input', aplicarFiltros);
+
 // Aqui llamamos primeramente a la funcion para cargar los primeros 12 productos de la pagina
 aplicarFiltros();
 
 
+//rango de precios
 
+document.addEventListener("DOMContentLoaded", function () { //trae los elementos del html
+  const minPriceInput = document.getElementById("minPrice");
+  const maxPriceInput = document.getElementById("maxPrice");
+  const minValueLabel = document.getElementById("minValue");
+  const maxValueLabel = document.getElementById("maxValue");
+
+  function formatCurrency(value) {
+    return `$${value.toLocaleString("es-CO")}`;
+  }
+
+  function syncPriceRanges() {
+    let minValue = parseInt(minPriceInput.value, 10);
+    let maxValue = parseInt(maxPriceInput.value, 10);
+
+    // Evitar que min supere a max
+    if (minValue > maxValue) {
+      minValue = maxValue;
+      minPriceInput.value = minValue;
+    }
+
+    // Evitar que max sea menor que min
+    if (maxValue < minValue) {
+      maxValue = minValue;
+      maxPriceInput.value = maxValue;
+    }
+
+    // Actualizar etiquetas
+    minValueLabel.textContent = formatCurrency(minValue);
+    maxValueLabel.textContent = formatCurrency(maxValue);
+  }
+
+  // Escuchar cambios en ambos sliders
+  minPriceInput.addEventListener("input", syncPriceRanges);
+  maxPriceInput.addEventListener("input", syncPriceRanges);
+
+  // Inicializar valores al cargar
+  syncPriceRanges();
+});
 
 
