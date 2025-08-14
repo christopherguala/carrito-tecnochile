@@ -12,60 +12,91 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-  <script src="../js/bootstrap.bundle.min.js" defer></script>
-  <script src="../js/products.js" defer></script>
-  <script src="../js/carrito.js" defer></script>
-  <script src="https://kit.fontawesome.com/09bf171868.js" crossorigin="anonymous" defer></script>
-</head>
-
-<body class="tcp-body">
-  <header class="tc-header tcp-header">
-    <nav class="tc-navbar navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
-      <div class="container-fluid gap-2">
-        <a class="navbar-brand" href="../index.html"><img src="../assets/svg/Logo-color.svg" alt="TechnoChile" /></a>
-        <button class="navbar-toggler tc-navbar__toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" href="../index.html">Inicio</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Categorías
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./productos.html">Computadores</a></li>
-                <li><a class="dropdown-item" href="./productos.html">Smartphones</a></li>
-                <li><a class="dropdown-item" href="./productos.html">SmartTV & Audio</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-disabled="true" href="./cliente.html">Tus Compras</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./admin.html">Admin</a>
-            </li>
-          </ul>
-          <div class="tc-btn__icon-wrapper">
-            <button type="button" class="tc-btn__icon">
-              <span class="material-symbols-outlined"> shopping_cart </span>
-            </button>
-            <span id="cart-counter" class="tc-btn__icon--counter">xx</span>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    
+    <script src="../js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/products.js" defer></script>
+    <script src="../js/carrito.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/09bf171868.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body class="tcp-body">
+    <header class="tc-header tcp-header">
+      <nav
+        class="tc-navbar navbar navbar-expand-lg bg-dark border-bottom border-body"
+        data-bs-theme="dark"
+      >
+        <div class="container-fluid gap-2">
+          <a class="navbar-brand" href="../index.html"
+            ><img src="../assets/svg/Logo-color.svg" alt="TechnoChile"
+          /></a>
+          <button
+            class="navbar-toggler tc-navbar__toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  href="../index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Categorías
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./productos.html">Computadores</a></li>
+                  <li><a class="dropdown-item" href="./productos.html">Smartphones</a></li>
+                  <li><a class="dropdown-item" href="./productos.html">SmartTV & Audio</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-disabled="true"   href="./cliente.html">Tus Compras</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-disabled="true"   href="modificar.html">Gestion</a>
+              </li>
+            </ul>
+            <div class="tc-btn__icon-wrapper">
+              <button type="button" class="tc-btn__icon">
+                <span class="material-symbols-outlined"> shopping_cart </span>
+              </button>
+              <span id="cart-counter" class="tc-btn__icon--counter">xx</span>
+            </div>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Busca aquí..."
+                aria-label="Buscador"
+              />
+              <button class="tc-btn__outlined" type="submit">Buscar</button>
+            </form>
           </div>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Busca aquí..." aria-label="Buscador" />
-            <button class="tc-btn__outlined" type="submit">Buscar</button>
-          </form>
         </div>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
   <main class="tc-main tcp-main">
     <div class="tcp-route__container">

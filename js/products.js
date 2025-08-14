@@ -13,12 +13,19 @@ let minRango = 0;
 let maxRango = 4000000;
 
 
-fetch('../js/productos.json') // carga los productos del json
+fetch('../js/productos.json')
   .then(response => response.json())
   .then(data => {
-    productos = data;
+    const productosLocales = JSON.parse(localStorage.getItem("productos")) || [];
+
+    // Evita duplicados: solo añade productos locales con IDs que no estén en el JSON
+    const productosUnicos = productosLocales.filter(
+      local => !data.some(jsonProd => jsonProd.id === local.id)
+    );
+
+    productos = [...data, ...productosUnicos];
     productosFiltrados = [...productos];
-    aplicarFiltros(); // ejecuta la lógica una vez cargados los productos
+    aplicarFiltros();
   })
   .catch(error => {
     console.error('Error al cargar los productos:', error);
