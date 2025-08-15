@@ -2,7 +2,7 @@ const container = document.getElementById("product-gallery");
 const btn = document.getElementById("load-more");
 const checkboxes = document.querySelectorAll(".filter-checkbox"); // guarda los checkbox en la función
 
-let productos = [];
+export let productos = [];
 let mostrados = 0; // guarda cuántos productos se han mostrado
 const porCarga = 12; // aqui modificas de a cuantos productos se muestran al principio y al apretar el boton
 let productosFiltrados = [...productos];
@@ -23,6 +23,7 @@ fetch("../js/productos.json")
     productos = [...data, ...productosUnicos];
     productosFiltrados = [...productos];
 
+    localStorage.setItem("originalProducts", JSON.stringify(productos));
     aplicarFiltros();
   })
   .catch((error) => {
@@ -32,8 +33,7 @@ fetch("../js/productos.json")
 function crearCard(producto) {
   // crea la card en html con los valores de los objetos
   return `
-    <div class="col-12 col-sm-6 col-lg-3 d-flex">
-      <article class="tc-productCard p-2 w-100">
+      <article class="tc-productCard p-2 m-2 col item">
         <div class="tc-productCard__img-wrapper p-2">
           <img src="${producto.imagen}" alt="${producto.titulo}" class="tc-productCard__img" />
           <span class="tc-productCard__discount position-absolute top-0 end-0">${producto.descuento}</span>
@@ -56,21 +56,21 @@ function crearCard(producto) {
           </div>
         </div>
       </article>
-    </div>
+   
   `;
 }
 
 function crearCard1(producto) {
   // crea la card en html con los valores de los objetos
   return `
-    <div class="col-12 col-sm-6 col-lg-3 d-flex">
-      <article class="tc-productCard p-2 w-100">
+  
+      <article class="tc-productCard p-2 m-2 col item">
         <div class="tc-productCard__img-wrapper p-2">
           <img src="${producto.imagen}" alt="${producto.titulo}" class="tc-productCard__img" />
           <span class="tc-productCard__discount position-absolute top-0 end-0">${producto.descuento}</span>
         </div>
-        <div class="tc-productCard__body flex-column pt-0 px-4 pb-4 d-flex">
-          <h2 class="tc-productCard__body--title mb-1">${producto.titulo}</h2>
+        <div class="tc-productCard__body flex-column pt-0 px-4 pb-4">
+          <h2 class="tc-productCard__body--title mb-1 itemTitle">${producto.titulo}</h2>
           <div class="tc-productCard__subtitle-wrapper pt-1 pb-3 d-flex justify-content-between">
             <p class="tc-productCard__subtitle">${producto.idProducto} •</p>
             <p class="tc-productCard__subtitle">${producto.stock} Ultima!!</p>
@@ -87,15 +87,14 @@ function crearCard1(producto) {
           </div>
         </div>
       </article>
-    </div>
+    
   `;
 }
 
 function crearCard0(producto) {
   // crea la card en html con los valores de los objetos
   return `
-    <div class="col-12 col-sm-6 col-lg-3 d-flex">
-      <article class="tc-productCard p-2 w-100">
+      <article class="tc-productCard p-2 m-2 col item">
         <div class="tc-productCard__img-wrapper p-2">
           <img src="${producto.imagen}" alt="${producto.titulo}" class="tc-productCard__img" />
           <span class="tc-productCard__discount position-absolute top-0 end-0">${producto.descuento}</span>
@@ -118,7 +117,6 @@ function crearCard0(producto) {
           </div>
         </div>
       </article>
-    </div>
   `;
 }
 
@@ -280,3 +278,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Inicializar valores al cargar
   syncPriceRanges();
 });
+
+export const filterProducts = (filteredProducts) => {
+  //console.log(filteredProducts);
+
+  productos = filteredProducts;
+  aplicarFiltros();
+};

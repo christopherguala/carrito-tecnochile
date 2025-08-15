@@ -1,3 +1,9 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
 .tcp-body {
   display: flex;
   flex-direction: column;
@@ -5,19 +11,13 @@
 }
 
 .tcp-main {
-  width: 1350px;
-  height: 2372.56px;
-  max-width: 1350px;
+  width: 100%;
 }
 
 .tcp-route__container {
-  width: 1305px;
-  height: 24px;
+  display: flex;
+  padding: 0 2.5rem;
   flex-shrink: 0;
-  margin-left: 15px;
-  margin-right: 30px;
-  margin-top: 32px;
-  margin-bottom: 32px;
 }
 
 .tcp-srArrow {
@@ -40,17 +40,15 @@
 }
 
 .tcp-sectionImage {
-  width: 1320px;
+  width: 100%;
   height: 205px;
-  max-width: 1320px;
-  margin-bottom: 24px;
+  margin-bottom: 2rem;
   background: url(https://d3okvk28mv0bs6.cloudfront.net/uploads/78192d0e-3903-4bb9-9971-e4f36e4419f3/original/computadores_y_tablets_desktop_Banners_Mun.jpg);
 }
 
 .tcp-productS {
   display: flex;
-  width: 1350px;
-  min-height: 1951.56px;
+  /* min-height: 1951.56px; */
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -58,12 +56,10 @@
 
 .tcp-productS__aside {
   display: flex;
-  width: 337.5px;
-  max-width: 337.5px;
-  padding-right: 15px;
+  padding: 2rem;
   flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
+  align-items: center;
+  /* flex-shrink: 0; */
   align-self: stretch;
 }
 
@@ -102,49 +98,82 @@
 }
 
 .tcp-productS__main {
-  width: 997.5px;
-  max-width: 1012.5px;
-  flex-shrink: 0;
-  align-self: stretch;
-  margin-left: 15px;
+  width: 100%;
+  padding: 2rem;
 }
 
 .tcp-productS__main__imgGallery {
   display: flex;
-  width: 883px;
-  height: 171px;
-  padding: 20px 50px;
-  margin: 0px 15px 38px 15px;
   flex-direction: row;
-  align-items: flex-start;
+  overflow: scroll;
+  align-items: center;
+  justify-content: center;
 }
 
 .tcp-productS__main__imgGallery--container {
   display: flex;
-  width: 150px;
-  padding-right: 30px;
+  padding: 0 1rem;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  flex-shrink: 0;
+  align-items: center;
   align-self: stretch;
+}
+
+.tcp-products__gallery {
+  display: block;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tcp-products__gallery--cards {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+  width: 100%;
+  padding: 8px;
+}
+
+@media (max-width: 420px) {
+  .tcp-products__gallery--cards,
+  #product-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    padding: 6px;
+  }
+}
+
+.tcp-products__gallery--more {
+  display: flex;
+  justify-content: center;
 }
 
 .tcp-productS__main__imgGallery--container__img {
   display: flex;
-  width: 126px;
-  height: 126px;
-  padding: 7px;
-  margin-bottom: 10px;
+  width: 6rem;
+  height: 6rem;
+  margin-bottom: 1rem;
   justify-content: center;
   align-items: center;
   border-radius: 140px;
   background: var(--color-spring-green-55, #43d87e);
 }
 
+@media (min-width: 1080px) {
+  .tcp-productS__main__imgGallery--container__img {
+    width: 12rem;
+    height: auto;
+  }
+}
+
 .tcp-productS__main__imgGallery--container__img--img {
-  width: 126px;
-  height: 126px;
+  width: 100%;
+  height: auto;
   flex-shrink: 0;
 }
 
@@ -153,11 +182,21 @@
   text-align: center;
 }
 
+.tcp-products__search {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.tc-products__search-wrapper {
+  display: flex;
+  width: 80%;
+}
+
 .tcp-productS__main__search {
   display: flex;
-  width: 960.5px;
-  padding: 11px;
-  margin: 0px 15px 22px 15px;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .tcp-header {
@@ -166,7 +205,5 @@
 
 .tcp-footer {
   width: 100%;
-  margin-top: 400px;
+  margin-top: 8rem;
 }
-
-

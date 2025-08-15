@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>TechnoChile</title>
-  <link rel="icon" href="../assets/svg/favico.svg" type="image/svg+xml" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>TechnoChile</title>
+    <link rel="icon" href="../assets/svg/favico.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/products.css" />
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/main.css" />
 
     <link
       rel="stylesheet"
@@ -17,11 +17,14 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="../js/bootstrap.bundle.min.js" defer></script>
-  <script src="../js/tabla.js" defer></script>
-</head>
-<body class="bg-light">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="../js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/tabla.js" defer></script>
+  </head>
+  <body class="bg-light">
     <header class="tc-header tcp-header">
       <nav
         class="tc-navbar navbar navbar-expand-lg bg-dark border-bottom border-body"
@@ -45,11 +48,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  href="../index.html"
-                  >Inicio</a
-                >
+                <a class="nav-link active" href="../index.html">Inicio</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -61,13 +60,27 @@
                   Categorías
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="./productos.html">Computadores</a></li>
-                  <li><a class="dropdown-item" href="./productos.html">Smartphones</a></li>
-                  <li><a class="dropdown-item" href="./productos.html">SmartTV & Audio</a></li>
+                  <li>
+                    <a class="dropdown-item" href="./productos.html"
+                      >Computadores</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./productos.html"
+                      >Smartphones</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./productos.html"
+                      >SmartTV & Audio</a
+                    >
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-disabled="true"   href="./cliente.html">Tus Compras</a>
+                <a class="nav-link" aria-disabled="true" href="./cliente.html"
+                  >Tus Compras</a
+                >
               </li>
             </ul>
             <div class="tc-btn__icon-wrapper">
@@ -76,105 +89,112 @@
               </button>
               <span id="cart-counter" class="tc-btn__icon--counter">xx</span>
             </div>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Busca aquí..."
-                aria-label="Buscador"
-              />
-              <button class="tc-btn__outlined" type="submit">Buscar</button>
-            </form>
           </div>
         </div>
       </nav>
     </header>
 
-<div class="container py-4">
-  <h2 class="mb-4">Lista de Productos</h2>
-  <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar Producto</button>
+    <div class="container py-4">
+      <h2 class="mb-4">Lista de Productos</h2>
+      <button
+        class="btn btn-primary mb-3"
+        data-bs-toggle="modal"
+        data-bs-target="#modalAgregar"
+      >
+        Agregar Producto
+      </button>
 
-  <table class="table table-striped table-hover">
-    <thead class="table-dark">
-      <tr>
-        <th>#</th>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Categoría</th>
-        <th>Stock</th>
-        <th>Modificar</th>
-        <th>Eliminar</th>
-      </tr>
-    </thead>
-    <tbody id="tablaProductos"></tbody>
-  </table>
-</div>
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+            <th>Stock</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="tablaProductos"></tbody>
+      </table>
+    </div>
 
-<!-- Modal Agregar Producto -->
-<div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form id="formAgregar" class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Agregar Producto</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <!-- Modal Agregar Producto -->
+    <div
+      class="modal fade"
+      id="modalAgregar"
+      tabindex="-1"
+      aria-labelledby="modalAgregarLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <form id="formAgregar" class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Agregar Producto</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-2">
+              <label class="form-label">Título</label>
+              <input type="text" class="form-control" name="titulo" required />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Imagen (URL)</label>
+              <input type="url" class="form-control" name="imagen" required />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Descuento</label>
+              <input type="text" class="form-control" name="descuento" />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">ID Producto</label>
+              <input type="text" class="form-control" name="idProducto" />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Precio</label>
+              <input type="text" class="form-control" name="precio" required />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Precio Antiguo</label>
+              <input type="text" class="form-control" name="precioAntiguo" />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Stock</label>
+              <input type="number" class="form-control" name="stock" required />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Tipo</label>
+              <input type="text" class="form-control" name="tipe" />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Marca</label>
+              <input type="text" class="form-control" name="marca" />
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" name="sb" />
+              <label class="form-check-label">SB</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" name="bu" />
+              <label class="form-check-label">BU</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" name="ec" />
+              <label class="form-check-label">EC</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Agregar</button>
+          </div>
+        </form>
       </div>
-      <div class="modal-body">
-        <div class="mb-2">
-          <label class="form-label">Título</label>
-          <input type="text" class="form-control" name="titulo" required>
-        </div>
-        <div class="mb-2">
-          <label class="form-label">Imagen (URL)</label>
-          <input type="url" class="form-control" name="imagen" required>
-        </div>
-        <div class="mb-2">
-          <label class="form-label">Descuento</label>
-          <input type="text" class="form-control" name="descuento">
-        </div>
-        <div class="mb-2">
-          <label class="form-label">ID Producto</label>
-          <input type="text" class="form-control" name="idProducto">
-        </div>
-        <div class="mb-2">
-          <label class="form-label">Precio</label>
-          <input type="text" class="form-control" name="precio" required>
-        </div>
-        <div class="mb-2">
-          <label class="form-label">Precio Antiguo</label>
-          <input type="text" class="form-control" name="precioAntiguo">
-        </div>
-        <div class="mb-2">
-          <label class="form-label">Stock</label>
-          <input type="number" class="form-control" name="stock" required>
-        </div>
-        <div class="mb-2">
-          <label class="form-label">Tipo</label>
-          <input type="text" class="form-control" name="tipe">
-        </div>
-        <div class="mb-2">
-          <label class="form-label">Marca</label>
-          <input type="text" class="form-control" name="marca">
-        </div>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" name="sb">
-          <label class="form-check-label">SB</label>
-        </div>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" name="bu">
-          <label class="form-check-label">BU</label>
-        </div>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" name="ec">
-          <label class="form-check-label">EC</label>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Agregar</button>
-      </div>
-    </form>
-  </div>
-</div>
-<footer class="tc-footer border-top tcp-footer">
+    </div>
+    <footer class="tc-footer border-top tcp-footer">
       <div class="container tc-footer__content py-5">
         <div class="row justify-content-between mx-0">
           <!-- Logo mobile -->
@@ -443,5 +463,5 @@
         </div>
       </div>
     </footer>
-</body>
+  </body>
 </html>
