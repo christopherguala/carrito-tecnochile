@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartCounter = document.getElementById('cart-counter');
 
   let cart = [];
+  let productosOriginales = [...productos];
+
+  const storedProductos = localStorage.getItem('productos');
+  if (storedProductos) {
+    productos = JSON.parse(storedProductos);
+  } else {
+    productos = [...productosOriginales];
+  }
 
   
   const saveCart = () => localStorage.setItem('cart', JSON.stringify(cart));
@@ -64,9 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const title = itemCard.querySelector('.tc-productCard__body--title').innerText.trim();
     const priceText = itemCard.querySelector('.tc-productCard__price').innerText.trim();
     const imgSrc = itemCard.querySelector('img.tc-productCard__img').src;
-    const stock = parseInt(itemCard.dataset.stock) || Infinity; 
-
-    addItemToCart(title, priceText, imgSrc, stock);
+    const producto = productos.find(p => p.titulo === title);
+const stock = producto ? producto.stock : Infinity;
+addItemToCart(title, priceText, imgSrc, stock);
   });
 
 
@@ -140,8 +148,18 @@ document.addEventListener('DOMContentLoaded', () => {
       payBtn.innerText = 'Pagar';
       payBtn.addEventListener('click', () => {
         if (!cart.length) return alert('El carrito está vacío');
+
+        cart.forEach(item => {
+        const producto = productos.find(p => p.titulo === item.title);
+        if (producto) {
+          producto.stock -= item.quantity;
+        }
+      });
+      localStorage.setItem('productos', JSON.stringify(productos));
+
         alert('¡Gracias por su compra!');
         clearCart();
+        aplicarFiltros();
       });
 
       const clearBtn = document.createElement('button');
