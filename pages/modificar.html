@@ -465,3 +465,12 @@
     </footer>
   </body>
 </html>
+<script>
+
+  if (localStorage.getItem("isAdmin") !== "true") {
+    window.location.href = "./admin.html"; 
+    console.log("No es administrador");
+  } else {
+    console.log("Es administrador");
+  }
+</script>

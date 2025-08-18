@@ -12952,3 +12952,58 @@ body {
   border-radius: 50%;
   font-weight: bold;
 }
+/* === FORMULARIO DE ADMINISTRADOR === */
+#adminLoginForm {
+  max-width: 480px;
+  margin: 60px auto;
+  background-color: #0f172a;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(46, 194, 105, 0.4);
+  font-family: "Segoe UI", sans-serif;
+  color: #e2e8f0;
+}
+
+#adminLoginForm div {
+  margin-bottom: 20px;
+}
+
+#adminLoginForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+#adminLoginForm input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  color: #f8fafc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+#adminLoginForm input:focus {
+  border-color: #2ec269;
+  outline: none;
+  background-color: #0f172a;
+}
+
+#adminLoginForm button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2ec269;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#adminLoginForm button:hover {
+  background-color: #25a85a;
+}
