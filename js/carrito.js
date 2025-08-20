@@ -44,14 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
     (e) => e.target === cartOverlay && closeCart()
   );
 
-  const addItemToCart = (title, price, imgSrc, stock = Infinity) => {
-    const existingItem = cart.find((i) => i.title === title);
-    const currentQty = existingItem ? existingItem.quantity : 0;
+  const addItemToCart = async (title, price, imgSrc, stock = Infinity) => {
+  const existingItem = cart.find((i) => i.title === title);
+  const currentQty = existingItem ? existingItem.quantity : 0;
 
-    if (currentQty >= stock) {
-      alert("No puedes agregar más unidades de este producto. Stock limitado.");
-      return;
-    }
+  try {
+    await verificarStockDisponible(currentQty, stock);
 
     if (existingItem) {
       existingItem.quantity++;
@@ -61,7 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     saveCart();
     renderCart();
-  };
+  } catch (error) {
+    alert(error); 
+  }
+};
 
   document.addEventListener("click", (e) => {
     const btn = e.target.closest(".tc-btn__primary");
@@ -168,27 +169,51 @@ document.addEventListener("DOMContentLoaded", () => {
       const payBtn = document.createElement("button");
       payBtn.classList.add("btnPay");
       payBtn.innerText = "Pagar";
-      payBtn.addEventListener("click", () => {
-        if (!cart.length) return alert("El carrito está vacío");
-
-        cart.forEach((item) => {
-          const producto = productos.find((p) => p.titulo === item.title);
-          if (producto) {
-            producto.stock -= item.quantity;
-          }
-        });
-        localStorage.setItem("productos", JSON.stringify(productos));
-        window.dispatchEvent(new Event("inventory:updated"));
-
-        alert("¡Gracias por su compra!");
-        clearCart();
-        aplicarFiltros();
-      });
 
       const clearBtn = document.createElement("button");
       clearBtn.classList.add("btnClearCart");
       clearBtn.innerText = "Limpiar carrito";
       clearBtn.addEventListener("click", clearCart);
+
+    
+      function simularActualizacionServidor() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("Actualización de stock completada");
+          }, 2000); 
+        });
+      }
+
+      payBtn.addEventListener("click", async () => {
+        if (!cart.length) return alert("El carrito está vacío");
+
+        payBtn.disabled = true;
+        payBtn.innerText = "Procesando...";
+
+        try {
+          await simularActualizacionServidor(); 
+
+          cart.forEach((item) => {
+            const producto = productos.find((p) => p.titulo === item.title);
+            if (producto) {
+              producto.stock -= item.quantity;
+            }
+          });
+
+          localStorage.setItem("productos", JSON.stringify(productos));
+          window.dispatchEvent(new Event("inventory:updated"));
+
+          alert("¡Gracias por su compra!");
+          clearCart();
+
+          if (typeof aplicarFiltros === "function") {
+            aplicarFiltros();
+          }
+        } finally {
+          payBtn.disabled = false;
+          payBtn.innerText = "Pagar";
+        }
+      });
 
       buttonsContainer.append(payBtn, clearBtn);
       cartModal
@@ -211,3 +236,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderCart();
 });
+
+function verificarStockDisponible(currentQty, stock) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (currentQty >= stock) {
+        reject("No puedes agregar más unidades de este producto. Stock limitado.");
+      } else {
+        resolve();
+      }
+    }, 500); 
+  });
+}
