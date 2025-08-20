@@ -178,6 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
         localStorage.setItem("productos", JSON.stringify(productos));
+        window.dispatchEvent(new Event("inventory:updated"));
 
         alert("¡Gracias por su compra!");
         clearCart();

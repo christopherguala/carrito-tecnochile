@@ -12,22 +12,33 @@ let maxRango = 4000000;
 fetch("../js/productos.json")
   .then((response) => response.json())
   .then((data) => {
-    const productosLocales =
-      JSON.parse(localStorage.getItem("productos")) || [];
+    // 1) Guarda los originales SOLO si no existen
+    if (!localStorage.getItem("originalProducts")) {
+      localStorage.setItem("originalProducts", JSON.stringify(data));
+    }
 
-    // Evita duplicados: solo añade productos locales con IDs que no estén en el JSON
-    const productosUnicos = productosLocales.filter(
-      (local) => !data.some((jsonProd) => jsonProd.id === local.id)
-    );
+    // 2) Fuente de verdad del inventario vivo
+    const inventarioVivo =
+      JSON.parse(localStorage.getItem("productos") || "null") ?? data;
 
-    productos = [...data, ...productosUnicos];
+    // 3) Inicializa 'productos' y el filtrado
+    productos = [...inventarioVivo];
     productosFiltrados = [...productos];
+    // 4) Si no existía inventario vivo, inicialízalo
+    if (!localStorage.getItem("productos")) {
+      localStorage.setItem("productos", JSON.stringify(inventarioVivo));
+    }
 
-    localStorage.setItem("originalProducts", JSON.stringify(productos));
     aplicarFiltros();
   })
   .catch((error) => {
     console.error("Error al cargar los productos:", error);
+    const inventarioVivo = JSON.parse(
+      localStorage.getItem("productos") || "[]"
+    );
+    productos = [...inventarioVivo];
+    productosFiltrados = [...productos];
+    aplicarFiltros();
   });
 
 function crearCard(producto) {
@@ -126,6 +137,12 @@ function parsePrecio(precioStr) {
 }
 
 function aplicarFiltros() {
+  // Rehidrata inventario vivo antes de filtrar (para reflejar compras)
+  const live = JSON.parse(localStorage.getItem("productos") || "[]");
+  if (Array.isArray(live) && live.length) {
+    productos = live;
+  }
+
   // aqui guardaran los filtros que se seleccionan
   const filtros = {
     tiendas: [],
@@ -235,7 +252,7 @@ document.getElementById("minPrice").addEventListener("input", aplicarFiltros);
 document.getElementById("maxPrice").addEventListener("input", aplicarFiltros);
 
 // Aqui llamamos primeramente a la funcion para cargar los primeros 12 productos de la pagina
-aplicarFiltros();
+//aplicarFiltros();
 
 //rango de precios
 
@@ -280,8 +297,42 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 export const filterProducts = (filteredProducts) => {
-  //console.log(filteredProducts);
+  // Asegura que la base (productos) sea el inventario vivo
+  const live = JSON.parse(localStorage.getItem("productos") || "[]");
+  if (Array.isArray(live) && live.length) {
+    productos = live;
+  }
 
-  productos = filteredProducts;
-  aplicarFiltros();
+  // Aplica el resultado del buscador como pre-filtro sin tocar el inventario base
+  productosFiltrados = Array.isArray(filteredProducts)
+    ? filteredProducts
+    : productos;
+
+  // Render directo evitando recalcular filtros de checkboxes
+  container.innerHTML = "";
+  mostrados = 0;
+  const primerLote = productosFiltrados.slice(0, porCarga);
+  primerLote.forEach((p) =>
+    container.insertAdjacentHTML("beforeend", crearCardSegunStock(p))
+  );
+  mostrados = primerLote.length;
+  btn.style.display = productosFiltrados.length > mostrados ? "block" : "none";
 };
+
+// --- Auto-refresh del inventario en esta pestaña ---
+// 1) Cuando el carrito descuente stock y dispare el evento custom
+window.addEventListener("inventory:updated", () => {
+  aplicarFiltros();
+});
+
+// 2) Por si el inventario cambia desde otra pestaña/ventana
+window.addEventListener("storage", (e) => {
+  if (e.key === "productos") {
+    aplicarFiltros();
+  }
+});
+
+// Utilidad opcional para refrescar desde cualquier script
+export function refreshProductsFromStorage() {
+  aplicarFiltros();
+}
