@@ -7,7 +7,7 @@
     <link rel="icon" href="../assets/svg/favico.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/products.css" />
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/main.css" />
 
     <link
       rel="stylesheet"
@@ -18,10 +18,11 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
-    
+
     <script src="../js/bootstrap.bundle.min.js" defer></script>
-    <script src="../js/products.js" defer></script>
-    <script src="../js/carrito.js" defer></script>
+    <script src="../js/products.js" type="module" defer></script>
+    <script src="../js/buscador.js" type="module" defer></script>
+    <script src="../js/carrito.js" type="module" defer></script>
     <script
       src="https://kit.fontawesome.com/09bf171868.js"
       crossorigin="anonymous"
@@ -52,11 +53,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  href="../index.html"
-                  >Inicio</a
-                >
+                <a class="nav-link active" href="../index.html">Inicio</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -68,13 +65,32 @@
                   Categorías
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="./productos.html">Computadores</a></li>
-                  <li><a class="dropdown-item" href="./productos.html">Smartphones</a></li>
-                  <li><a class="dropdown-item" href="./productos.html">SmartTV & Audio</a></li>
+                  <li>
+                    <a class="dropdown-item" href="./productos.html"
+                      >Computadores</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./productos.html"
+                      >Smartphones</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./productos.html"
+                      >SmartTV & Audio</a
+                    >
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-disabled="true"   href="./cliente.html">Tus Compras</a>
+                <a class="nav-link" aria-disabled="true" href="./cliente.html"
+                  >Tus Compras</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-disabled="true" href="modificar.html"
+                  >Gestion</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" aria-disabled="true"   href="modificar.html">Gestion</a>
@@ -86,21 +102,13 @@
               </button>
               <span id="cart-counter" class="tc-btn__icon--counter">xx</span>
             </div>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Busca aquí..."
-                aria-label="Buscador"
-              />
-              <button class="tc-btn__outlined" type="submit">Buscar</button>
-            </form>
           </div>
         </div>
       </nav>
     </header>
 
     <main class="tc-main tcp-main">
+      <div class="tcp-sectionImage"></div>
       <div class="tcp-route__container">
         <p>
           <a href="#" class="tcp-route--gray">Home</a>
@@ -112,14 +120,16 @@
           <a href="#" class="tcp-route--active">Computadores y tablets</a>
         </p>
       </div>
-      <div class="tcp-sectionImage"></div>
+
       <div class="tcp-productS">
-        <div class="tcp-productS__aside">
+        <div class="tcp-productS__aside col-lg-4 col-xl-3">
           <div class="tcp-productS__aside__filter">
             <div class="accordion tcp__filter__accordion" id="accordionExample">
               <div class="accordion-item tcp-accordion__title">
                 <h2 class="accordion-header">
-                  <p class="tcp-accordion__title--font">Computadores y tablets</p>
+                  <p class="tcp-accordion__title--font">
+                    Computadores y tablets
+                  </p>
                 </h2>
               </div>
               <div class="accordion-item tcp-accordion__item">
@@ -137,27 +147,40 @@
                 </h2>
                 <div
                   id="collapseOne"
-                  class="accordion-collapse collapse show" 
+                  class="accordion-collapse collapse show"
                   data-bs-parent="#accordionExample"
                 >
                   <div class="accordion-body">
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="ec" id="estacionCentral">
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="ec"
+                        id="estacionCentral"
+                      />
                       <label class="form-check-label" for="estacionCentral">
                         Estacion central
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="sb" id="sanBernardo">
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="sb"
+                        id="sanBernardo"
+                      />
                       <label class="form-check-label" for="sanBernardo">
                         San Bernardo
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="bu" id="buin">
-                      <label class="form-check-label" for="buin">
-                        Buin
-                      </label>
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="bu"
+                        id="buin"
+                      />
+                      <label class="form-check-label" for="buin"> Buin </label>
                     </div>
                   </div>
                 </div>
@@ -182,25 +205,39 @@
                 >
                   <div class="accordion-body">
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="asus" id="asus">
-                      <label class="form-check-label" for="asus">
-                        Asus
-                      </label>
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="asus"
+                        id="asus"
+                      />
+                      <label class="form-check-label" for="asus"> Asus </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="dell" id="dell">
-                      <label class="form-check-label" for="dell">
-                        Dell
-                      </label>
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="dell"
+                        id="dell"
+                      />
+                      <label class="form-check-label" for="dell"> Dell </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="hp" id="HP">
-                      <label class="form-check-label" for="hp">
-                        HP
-                      </label>
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="hp"
+                        id="HP"
+                      />
+                      <label class="form-check-label" for="hp"> HP </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="lenovo" id="lenovo">
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="lenovo"
+                        id="lenovo"
+                      />
                       <label class="form-check-label" for="lenovo">
                         Lenovo
                       </label>
@@ -228,57 +265,100 @@
                 >
                   <div class="accordion-body">
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="noot" id="nootbooks">
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="noot"
+                        id="nootbooks"
+                      />
                       <label class="form-check-label" for="nootbooks">
                         Nootbooks
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="tab" id="tablet">
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="tab"
+                        id="tablet"
+                      />
                       <label class="form-check-label" for="tablet">
                         Tablets
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="desk" id="desktop">
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="desk"
+                        id="desktop"
+                      />
                       <label class="form-check-label" for="desktop">
                         Escritorio
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input filter-checkbox" type="checkbox" value="acc" id="accesorios">
+                      <input
+                        class="form-check-input filter-checkbox"
+                        type="checkbox"
+                        value="acc"
+                        id="accesorios"
+                      />
                       <label class="form-check-label" for="accesorios">
                         Accesorios
                       </label>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item tcp-accordion__item">
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button tcp-accordion__item"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseFour"
-                    aria-expanded="true"
-                    aria-controls="collapseFour"
+                <div class="accordion-item tcp-accordion__item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button tcp-accordion__item"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseFour"
+                      aria-expanded="true"
+                      aria-controls="collapseFour"
+                    >
+                      Rango de precios
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseFour"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
                   >
-                    Rango de precios
-                  </button>
-                </h2>
-                <div
-                  id="collapseFour"
-                  class="accordion-collapse collapse" 
-                  data-bs-parent="#accordionExample"
-                >
-                  <div class="accordion-body">
-                    <div class="price-range-container position-relative py-3 px-2">
-                      <label for="minPrice" class="form-label">Precio mínimo: <span id="minValue">$0</span></label>
-                      <input type="range" class="form-range" id="minPrice" min="0" max="4000000" step="10000" value="0">
-  
-                      <label for="maxPrice" class="form-label">Precio máximo: <span id="maxValue">$4.000.000</span></label>
-                      <input type="range" class="form-range" id="maxPrice" min="0" max="4000000" step="10000" value="4000000">
+                    <div class="accordion-body">
+                      <div
+                        class="price-range-container position-relative py-3 px-2"
+                      >
+                        <label for="minPrice" class="form-label"
+                          >Precio mínimo: <span id="minValue">$0</span></label
+                        >
+                        <input
+                          type="range"
+                          class="form-range"
+                          id="minPrice"
+                          min="0"
+                          max="4000000"
+                          step="10000"
+                          value="0"
+                        />
+
+                        <label for="maxPrice" class="form-label"
+                          >Precio máximo:
+                          <span id="maxValue">$4.000.000</span></label
+                        >
+                        <input
+                          type="range"
+                          class="form-range"
+                          id="maxPrice"
+                          min="0"
+                          max="4000000"
+                          step="10000"
+                          value="4000000"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -286,11 +366,15 @@
             </div>
           </div>
         </div>
-        <div class="tcp-productS__main">
+        <div class="tcp-productS__main col">
           <div class="tcp-productS__main__imgGallery">
             <div class="tcp-productS__main__imgGallery--container">
               <div class="tcp-productS__main__imgGallery--container__img">
-                <img src="https://assets.pcfactory.cl/public/foto/familia/notebooks.webp" alt="notebooks" class="tcp-productS__main__imgGallery--container__img--img" />
+                <img
+                  src="https://assets.pcfactory.cl/public/foto/familia/notebooks.webp"
+                  alt="notebooks"
+                  class="tcp-productS__main__imgGallery--container__img--img"
+                />
               </div>
               <p class="tcp-productS__main__imgGallery--container__text">
                 Nootbooks
@@ -298,7 +382,11 @@
             </div>
             <div class="tcp-productS__main__imgGallery--container">
               <div class="tcp-productS__main__imgGallery--container__img">
-                <img src="https://assets.pcfactory.cl/public/foto/familia/tablets.png" alt="notebooks" class="tcp-productS__main__imgGallery--container__img--img" />
+                <img
+                  src="https://assets.pcfactory.cl/public/foto/familia/tablets.png"
+                  alt="notebooks"
+                  class="tcp-productS__main__imgGallery--container__img--img"
+                />
               </div>
               <p class="tcp-productS__main__imgGallery--container__text">
                 tablets
@@ -306,7 +394,11 @@
             </div>
             <div class="tcp-productS__main__imgGallery--container">
               <div class="tcp-productS__main__imgGallery--container__img">
-                <img src="https://assets.pcfactory.cl/public/foto/familia/escritorio.webp" alt="notebooks" class="tcp-productS__main__imgGallery--container__img--img" />
+                <img
+                  src="https://assets.pcfactory.cl/public/foto/familia/escritorio.webp"
+                  alt="notebooks"
+                  class="tcp-productS__main__imgGallery--container__img--img"
+                />
               </div>
               <p class="tcp-productS__main__imgGallery--container__text">
                 Escritorio
@@ -314,7 +406,11 @@
             </div>
             <div class="tcp-productS__main__imgGallery--container">
               <div class="tcp-productS__main__imgGallery--container__img">
-                <img src="https://assets.pcfactory.cl/public/foto/familia/servidores.webp" alt="notebooks" class="tcp-productS__main__imgGallery--container__img--img" />
+                <img
+                  src="https://assets.pcfactory.cl/public/foto/familia/servidores.webp"
+                  alt="notebooks"
+                  class="tcp-productS__main__imgGallery--container__img--img"
+                />
               </div>
               <p class="tcp-productS__main__imgGallery--container__text">
                 Servidores
@@ -322,16 +418,33 @@
             </div>
             <div class="tcp-productS__main__imgGallery--container">
               <div class="tcp-productS__main__imgGallery--container__img">
-                <img src="https://assets.pcfactory.cl/public/foto/familia/accesorios_notebooks.webp" alt="notebooks" class="tcp-productS__main__imgGallery--container__img--img" />
+                <img
+                  src="https://assets.pcfactory.cl/public/foto/familia/accesorios_notebooks.webp"
+                  alt="notebooks"
+                  class="tcp-productS__main__imgGallery--container__img--img"
+                />
               </div>
               <p class="tcp-productS__main__imgGallery--container__text">
                 Accesorios
               </p>
             </div>
           </div>
+          <div class="tcp-products__search">
+            <form class="tc-products__search-wrapper" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Busca aquí..."
+                aria-label="Buscador"
+              />
+              <button class="tc-btn__outlined" type="submit">Buscar</button>
+            </form>
+          </div>
           <div class="tcp-productS__main__search">
             <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Ordenar por</label>
+              <label class="input-group-text" for="inputGroupSelect01"
+                >Ordenar por</label
+              >
               <select class="form-select" id="inputGroupSelect01">
                 <option selected>Recomendados</option>
                 <option value="1">Precio Ascendente</option>
@@ -339,15 +452,24 @@
               </select>
             </div>
           </div>
-          <div>
-            <div class="row" id="product-gallery"></div>
-            <div class="text-center mt-3">
-            <button id="load-more" class="btn btn-primary">Ver más</button>
+          <div class="tcp-products__gallery">
+            <div class="errorPlaceholder container flex-column d-none">
+              <p>.</p>
+            </div>
+
+            <div
+              class="tcp-products__gallery--cards"
+              id="product-gallery"
+            ></div>
+
+            <div class="tcp-products__gallery--more mt-3">
+              <button id="load-more" class="tc-btn__secondary mt-auto">
+                Ver más
+              </button>
             </div>
           </div>
         </div>
       </div>
-
     </main>
     <footer class="tc-footer border-top tcp-footer">
       <div class="container tc-footer__content py-5">
@@ -418,7 +540,7 @@
                 </div>
               </div>
               <!-- Redes sociales desktop -->
-              <div class="col-12 col-lg-9 mx-auto my-3 d-none d-xl-block">
+              <div class="col-12 col-lg-9 mx-auto my-3 d-xl-block">
                 <div class="row align-items-center">
                   <div class="col-2 col-lg-3 px-0">
                     <p class="mb-0 tc-footer__menu-title">Síguenos</p>
@@ -619,21 +741,27 @@
       </div>
     </footer>
     <div id="cartOverlay" class="cartOverlay" hidden>
-  <div id="cartModal" class="cartModal" role="dialog" aria-label="Carrito de compras">
-    <div class="cartModalContent">
-      <button id="closeCartBtn" class="cartModalClose" aria-label="Cerrar carrito">X</button>
-      <h2>Tu Carrito</h2>
-      <div class="cartItems"></div>
-      <div class="cartTotal">
-        <strong>Total:</strong> <span class="cartTotalPrice">$0,00</span>
+      <div
+        id="cartModal"
+        class="cartModal"
+        role="dialog"
+        aria-label="Carrito de compras"
+      >
+        <div class="cartModalContent">
+          <button
+            id="closeCartBtn"
+            class="cartModalClose"
+            aria-label="Cerrar carrito"
+          >
+            X
+          </button>
+          <h2>Tu Carrito</h2>
+          <div class="cartItems"></div>
+          <div class="cartTotal">
+            <strong>Total:</strong> <span class="cartTotalPrice">$0,00</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-    
-   
-  </body>
-</html>
   </body>
 </html>
