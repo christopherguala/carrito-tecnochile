@@ -28,15 +28,16 @@ form.addEventListener("submit", (event) => {
   filterProducts(search);
 });
 
-const getAndSaveProducts = () => {
-  fetch("../js/productos.json")
-    .then((response) => response.json())
-    .then((data) => {
-      localStorage.setItem("productos", JSON.stringify(data));
-    })
-    .catch((error) => {
-      console.error("Error al cargar los productos:", error);
-    });
+const getAndSaveProducts = async () => {
+  try {
+    const response = await fetch("../js/productos.json");
+    const data = await response.json();
+    localStorage.setItem("productos", JSON.stringify(data));
+  } catch (error) {
+    console.log("Error al cargar los productos: ", error);
+  } finally {
+    console.log("El intento de obtener y guardar los productos ha finalizado.");
+  }
 };
 
-getAndSaveProducts();
+setTimeout(() => getAndSaveProducts(), 1000);
