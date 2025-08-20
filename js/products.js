@@ -1,48 +1,62 @@
 const container = document.getElementById("product-gallery");
 const btn = document.getElementById("load-more");
-const checkboxes = document.querySelectorAll(".filter-checkbox"); // guarda los checkbox en la función
+const checkboxes = document.querySelectorAll(".filter-checkbox"); 
 
 export let productos = [];
-let mostrados = 0; // guarda cuántos productos se han mostrado
-const porCarga = 12; // aqui modificas de a cuantos productos se muestran al principio y al apretar el boton
+let mostrados = 0; 
+const porCarga = 12; 
 let productosFiltrados = [...productos];
 let minRango = 0;
 let maxRango = 4000000;
 
-fetch("../js/productos.json")
-  .then((response) => response.json())
-  .then((data) => {
-    // 1) Guarda los originales SOLO si no existen
+
+async function cargarProductos() {
+  try {
+    const response = await fetch("../js/productos.json");
+    const data = await response.json();
+
+    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+   
     if (!localStorage.getItem("originalProducts")) {
       localStorage.setItem("originalProducts", JSON.stringify(data));
     }
 
-    // 2) Fuente de verdad del inventario vivo
+  
     const inventarioVivo =
       JSON.parse(localStorage.getItem("productos") || "null") ?? data;
 
-    // 3) Inicializa 'productos' y el filtrado
+  
     productos = [...inventarioVivo];
     productosFiltrados = [...productos];
-    // 4) Si no existía inventario vivo, inicialízalo
+
+    
     if (!localStorage.getItem("productos")) {
       localStorage.setItem("productos", JSON.stringify(inventarioVivo));
     }
 
     aplicarFiltros();
-  })
-  .catch((error) => {
+  } catch (error) {
     console.error("Error al cargar los productos:", error);
+
+   
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     const inventarioVivo = JSON.parse(
       localStorage.getItem("productos") || "[]"
     );
     productos = [...inventarioVivo];
     productosFiltrados = [...productos];
     aplicarFiltros();
-  });
+  }
+}
+
+
+cargarProductos();
 
 function crearCard(producto) {
-  // crea la card en html con los valores de los objetos
+ 
   return `
       <article class="tc-productCard p-2 m-2 col item">
         <div class="tc-productCard__img-wrapper p-2">
@@ -72,7 +86,7 @@ function crearCard(producto) {
 }
 
 function crearCard1(producto) {
-  // crea la card en html con los valores de los objetos
+  
   return `
   
       <article class="tc-productCard p-2 m-2 col item">
@@ -103,7 +117,7 @@ function crearCard1(producto) {
 }
 
 function crearCard0(producto) {
-  // crea la card en html con los valores de los objetos
+  
   return `
       <article class="tc-productCard p-2 m-2 col item">
         <div class="tc-productCard__img-wrapper p-2">
@@ -131,19 +145,19 @@ function crearCard0(producto) {
   `;
 }
 
-// convierte el string de precio a numero, ya que esta en string primero
+
 function parsePrecio(precioStr) {
   return parseInt(precioStr.replace(/\./g, "").replace("$", ""));
 }
 
 function aplicarFiltros() {
-  // Rehidrata inventario vivo antes de filtrar (para reflejar compras)
+
   const live = JSON.parse(localStorage.getItem("productos") || "[]");
   if (Array.isArray(live) && live.length) {
     productos = live;
   }
 
-  // aqui guardaran los filtros que se seleccionan
+
   const filtros = {
     tiendas: [],
     marcas: [],
@@ -151,11 +165,11 @@ function aplicarFiltros() {
   };
 
   checkboxes.forEach((cb) => {
-    // revisa cada checkbox y si está marcado lo guarda en valor (ejemplo valor = asus)
+    
     if (cb.checked) {
       const valor = cb.value;
       if (["sb", "bu", "ec"].includes(valor)) {
-        // si el valor revisado es uno de los 3 lo guardara en tiendas, lo mismo con los otros 2
+      
         filtros.tiendas.push(valor);
       } else if (["asus", "dell", "hp", "lenovo"].includes(valor)) {
         filtros.marcas.push(valor);
@@ -165,25 +179,25 @@ function aplicarFiltros() {
     }
   });
 
-  // obtener valores de los rangos de precio
+ 
   const minPriceValue = parseInt(document.getElementById("minPrice").value, 10);
   const maxPriceValue = parseInt(document.getElementById("maxPrice").value, 10);
 
-  // se queda solo con los productos que cumplen con los filtros
+ 
   productosFiltrados = productos.filter((producto) => {
     const precioNum = parsePrecio(producto.precio);
     const tiendaOK =
       filtros.tiendas.length === 0 ||
-      filtros.tiendas.some((tienda) => producto[tienda]); // si no hay filtro aqui seleccionado todos los productos cuentan
+      filtros.tiendas.some((tienda) => producto[tienda]); 
     const marcaOK =
-      filtros.marcas.length === 0 || filtros.marcas.includes(producto.marca); // lo mismo aplica aqui y abajo
+      filtros.marcas.length === 0 || filtros.marcas.includes(producto.marca); 
     const tipoOK =
       filtros.tipos.length === 0 || filtros.tipos.includes(producto.tipe);
-    const precioOK = precioNum >= minPriceValue && precioNum <= maxPriceValue; // filtro por precio dentro del rango
-    return tiendaOK && marcaOK && tipoOK && precioOK; // si el producto cumple con los 3 filtros y el precio, se guarda
+    const precioOK = precioNum >= minPriceValue && precioNum <= maxPriceValue; 
+    return tiendaOK && marcaOK && tipoOK && precioOK; 
   });
 
-  // ordena según el valor del select de precios
+
   const ordenSeleccionado = document.getElementById("inputGroupSelect01").value;
   if (ordenSeleccionado === "1") {
     productosFiltrados.sort(
@@ -195,16 +209,16 @@ function aplicarFiltros() {
     );
   }
 
-  container.innerHTML = ""; // borra todos los productos
-  mostrados = 0; // resetea el contador para volver a usar la funcion y cargar nuevos productos filtrados
+  container.innerHTML = ""; 
+  mostrados = 0; 
 
-  const primerLote = productosFiltrados.slice(0, porCarga); // muestra los primeros productos filtrados
+  const primerLote = productosFiltrados.slice(0, porCarga); 
   primerLote.forEach((p) =>
     container.insertAdjacentHTML("beforeend", crearCardSegunStock(p))
-  ); // crea la card
+  ); 
   mostrados = primerLote.length;
 
-  // muestra u oculta el botón si no hay mas productos en el array de los filtrados
+
   if (productosFiltrados.length > mostrados) {
     btn.style.display = "block";
   } else {
@@ -213,17 +227,17 @@ function aplicarFiltros() {
 }
 
 function crearCardSegunStock(producto) {
-  // crea la card según el stock disponible
+
   if (producto.stock === 0) {
-    return crearCard0(producto); // sin stock
+    return crearCard0(producto); 
   } else if (producto.stock === 1) {
-    return crearCard1(producto); // solo una unidad
+    return crearCard1(producto); 
   } else {
-    return crearCard(producto); // stock normal
+    return crearCard(producto); 
   }
 }
 
-// funcion para el boton, al hacer click llama a los siguientes productos hasta completar 12 o que se acaben
+
 btn.addEventListener("click", () => {
   const siguienteLote = productosFiltrados.slice(
     mostrados,
@@ -239,7 +253,7 @@ btn.addEventListener("click", () => {
   }
 });
 
-// llama a la funcion para los productos cada vez que un checkbox cambia, esto mantiene actualizado todo
+
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", aplicarFiltros);
 });
@@ -247,17 +261,14 @@ document
   .getElementById("inputGroupSelect01")
   .addEventListener("change", aplicarFiltros);
 
-// ve cambios en los rangos para aplicar filtros de inmediato
+
 document.getElementById("minPrice").addEventListener("input", aplicarFiltros);
 document.getElementById("maxPrice").addEventListener("input", aplicarFiltros);
 
-// Aqui llamamos primeramente a la funcion para cargar los primeros 12 productos de la pagina
-//aplicarFiltros();
 
-//rango de precios
 
 document.addEventListener("DOMContentLoaded", function () {
-  //trae los elementos del html
+ 
   const minPriceInput = document.getElementById("minPrice");
   const maxPriceInput = document.getElementById("maxPrice");
   const minValueLabel = document.getElementById("minValue");
@@ -271,44 +282,44 @@ document.addEventListener("DOMContentLoaded", function () {
     let minValue = parseInt(minPriceInput.value, 10);
     let maxValue = parseInt(maxPriceInput.value, 10);
 
-    // Evitar que min supere a max
+    
     if (minValue > maxValue) {
       minValue = maxValue;
       minPriceInput.value = minValue;
     }
 
-    // Evitar que max sea menor que min
+   
     if (maxValue < minValue) {
       maxValue = minValue;
       maxPriceInput.value = maxValue;
     }
 
-    // Actualizar etiquetas
+    
     minValueLabel.textContent = formatCurrency(minValue);
     maxValueLabel.textContent = formatCurrency(maxValue);
   }
 
-  // Escuchar cambios en ambos sliders
+  
   minPriceInput.addEventListener("input", syncPriceRanges);
   maxPriceInput.addEventListener("input", syncPriceRanges);
 
-  // Inicializar valores al cargar
+  
   syncPriceRanges();
 });
 
 export const filterProducts = (filteredProducts) => {
-  // Asegura que la base (productos) sea el inventario vivo
+ 
   const live = JSON.parse(localStorage.getItem("productos") || "[]");
   if (Array.isArray(live) && live.length) {
     productos = live;
   }
 
-  // Aplica el resultado del buscador como pre-filtro sin tocar el inventario base
+
   productosFiltrados = Array.isArray(filteredProducts)
     ? filteredProducts
     : productos;
 
-  // Render directo evitando recalcular filtros de checkboxes
+
   container.innerHTML = "";
   mostrados = 0;
   const primerLote = productosFiltrados.slice(0, porCarga);
@@ -319,20 +330,18 @@ export const filterProducts = (filteredProducts) => {
   btn.style.display = productosFiltrados.length > mostrados ? "block" : "none";
 };
 
-// --- Auto-refresh del inventario en esta pestaña ---
-// 1) Cuando el carrito descuente stock y dispare el evento custom
+
+
 window.addEventListener("inventory:updated", () => {
   aplicarFiltros();
 });
 
-// 2) Por si el inventario cambia desde otra pestaña/ventana
+ 
 window.addEventListener("storage", (e) => {
   if (e.key === "productos") {
     aplicarFiltros();
   }
 });
-
-// Utilidad opcional para refrescar desde cualquier script
 export function refreshProductsFromStorage() {
   aplicarFiltros();
 }
