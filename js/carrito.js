@@ -1,4 +1,5 @@
 let productos = localStorage.getItem("originalProducts");
+let isCheckingStock = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   const cartOverlay = document.getElementById("cartOverlay");
@@ -45,6 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   const addItemToCart = async (title, price, imgSrc, stock = Infinity) => {
+  if (isCheckingStock) return; // Evita múltiples clics
+  isCheckingStock = true;
+
   const existingItem = cart.find((i) => i.title === title);
   const currentQty = existingItem ? existingItem.quantity : 0;
 
@@ -60,7 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
     saveCart();
     renderCart();
   } catch (error) {
-    alert(error); 
+    alert(error);
+  } finally {
+    isCheckingStock = false;
   }
 };
 
