@@ -13,11 +13,11 @@ body {
 
 .tcp-main {
   width: 100%;
+  max-width: 1280px;
 }
 
 .tcp-route__container {
   display: flex;
-  padding: 0 2.5rem;
 }
 
 .tcp-srArrow {
@@ -44,7 +44,8 @@ body {
   max-width: 1280px;
   height: 205px;
   margin: 0 auto 2rem auto;
-  background: url(https://d3okvk28mv0bs6.cloudfront.net/uploads/78192d0e-3903-4bb9-9971-e4f36e4419f3/original/computadores_y_tablets_desktop_Banners_Mun.jpg) center/cover no-repeat;
+  background: url(https://d3okvk28mv0bs6.cloudfront.net/uploads/78192d0e-3903-4bb9-9971-e4f36e4419f3/original/computadores_y_tablets_desktop_Banners_Mun.jpg)
+    center/cover no-repeat;
 }
 
 .tcp-header {
@@ -60,7 +61,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   max-width: 1280px;
   margin: 0 auto;
   gap: 2rem;
@@ -172,16 +173,14 @@ body {
 
 .tcp-products__gallery--cards {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-  gap: 1rem;
-  width: 100%;
-  padding: 0;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 1rem;
 }
 
 .tcp-products__gallery--more {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 /* ICONOS Y GALERÍA RESPONSIVE */
@@ -194,7 +193,7 @@ body {
 
 @media (max-width: 768px) {
   .tcp-productS {
-    flex-direction: column; 
+    flex-direction: column;
   }
 
   .tcp-productS__aside,
@@ -214,20 +213,31 @@ body {
 }
 
 @media (max-width: 420px) {
+  .tcp-route__container {
+    padding: 1rem;
+  }
+
+  .tcp-productS__main__imgGallery {
+    display: none;
+  }
+
   .tcp-products__gallery--cards,
   #product-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* CORRECCIÓN */
-    gap: 6px;
+    grid-template-columns: repeat(
+      justify-content,
+      minmax(1fr, 1fr)
+    ); /* CORRECCIÓN */
+    grid-gap: 6px;
     padding: 4px;
   }
 
   .tcp-productS__main__imgGallery {
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
   }
 
   .tcp-productS__main__imgGallery--container {
-    flex: 0 0 48%; 
+    flex: 0 0 48%;
     margin-bottom: 1rem;
   }
 
@@ -237,6 +247,8 @@ body {
   }
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
