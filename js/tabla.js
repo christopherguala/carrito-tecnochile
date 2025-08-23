@@ -6,13 +6,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function inicializarProductos() {
-  const productosGuardados = localStorage.getItem("productos");
-  if (productosGuardados) {
-    productos = JSON.parse(productosGuardados);
-  } else {
-    const res = await fetch("../js/productos.json");
+  try {
+    const res = await fetch("https://68a8eeb4b115e67576ea102a.mockapi.io/productos");
     productos = await res.json();
-    guardarEnLocalStorage();
+  } catch (error) {
+    console.error("Error cargando productos:", error);
+    productos = [];
   }
 }
 
@@ -33,7 +32,7 @@ function renderTabla() {
       <td contenteditable="false">${p.marca}</td>
       <td contenteditable="false">${p.stock}</td>
       <td>
-        <button class="btn btn-sm btn-warning" onclick="editarProducto(${p.id}, this)">Modificar</button>
+        <button class="btn btn-sm btn-warning" onclick="editarProducto('${p.id}', this)">Modificar</button>
       </td>
       <td>
         <button class="btn btn-sm btn-danger" onclick="eliminarProducto(${p.id})">Eliminar</button>
@@ -43,13 +42,19 @@ function renderTabla() {
   });
 }
 
-function eliminarProducto(id) {
-  productos = productos.filter(p => p.id !== id);
-  guardarEnLocalStorage();
-  renderTabla();
+async function eliminarProducto(id) {
+  try {
+    await fetch(`https://68a8eeb4b115e67576ea102a.mockapi.io/productos/${id}`, {
+      method: "DELETE",
+    });
+    productos = productos.filter(p => p.id !== id);
+    renderTabla();
+  } catch (error) {
+    console.error("Error eliminando producto:", error);
+  }
 }
 
-function editarProducto(id, btn) {
+async function editarProducto(id, btn) {
   const fila = btn.closest("tr");
   const celdas = fila.querySelectorAll("td");
   const esEditable = celdas[1].isContentEditable;
@@ -60,30 +65,56 @@ function editarProducto(id, btn) {
     producto.precio = celdas[2].innerText;
     producto.marca = celdas[3].innerText;
     producto.stock = parseInt(celdas[4].innerText);
-    btn.textContent = "Modificar";
-    celdas.forEach((td, i) => { if (i >= 1 && i <= 4) td.contentEditable = "false"; });
 
-    guardarEnLocalStorage();
+    btn.textContent = "Modificar";
+    celdas.forEach((td, i) => {
+      if (i >= 1 && i <= 4) td.contentEditable = "false";
+    });
+
+    try {
+      await fetch(`https://68a8eeb4b115e67576ea102a.mockapi.io/productos/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(producto),
+      });
+    } catch (error) {
+      console.error("Error actualizando producto:", error);
+    }
   } else {
     btn.textContent = "Guardar";
-    celdas.forEach((td, i) => { if (i >= 1 && i <= 4) td.contentEditable = "true"; });
+    celdas.forEach((td, i) => {
+      if (i >= 1 && i <= 4) td.contentEditable = "true";
+    });
   }
 }
 
-document.getElementById("formAgregar").addEventListener("submit", function (e) {
+document.getElementById("formAgregar").addEventListener("submit", async function (e) {
   e.preventDefault();
   const data = new FormData(e.target);
   const nuevoProducto = Object.fromEntries(data.entries());
 
-  nuevoProducto.id = Date.now();
   nuevoProducto.stock = parseInt(nuevoProducto.stock);
   nuevoProducto.sb = data.get("sb") === "on";
   nuevoProducto.bu = data.get("bu") === "on";
   nuevoProducto.ec = data.get("ec") === "on";
 
-  productos.push(nuevoProducto);
-  guardarEnLocalStorage();
-  renderTabla();
+  try {
+    const res = await fetch("https://68a8eeb4b115e67576ea102a.mockapi.io/productos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(nuevoProducto),
+    });
+
+    const productoCreado = await res.json();
+    productos.push(productoCreado);
+    renderTabla();
+  } catch (error) {
+    console.error("Error agregando producto:", error);
+  }
 
   e.target.reset();
   const modal = bootstrap.Modal.getInstance(document.getElementById("modalAgregar"));
