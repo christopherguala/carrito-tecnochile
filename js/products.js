@@ -12,39 +12,23 @@ let maxRango = 4000000;
 
 async function cargarProductos() {
   try {
-    const response = await fetch("../js/productos.json");
+    const response = await fetch("https://68a8eeb4b115e67576ea102a.mockapi.io/productos");
+    if (!response.ok) throw new Error("Error al obtener datos de la API");
     const data = await response.json();
 
-    
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-   
-    if (!localStorage.getItem("originalProducts")) {
-      localStorage.setItem("originalProducts", JSON.stringify(data));
-    }
-
-  
-    const inventarioVivo =
-      JSON.parse(localStorage.getItem("productos") || "null") ?? data;
-
-  
-    productos = [...inventarioVivo];
+    productos = [...data];
     productosFiltrados = [...productos];
-
-    
-    if (!localStorage.getItem("productos")) {
-      localStorage.setItem("productos", JSON.stringify(inventarioVivo));
-    }
 
     aplicarFiltros();
   } catch (error) {
     console.error("Error al cargar los productos:", error);
 
-   
+    
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
     const inventarioVivo = JSON.parse(
-      localStorage.getItem("productos") || "[]"
+      // localStorage.getItem("productos") || "[]"
     );
     productos = [...inventarioVivo];
     productosFiltrados = [...productos];
@@ -152,10 +136,10 @@ function parsePrecio(precioStr) {
 
 function aplicarFiltros() {
 
-  const live = JSON.parse(localStorage.getItem("productos") || "[]");
-  if (Array.isArray(live) && live.length) {
-    productos = live;
-  }
+  // const live = JSON.parse(localStorage.getItem("productos") || "[]");
+  // if (Array.isArray(live) && live.length) {
+  //   productos = live;
+  // }
 
 
   const filtros = {

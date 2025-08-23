@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     (e) => e.target === cartOverlay && closeCart()
   );
 
-  const addItemToCart = async (title, price, imgSrc, stock = Infinity) => {
-  if (isCheckingStock) return; // Evita múltiples clics
+  const addItemToCart = async (title, price, imgSrc, stock = Infinity, id = null) => {
+  if (isCheckingStock) return;
   isCheckingStock = true;
 
   const existingItem = cart.find((i) => i.title === title);
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (existingItem) {
       existingItem.quantity++;
     } else {
-      cart.push({ title, price, imgSrc, quantity: 1, stock });
+      cart.push({ title, price, imgSrc, quantity: 1, stock, id });
     }
 
     saveCart();
@@ -86,7 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const imgSrc = itemCard.querySelector("img.tc-productCard__img").src;
     const producto = productos.find((p) => p.titulo === title);
     const stock = producto ? producto.stock : Infinity;
-    addItemToCart(title, priceText, imgSrc, stock);
+    const id = producto ? producto.id : null;
+    addItemToCart(title, priceText, imgSrc, stock, id);
   });
 
   const renderCart = () => {
@@ -199,13 +200,14 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
           await simularActualizacionServidor(); 
 
-          cart.forEach((item) => {
-            const producto = productos.find((p) => p.titulo === item.title);
-            if (producto) {
-              producto.stock -= item.quantity;
-            }
-          });
-
+          for (const item of cart) {
+        const producto = productos.find((p) => p.titulo === item.title);
+        if (producto && item.id != null) {
+        const nuevoStock = producto.stock - item.quantity;
+        producto.stock = nuevoStock;
+        await actualizarStockEnAPI(item.id, nuevoStock);
+        }
+    }
           localStorage.setItem("productos", JSON.stringify(productos));
           window.dispatchEvent(new Event("inventory:updated"));
 
@@ -253,4 +255,23 @@ function verificarStockDisponible(currentQty, stock) {
       }
     }, 500); 
   });
+}
+
+async function actualizarStockEnAPI(id, nuevoStock) {
+  try {
+    const response = await fetch(`https://68a8eeb4b115e67576ea102a.mockapi.io/productos/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ stock: nuevoStock }),
+    });
+
+    if (!response.ok) throw new Error("Error actualizando producto en API");
+
+    const data = await response.json();
+    console.log("Producto actualizado:", data);
+  } catch (err) {
+    console.error("Error al actualizar stock:", err);
+  }
 }
